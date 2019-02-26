@@ -15,6 +15,11 @@ class CreateTicketsTable extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->increments('id');
+            $table->intger('codigo')->unique();
+            $table->string('asiento');
+            $table->string('clase');
+            $table->date('fecha');
+            $table->foreign('boardingpass_id')->references('id')->on('boardingpass');
             $table->timestamps();
         });
     }
