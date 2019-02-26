@@ -15,6 +15,13 @@ class CreateBoardingPassesTable extends Migration
     {
         Schema::create('boarding_passes', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('asiento');
+            $table->string('puerta');
+            $table->date('fecha');
+            $table->time('embarque');
+            $table->time('llegada');
+            $table->integer('ticket_id')->references('id')->on('tickets');
+            $table->integer('flight_id')->references('id')->on('flights');
             $table->timestamps();
         });
     }
