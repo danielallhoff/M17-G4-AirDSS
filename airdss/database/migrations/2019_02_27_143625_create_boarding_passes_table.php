@@ -18,9 +18,9 @@ class CreateBoardingPassesTable extends Migration
             $table->increments('id');
             $table->string('asiento');
             $table->string('puerta');
-            $table->date('fecha')->nullable();
-            $table->time('embarque')->nullable();
-            $table->time('llegada')->nullable();
+            $table->date('fecha');
+            $table->time('embarque');
+            $table->time('llegada');
             $table->integer('ticket_id')->references('id')->on('tickets')->nullable();
             $table->integer('flight_id')->references('id')->on('flights')->nullable();
             $table->timestamps();
@@ -34,6 +34,6 @@ class CreateBoardingPassesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('boardingpasses');
+        Schema::dropIfExists('boarding_passes');
     }
 }

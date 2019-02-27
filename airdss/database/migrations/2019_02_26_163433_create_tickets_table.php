@@ -19,7 +19,7 @@ class CreateTicketsTable extends Migration
             $table->string('asiento');
             $table->string('clase');
             $table->date('fecha');
-            $table->integer('boardingpass_id');
+            $table->integer('boardingpass_id')->nullable();
             $table->foreign('boardingpass_id')->references('id')->on('boarding_passes');
             $table->timestamps();
         });
