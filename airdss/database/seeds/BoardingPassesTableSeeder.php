@@ -11,6 +11,9 @@ class BoardingPassesTableSeeder extends Seeder
      */
     public function run()
     {
-        
+        DB::table('boardingpasses')->insert([
+            'asiento' => '12A',
+            'puerta' => 'B32',
+        ]);
     }
 }
