@@ -14,7 +14,7 @@ class CreateBoardingPassesTable extends Migration
     public function up()
     {
         // he puesto nullable para poder hacer los seeds sin tener aun los del resto de tablas
-        Schema::create('boardingpasses', function (Blueprint $table) {
+        Schema::create('boarding_passes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('asiento');
             $table->string('puerta');
