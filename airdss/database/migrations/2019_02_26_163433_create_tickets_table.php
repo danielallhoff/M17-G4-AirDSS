@@ -21,6 +21,8 @@ class CreateTicketsTable extends Migration
             $table->date('fecha');
             $table->integer('boardingpass_id')->nullable();
             $table->foreign('boardingpass_id')->references('id')->on('boarding_passes');
+            $table->integer('flight_id')->nullable();
+            $table->foreign('flight_id')->references('id')->on('flights');
             $table->timestamps();
         });
     }
