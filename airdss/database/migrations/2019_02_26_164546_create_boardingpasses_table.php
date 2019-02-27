@@ -13,7 +13,7 @@ class CreateBoardingPassesTable extends Migration
      */
     public function up()
     {
-        Schema::create('boarding_passes', function (Blueprint $table) {
+        Schema::create('boardingpasses', function (Blueprint $table) {
             $table->increments('id');
             $table->string('asiento');
             $table->string('puerta');
@@ -33,6 +33,6 @@ class CreateBoardingPassesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('boarding_passes');
+        Schema::dropIfExists('boardingpasses');
     }
 }
