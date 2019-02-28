@@ -15,11 +15,6 @@ class TicketsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
-        DB::table('clients')->delete();
-        DB::table('tickets')->delete();
-        DB::table('boarding_passes')->delete();
-        DB::table('flights')->delete();
 
         $client = new Client([
             'dni'=>'00000000A',
@@ -76,10 +71,7 @@ class TicketsTableSeeder extends Seeder
         $boarding->ticket()->associate($ticket);        
         $boarding->save();
        
-        
-        /**
-         * Prueba 2
-         */
+        /*
         $flight = new Flight([
             'origen'=>'Alicante',
             'destino' => 'Atenas',
@@ -112,9 +104,9 @@ class TicketsTableSeeder extends Seeder
         $boarding->ticket()->associate($ticket);        
         $boarding->save();
 
-        /**
-         * Prueba 3
-         */
+       
+          Prueba 3
+         
         $ticket = new Ticket([
             'codigo' => 103,
             'asiento' => '32A',
@@ -126,9 +118,9 @@ class TicketsTableSeeder extends Seeder
         $ticket->flight()->associate($flight);
         $ticket->save();
 
-        /**
-         * Prueba 4
-         */
+       
+         Prueba 4
+         
         $ticket = new Ticket([
             'codigo' => 104,
             'asiento' => '25D',
@@ -140,9 +132,9 @@ class TicketsTableSeeder extends Seeder
         $ticket->flight()->associate($flight);
         $ticket->save();
 
-        /**
-         * Prueba 5
-         */
+        
+          Prueba 5
+         
         $ticket = new Ticket([
             'codigo' => 105,
             'asiento' => '07C',
@@ -154,9 +146,9 @@ class TicketsTableSeeder extends Seeder
         $ticket->flight()->associate($flight);
         $ticket->save();
 
-        /**
-         * Prueba 6
-         */
+        
+          Prueba 6
+         
         $ticket = new Ticket([
             'codigo' => 106,
             'asiento' => '05E',
@@ -168,9 +160,9 @@ class TicketsTableSeeder extends Seeder
         $ticket->flight()->associate($flight);
         $ticket->save();
 
-        /**
-         * Prueba 7
-         */
+        
+          Prueba 7
+         
         $ticket = new Ticket([
             'codigo' => 107,
             'asiento' => '01A',
@@ -182,9 +174,9 @@ class TicketsTableSeeder extends Seeder
         $ticket->flight()->associate($flight);
         $ticket->save();
 
-        /**
-         * Prueba 8
-         */
+        
+          Prueba 8
+         
         $flight = new Flight([
             'origen'=>'Albacete',
             'destino' => 'Beijin',
@@ -204,5 +196,6 @@ class TicketsTableSeeder extends Seeder
         $ticket->client()->associate($client);
         $ticket->flight()->associate($flight);
         $ticket->save();
+        */
     }
 }
