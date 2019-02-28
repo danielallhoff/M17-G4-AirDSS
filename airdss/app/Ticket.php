@@ -13,14 +13,14 @@ class Ticket extends Model
     public $fecha;
 
     public function client() {
-        return $this->belongsTo('App\client'); 
+        return $this->belongsTo('App\Client'); 
     }
 
     public function boardingpasses() {
-        return $this->hasMany('App\boardingpass'); 
+        return $this->hasMany('App\Boardingpass'); 
     }
 
     public function flight() {
-        return $this->belongsTo('App\flight'); 
+        return $this->belongsTo('App\Flight'); 
     }
 }
