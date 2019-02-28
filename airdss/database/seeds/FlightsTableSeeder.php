@@ -41,12 +41,6 @@ class FlightsTableSeeder extends Seeder
         $flight->boardingpasses()->associate($boadingpass);
         $flight->tickets()->associate($ticket);
         $flight->save();
-
-        $flight = new Flight([
-            'capacidad' => 160,
-            'fecha_llegada' => '01/05/2018',
-            'fecha_salida' => '02/05/2018'
-        ]);
         //flight2
         $ticket = new Ticket([
             'codigo' => 103,
