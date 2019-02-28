@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Flight;
+use App\BoardingPass;
+use App\Ticket;
+use App\Client;
+use App\Airport;
 
 class ClientTableSeeder extends Seeder
 {
@@ -11,7 +16,7 @@ class ClientTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('client')->delete();
+        DB::table('clients')->delete();
 
         $dnis = ['50547898r','65847521r','98756425q','74855628f','56541232v','65547582p','30259564m','20568479d'];
         $nombres =['juan','francisco','javier','marta','veronica','eva','ines','alba'];
@@ -21,13 +26,13 @@ class ClientTableSeeder extends Seeder
         $emails =['juan123@gmail.com','francisco897@yahoo.es','javier845@gmail.com','marta98754@yahoo.es','veronica892@gmail.com','eva48461@yahoo.es','ines6546565@yahoo.es','alba132@gmail.com'];
 
         for ($i=0; $i < 8; $i++) { 
-            $client = new client([
+            $client = new Client([
                 'dni'=>$dnis[$i],
                 'nombre'=>$nombres[$i],
                 'apellido1'=>$apellidos[$i],
                 'apellido2'=>$apellidos2[$i],
                 'telefono'=>$telefonos[$i],
-                'email'=>$emails[i]
+                'email'=>$emails[$i]
             ]);
             $client->save();
         }
