@@ -27,8 +27,6 @@ class TicketsTableSeeder extends Seeder
         $client->save();
 
         $flight = new Flight([
-            'origen'=>'Alicante',
-            'destino' => 'Madrid',
             'capacidad' => 132,
             'fecha_llegada' => '19:00',
             'fecha_salida' => '18:00'    
@@ -71,10 +69,9 @@ class TicketsTableSeeder extends Seeder
         $boarding->ticket()->associate($ticket);        
         $boarding->save();
        
-        /*
+        //Prueba 2
+        
         $flight = new Flight([
-            'origen'=>'Alicante',
-            'destino' => 'Atenas',
             'capacidad' => 132,
             'fecha_llegada' => '10:00',
             'fecha_salida' => '18:15'    
@@ -105,7 +102,7 @@ class TicketsTableSeeder extends Seeder
         $boarding->save();
 
        
-          Prueba 3
+        //Prueba 3
          
         $ticket = new Ticket([
             'codigo' => 103,
@@ -119,7 +116,7 @@ class TicketsTableSeeder extends Seeder
         $ticket->save();
 
        
-         Prueba 4
+        //Prueba 4
          
         $ticket = new Ticket([
             'codigo' => 104,
@@ -133,7 +130,7 @@ class TicketsTableSeeder extends Seeder
         $ticket->save();
 
         
-          Prueba 5
+        //Prueba 5
          
         $ticket = new Ticket([
             'codigo' => 105,
@@ -147,7 +144,7 @@ class TicketsTableSeeder extends Seeder
         $ticket->save();
 
         
-          Prueba 6
+        //Prueba 6
          
         $ticket = new Ticket([
             'codigo' => 106,
@@ -161,7 +158,7 @@ class TicketsTableSeeder extends Seeder
         $ticket->save();
 
         
-          Prueba 7
+        //Prueba 7
          
         $ticket = new Ticket([
             'codigo' => 107,
@@ -175,11 +172,9 @@ class TicketsTableSeeder extends Seeder
         $ticket->save();
 
         
-          Prueba 8
+        //Prueba 8
          
         $flight = new Flight([
-            'origen'=>'Albacete',
-            'destino' => 'Beijin',
             'capacidad' => 300,
             'fecha_llegada' => '19:00',
             'fecha_salida' => '7:00'    
@@ -196,6 +191,6 @@ class TicketsTableSeeder extends Seeder
         $ticket->client()->associate($client);
         $ticket->flight()->associate($flight);
         $ticket->save();
-        */
+        
     }
 }

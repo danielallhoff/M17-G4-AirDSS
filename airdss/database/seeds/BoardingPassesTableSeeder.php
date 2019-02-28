@@ -14,13 +14,7 @@ class BoardingPassesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('flights')->delete();
-        DB::table('boarding_passes')->delete();
-        DB::table('tickets')->delete();
-
         $flight = new Flight([
-            'origen'=>'Alicante',
-            'destino' => 'Madrid',
             'capacidad' => 150,
             'fecha_llegada' => '19:00',
             'fecha_salida' => '18:00'    

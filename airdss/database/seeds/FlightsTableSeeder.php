@@ -72,7 +72,7 @@ class FlightsTableSeeder extends Seeder
         ]);
 
 
-        $flight->boardingpasses()->associate($boadingpass);
+        $flight->boardingpasses()->associate($boardingpass);
         $flight->tickets()->associate($ticket);
         $flight->save();
 
