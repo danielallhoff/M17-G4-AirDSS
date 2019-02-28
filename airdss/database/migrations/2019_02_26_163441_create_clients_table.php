@@ -17,8 +17,8 @@ class CreateClientsTable extends Migration
             $table->increments('id');
             $table->string('dni')->unique();
             $table->string('nombre');
-            $table->string('Apellido1');
-            $table->string('Apellido2');
+            $table->string('apellido1');
+            $table->string('apellido2');
             $table->integer('telefono');
             $table->string('email');
             $table->integer('ticket_id')->nullable();
