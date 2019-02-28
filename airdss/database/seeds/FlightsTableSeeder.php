@@ -15,7 +15,7 @@ class FlightsTableSeeder extends Seeder
 
         //Flight1
         $ticket = new Ticket([
-            'codigo' => 102,
+            'codigo' => 302,
             'asiento' => '02C',
             'clase' => 'turista',
             'fecha' => '21/03/2018'
@@ -24,7 +24,7 @@ class FlightsTableSeeder extends Seeder
         $ticket->save();
 
         $boardingpass = new BoardingPass([
-            'asiento'=>'09E',
+            'asiento'=>'09F',
             'puerta' => 'B32',
             'fecha' => '21/03/2018',
             'embarque' => '18:00',
@@ -43,7 +43,7 @@ class FlightsTableSeeder extends Seeder
         $flight->save();
         //flight2
         $ticket = new Ticket([
-            'codigo' => 103,
+            'codigo' => 303,
             'asiento' => '02C',
             'clase' => 'turista',
             'fecha' => '19/03/2019'
@@ -52,7 +52,7 @@ class FlightsTableSeeder extends Seeder
         $ticket->save();
 
         $boardingpass = new BoardingPass([
-            'asiento'=>'09E',
+            'asiento'=>'09X',
             'puerta' => 'B32',
             'fecha' => '21/04/2018',
             'embarque' => '18:00',

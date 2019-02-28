@@ -82,6 +82,24 @@ class DataTest extends TestCase
             'embarque' => '18:00',
             'llegada' => '19:00'
         ]);
+
+        $this->assertDatabaseHas('boarding_passes',
+        [
+            'asiento'=>'09F',
+            'puerta' => 'B32',
+            'fecha' => '21/03/2018',
+            'embarque' => '18:00',
+            'llegada' => '19:00'
+        ]);
+
+        $this->assertDatabaseHas('boarding_passes',
+        [
+            'asiento'=>'09X',
+            'puerta' => 'B32',
+            'fecha' => '21/04/2018',
+            'embarque' => '18:00',
+            'llegada' => '19:00'
+        ]);
     }
     public function testFlightPassData()
     {
@@ -102,5 +120,27 @@ class DataTest extends TestCase
             'fecha_salida' => '02/05/2018'
         ]);
 
+    }
+
+    public function testTicketPassData(){
+
+        $count = Ticket::all()->count();
+        $this->assertEquals($count, 2);
+
+        $this->assertDatabaseHas('tickets',
+        [
+            'codigo' => 302,
+            'asiento' => '02C',
+            'clase' => 'turista',
+            'fecha' => '21/03/2018'
+        ]);
+
+        $this->assertDatabaseHas('tickets',
+        [
+            'codigo' => 303,
+            'asiento' => '02C',
+            'clase' => 'turista',
+            'fecha' => '19/03/2019'
+        ]);
     }
 }
