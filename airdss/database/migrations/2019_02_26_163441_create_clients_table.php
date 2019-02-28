@@ -16,11 +16,12 @@ class CreateClientsTable extends Migration
         Schema::create('clients', function (Blueprint $table) {
             $table->increments('id');
             $table->string('dni')->unique();
+            $table->string('nombre');
             $table->string('Apellido1');
             $table->string('Apellido2');
             $table->integer('telefono');
             $table->string('email');
-            $table->integer('ticket_id');
+            $table->integer('ticket_id')->nullable();
             $table->foreign('ticket_id')->references('id')->on('tickets');
             $table->timestamps();
         });
