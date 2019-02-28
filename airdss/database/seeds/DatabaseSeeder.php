@@ -13,7 +13,8 @@ class DatabaseSeeder extends Seeder
     {
         //Habría que mirar en que orden ejecutar los distintos seeders
         $this->call(ClientTableSeeder::class);
-        $this->call(BoardingPassesTableSeeder::class);
         $this->call(TicketsTableSeeder::class);
+        $this->call(BoardingPassesTableSeeder::class);
+       
     }
 }
