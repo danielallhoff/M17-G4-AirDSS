@@ -30,7 +30,7 @@ class FlightsTableSeeder extends Seeder
             'embarque' => '18:00',
             'llegada' => '19:00'
         ]);
-        $boadingpass->save();
+        $boardingpass->save();
         $flight = new Flight([
             'capacidad' => 150,
             'fecha_llegada' => '01/04/2018',
@@ -58,7 +58,7 @@ class FlightsTableSeeder extends Seeder
             'embarque' => '18:00',
             'llegada' => '19:00'
         ]);
-        $boadingpass->save();
+        $boardingpass->save();
         $flight = new Flight([
             'capacidad' => 160,
             'fecha_llegada' => '01/05/2018',
