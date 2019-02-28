@@ -22,7 +22,7 @@ class CreateClientsTable extends Migration
             $table->integer('telefono');
             $table->string('email');
             $table->integer('ticket_id')->nullable();
-            $table->foreign('ticket_id')->references('id')->on('tickets');
+            $table->foreign('ticket_id')->references('id')->on('tickets')->onDelete('cascade');
             $table->timestamps();
         });
     }

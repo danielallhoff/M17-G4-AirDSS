@@ -21,8 +21,10 @@ class CreateBoardingPassesTable extends Migration
             $table->date('fecha');
             $table->time('embarque');
             $table->time('llegada');
-            $table->integer('ticket_id')->references('id')->on('tickets')->nullable();
-            $table->integer('flight_id')->references('id')->on('flights')->nullable();
+            $table->integer('ticket_id');
+            $table->foreign('ticket_id')->references('id')->on('tickets')->nullable();
+            $table->integer('flight_id');
+            $table->foreign('flight_id')->references('id')->on('flights')->nullable();
             $table->timestamps();
         });
     }
