@@ -6,11 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ticket extends Model
 {
-    public $id;
-    public $codigo;
-    public $asiento;
-    public $clase;
-    public $fecha;
 
     public function client() {
         return $this->belongsTo('App\Client'); 
