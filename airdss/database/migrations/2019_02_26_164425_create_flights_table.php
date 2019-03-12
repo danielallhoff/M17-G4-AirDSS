@@ -19,10 +19,6 @@ class CreateFlightsTable extends Migration
             $table->datetime("fecha_llegada");
             $table->datetime("fecha_salida");
             $table->timestamps();
-            $table->integer('boardingpass_id')->unsigned()->nullable();
-            $table->foreign('boardingpass_id')->references('id')->on('boarding_passes')->onDelete('cascade');
-            $table->integer('ticket_id')->unsigned()->nullable();
-            $table->foreign('ticket_id')->references('id')->on('tickets');
 
         });
     }
