@@ -13,4 +13,9 @@ class Flight extends Model
     public function tickets(){
         return $this->hasMany('App\Ticket');
     }
+
+    public function plane()
+    {
+        return $this->belongsTo('App\Plane');
+    }
 }
