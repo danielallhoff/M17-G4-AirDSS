@@ -16,12 +16,6 @@ class FlightsTableSeeder extends Seeder
     public function run()
     {
         //Flight1
-<<<<<<< HEAD
-        $flight = new Flight([
-            'capacidad' => 150,
-            'fecha_llegada' => '01/04/2018',
-            'fecha_salida' => '01/04/2018'
-=======
         $plane = new Plane([
             'modelo' => 'BO124',
             'capacidad' => 200,
@@ -34,7 +28,6 @@ class FlightsTableSeeder extends Seeder
             'asiento' => '02C',
             'clase' => 'turista',
             'fecha' => '21/03/2018'
->>>>>>> 04d8f38971382ae3b52dba4c6958d691aac37569
         ]);
         $flight->save();
         $boardingpass = new BoardingPass([
@@ -45,15 +38,12 @@ class FlightsTableSeeder extends Seeder
             'llegada' => '19:00'
         ]);
 
-<<<<<<< HEAD
-=======
 
         $flight->boardingpasses()->associate($boadingpass);
         $flight->tickets()->associate($ticket);
         $flight->plane()->associate($plane);
         $flight->save();
         //flight2
->>>>>>> 04d8f38971382ae3b52dba4c6958d691aac37569
         $ticket = new Ticket([
             'codigo' => 302,
             'asiento' => '02C',
@@ -86,14 +76,11 @@ class FlightsTableSeeder extends Seeder
             'fecha_llegada' => '01/05/2018',
             'fecha_salida' => '02/05/2018'
         ]);
-<<<<<<< HEAD
-=======
 
 
         $flight->boardingpasses()->associate($boardingpass);
         $flight->tickets()->associate($ticket);
         $flight->plane()->associate($plane);
->>>>>>> 04d8f38971382ae3b52dba4c6958d691aac37569
         $flight->save();
 
     }
