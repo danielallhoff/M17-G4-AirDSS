@@ -18,6 +18,8 @@ class CreateFlightsTable extends Migration
             $table->integer("capacidad");
             $table->datetime("fecha_llegada");
             $table->datetime("fecha_salida");
+            $table->integer('plane_id');
+            $table->foreign('plane_id')->references('id')->on('planes');
             $table->timestamps();
 
         });

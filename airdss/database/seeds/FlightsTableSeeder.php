@@ -14,6 +14,13 @@ class FlightsTableSeeder extends Seeder
 
 
         //Flight1
+        $plane = new Plane([
+            'modelo' => 'BO124',
+            'capacidad' => 200,
+            'distancia_Vuelo' => 1000
+        ]);
+        $plane->save();
+
         $ticket = new Ticket([
             'codigo' => 302,
             'asiento' => '02C',
@@ -40,6 +47,7 @@ class FlightsTableSeeder extends Seeder
 
         $flight->boardingpasses()->associate($boadingpass);
         $flight->tickets()->associate($ticket);
+        $flight->plane()->associate($plane);
         $flight->save();
         //flight2
         $ticket = new Ticket([
@@ -68,6 +76,7 @@ class FlightsTableSeeder extends Seeder
 
         $flight->boardingpasses()->associate($boardingpass);
         $flight->tickets()->associate($ticket);
+        $flight->plane()->associate($plane);
         $flight->save();
 
 
