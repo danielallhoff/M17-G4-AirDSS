@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AirportTableSeeder' => $baseDir . '/database/seeds/AirportTableSeeder.php',
     'App\\Airport' => $baseDir . '/app/Airport.php',
     'App\\BoardingPass' => $baseDir . '/app/BoardingPass.php',
     'App\\Client' => $baseDir . '/app/Client.php',
@@ -1833,6 +1834,7 @@ return array(
     'Monolog\\Utils' => $vendorDir . '/monolog/monolog/src/Monolog/Utils.php',
     'Nexmo\\Account\\Balance' => $vendorDir . '/nexmo/client/src/Account/Balance.php',
     'Nexmo\\Account\\Client' => $vendorDir . '/nexmo/client/src/Account/Client.php',
+    'Nexmo\\Account\\Config' => $vendorDir . '/nexmo/client/src/Account/Config.php',
     'Nexmo\\Account\\PrefixPrice' => $vendorDir . '/nexmo/client/src/Account/PrefixPrice.php',
     'Nexmo\\Account\\Price' => $vendorDir . '/nexmo/client/src/Account/Price.php',
     'Nexmo\\Account\\Secret' => $vendorDir . '/nexmo/client/src/Account/Secret.php',

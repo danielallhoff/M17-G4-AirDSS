@@ -15,9 +15,13 @@ class CreateFlightsTable extends Migration
     {
         Schema::create('flights', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer("capacidad");
-            $table->datetime("fecha_llegada");
-            $table->datetime("fecha_salida");
+            $table->integer('capacidad');
+            $table->datetime('fecha_llegada');
+            $table->datetime('fecha_salida');
+            $table->integer('airport_origen_id')->nullable();
+            $table->foreign('airport_origen_id')->references('id')->on('airports');
+            $table->integer('airport_destino_id')->nullable();
+            $table->foreign('airport_destino_id')->references('id')->on('airports');
             $table->timestamps();
 
         });

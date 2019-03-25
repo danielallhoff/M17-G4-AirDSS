@@ -420,6 +420,7 @@ class ComposerStaticInit46672f4ba58d99aa02daf2e3c30e488a
     );
 
     public static $classMap = array (
+        'AirportTableSeeder' => __DIR__ . '/../..' . '/database/seeds/AirportTableSeeder.php',
         'App\\Airport' => __DIR__ . '/../..' . '/app/Airport.php',
         'App\\BoardingPass' => __DIR__ . '/../..' . '/app/BoardingPass.php',
         'App\\Client' => __DIR__ . '/../..' . '/app/Client.php',
@@ -2247,6 +2248,7 @@ class ComposerStaticInit46672f4ba58d99aa02daf2e3c30e488a
         'Monolog\\Utils' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Utils.php',
         'Nexmo\\Account\\Balance' => __DIR__ . '/..' . '/nexmo/client/src/Account/Balance.php',
         'Nexmo\\Account\\Client' => __DIR__ . '/..' . '/nexmo/client/src/Account/Client.php',
+        'Nexmo\\Account\\Config' => __DIR__ . '/..' . '/nexmo/client/src/Account/Config.php',
         'Nexmo\\Account\\PrefixPrice' => __DIR__ . '/..' . '/nexmo/client/src/Account/PrefixPrice.php',
         'Nexmo\\Account\\Price' => __DIR__ . '/..' . '/nexmo/client/src/Account/Price.php',
         'Nexmo\\Account\\Secret' => __DIR__ . '/..' . '/nexmo/client/src/Account/Secret.php',

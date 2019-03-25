@@ -122,6 +122,23 @@ class DataTest extends TestCase
 
     }
 
+    public function testAirportPassData(){
+        $count = Airport::all()->count();
+        $this->assertEquals($count, 2);
+
+        $this->assertDatabaseHas('airports',
+        [
+            'codigo'=>23,
+            'ciudad'=>'Torrevieja'
+        ]);
+
+        $this->assertDatabaseHas('flights',
+        [
+            'codigo'=>24,
+            'ciudad'=>'Alicante'
+        ]);
+    }
+
     public function testTicketPassData(){
 
         $count = Ticket::all()->count();
