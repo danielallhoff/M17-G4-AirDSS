@@ -5,11 +5,11 @@
         <meta name="keywords" content="airdss,flight,plane">
         <meta name="author" content="DavidRizoDevelopments">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="estilo.css"/>
+        <link rel="stylesheet" type="text/css" href="../../css/estilo.css"/>
     </head>
     <body>
     @include('menu')
-    @section('contenido')
+    @section('contenido')     
     @include('footer')
     </body>
 </html>
