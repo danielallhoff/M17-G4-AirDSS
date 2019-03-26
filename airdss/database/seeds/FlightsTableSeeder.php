@@ -6,6 +6,7 @@ use App\Client;
 use App\Flight;
 use App\BoardingPass;
 use App\Airport;
+use App\Plane;
 class FlightsTableSeeder extends Seeder
 {
     /**
@@ -29,23 +30,29 @@ class FlightsTableSeeder extends Seeder
             'clase' => 'turista',
             'fecha' => '21/03/2018'
         ]);
-        $flight->save();
-        $boardingpass = new BoardingPass([
+        $ticket->save();
+        /*$boardingpass = new BoardingPass([
             'asiento'=>'09F',
             'puerta' => 'B32',
             'fecha' => '21/03/2018',
             'embarque' => '18:00',
             'llegada' => '19:00'
         ]);
+        $boardingpass->save();*/
 
+        $flight = new Flight([
+            'capacidad' => 125,
+            'fecha_llegada' => '03/05/2018',
+            'fecha_salida' => '03/05/2018'
+        ]);
 
-        $flight->boardingpasses()->associate($boadingpass);
-        $flight->tickets()->associate($ticket);
+        //$flight->boardingpasses()->associate($boadingpass);
+        //$flight->tickets()->associate($ticket);
         $flight->plane()->associate($plane);
         $flight->save();
         //flight2
         $ticket = new Ticket([
-            'codigo' => 302,
+            'codigo' => 303,
             'asiento' => '02C',
             'clase' => 'turista',
             'fecha' => '21/03/2018'
@@ -54,7 +61,7 @@ class FlightsTableSeeder extends Seeder
         $ticket->flight()->associate($flight);
         $ticket->save();
 
-        $boardingpass->flight()->associate($flight);
+        /*$boardingpass->flight()->associate($flight);
         $boardingpass->ticket()->associate($ticket);
         $boardingpass->save();
 
@@ -67,7 +74,7 @@ class FlightsTableSeeder extends Seeder
         ]);
         $boardingpass->flight()->associate($flight);
         $boardingpass->ticket()->associate($ticket);
-        $boardingpass->save();
+        $boardingpass->save();*/
 
 
         //flight2
@@ -78,8 +85,8 @@ class FlightsTableSeeder extends Seeder
         ]);
 
 
-        $flight->boardingpasses()->associate($boardingpass);
-        $flight->tickets()->associate($ticket);
+        //$flight->boardingpasses()->associate($boardingpass);
+        //$flight->tickets()->associate($ticket);
         $flight->plane()->associate($plane);
         $flight->save();
 

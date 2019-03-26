@@ -5,6 +5,7 @@ use App\Ticket;
 use App\Client;
 use App\Flight;
 use App\BoardingPass;
+use App\Plane;
 
 class TicketsTableSeeder extends Seeder
 {
@@ -26,12 +27,22 @@ class TicketsTableSeeder extends Seeder
         ]);
         $client->save();
 
+        $plane = new Plane([
+            'modelo' => 'FG60',
+            'capacidad' => 132,
+            'distancia_Vuelo' => 700
+        ]);
+        $plane->save();
+
         $flight = new Flight([
             'capacidad' => 132,
             'fecha_llegada' => '19:00',
             'fecha_salida' => '18:00'    
         ]);
+        $flight->plane()->associate($plane);
         $flight->save();
+
+        
 
         /**
          * Prueba 1
@@ -76,7 +87,9 @@ class TicketsTableSeeder extends Seeder
             'fecha_llegada' => '10:00',
             'fecha_salida' => '18:15'    
         ]);
+        $flight->plane()->associate($plane);
         $flight->save();
+        
 
         $ticket = new Ticket([
             'codigo' => 102,
@@ -179,6 +192,7 @@ class TicketsTableSeeder extends Seeder
             'fecha_llegada' => '19:00',
             'fecha_salida' => '7:00'    
         ]);
+        $flight->plane()->associate($plane);
         $flight->save();
 
         $ticket = new Ticket([
