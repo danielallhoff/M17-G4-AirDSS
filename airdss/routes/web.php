@@ -12,12 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('inicio');
+    return view('airdss');
 });
 Route::get('/airdss', function () {
     return view('airdss');
 });
 
-Route::get('/inicio', function () {
-    return view('inicio');
+Route::get('/flights', function () {
+    return view('flights');
 });
