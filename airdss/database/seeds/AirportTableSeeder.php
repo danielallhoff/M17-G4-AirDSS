@@ -6,6 +6,7 @@ use App\Client;
 use App\Flight;
 use App\BoardingPass;
 use App\Airport;
+use App\Plane;
 class AirportTableSeeder extends Seeder
 {
     /**
@@ -27,11 +28,18 @@ class AirportTableSeeder extends Seeder
             'ciudad'=>'Alicante'
             ]);
         $airport->save();
+        $plane = new Plane([
+            'modelo' => 'R3D0',
+            'capacidad' => 190,
+            'distancia_Vuelo' => 1290
+        ]);
+        $plane->save();
         $flight = new Flight([
             'capacidad' => 190,
             'fecha_llegada' => '01/05/2018',
             'fecha_salida' => '02/05/2018'
         ]);
+        $flight->plane()->associate($plane);
         $flight->airportOrigen()->associate($airport);
         $flight->save();
 
@@ -42,6 +50,7 @@ class AirportTableSeeder extends Seeder
             'fecha_llegada' => '01/05/2018',
             'fecha_salida' => '02/05/2018'
         ]);
+        $flight->plane()->associate($plane);
         $flight->airportOrigen()->associate($airport);
         $flight->airportDestino()->associate($airport);
         $flight->save();

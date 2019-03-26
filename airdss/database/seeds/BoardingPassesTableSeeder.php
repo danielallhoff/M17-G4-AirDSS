@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use App\Flight;
 use App\BoardingPass;
 use App\Ticket;
+use App\Plane;
 
 class BoardingPassesTableSeeder extends Seeder
 {
@@ -14,11 +15,19 @@ class BoardingPassesTableSeeder extends Seeder
      */
     public function run()
     {
+        $plane = new Plane([
+            'modelo' => 'GT60',
+            'capacidad' => 160,
+            'distancia_Vuelo' => 790
+        ]);
+        $plane->save();
+
         $flight = new Flight([
             'capacidad' => 150,
             'fecha_llegada' => '19:00',
             'fecha_salida' => '18:00'    
         ]);
+        $flight->plane()->associate($plane);
         $flight->save();
 
         $ticket = new Ticket([
