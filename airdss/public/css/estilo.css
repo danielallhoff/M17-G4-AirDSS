@@ -3,19 +3,25 @@ html{
     font-family: 'Open Sans', sans-serif;
 }
 
-.menu ul {
+ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
     background-color: #333;
   }
-
-  .menu li {
+p{
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+}
+.menu li {
     float: left;
   }
 
-  .menu li a {
+.menu li a {
     display: block;
     color: white;
     text-align: center;
@@ -23,7 +29,7 @@ html{
     text-decoration: none;
   }
 
-  .menu li a:hover {
+.menu li a:hover {
   background-color: #111;
 }
 

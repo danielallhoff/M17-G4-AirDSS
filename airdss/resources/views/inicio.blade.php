@@ -1,4 +1,4 @@
 @extends('master')
 @section('contenido')
-    <p>BIENVENIDO A AEROLÍNIA AIRDSS</p>
+    <p>Inicio</p>
 @endsection

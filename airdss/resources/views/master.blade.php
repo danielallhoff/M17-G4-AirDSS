@@ -9,7 +9,8 @@
     </head>
     <body>
     @include('menu')
-    @section('contenido')     
+    @section('contenido')       
+    @show  
     @include('footer')
     </body>
 </html>
