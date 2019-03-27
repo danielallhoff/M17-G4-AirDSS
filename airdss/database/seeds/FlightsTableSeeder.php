@@ -16,6 +16,17 @@ class FlightsTableSeeder extends Seeder
      */
     public function run()
     {
+        $airportO = new Airport([
+            'codigo'=>26,
+            'ciudad'=>'Barcelona'
+        ]);
+        $airportO->save();
+
+        $airportD = new Airport([
+            'codigo'=>90,
+            'ciudad'=>'Madrid'
+        ]);
+        $airportD->save();
         //Flight1
         $plane = new Plane([
             'modelo' => 'BO124',
@@ -42,12 +53,14 @@ class FlightsTableSeeder extends Seeder
 
         $flight = new Flight([
             'capacidad' => 125,
-            'fecha_llegada' => '03/05/2018',
-            'fecha_salida' => '03/05/2018'
+            'fecha_llegada' => '21/03/2019 12:30',
+            'fecha_salida' => '21/03/2019 11:30'
         ]);
 
         //$flight->boardingpasses()->associate($boadingpass);
         //$flight->tickets()->associate($ticket);
+        $flight->airportOrigen()->associate($airportO);
+        $flight->airportDestino()->associate($airportD);
         $flight->plane()->associate($plane);
         $flight->save();
         //flight2
@@ -80,13 +93,15 @@ class FlightsTableSeeder extends Seeder
         //flight2
         $flight = new Flight([
             'capacidad' => 160,
-            'fecha_llegada' => '01/05/2018',
-            'fecha_salida' => '02/05/2018'
+            'fecha_llegada' => '01/05/2019 14:00',
+            'fecha_salida' => '01/05/2019 13:15'
         ]);
 
 
         //$flight->boardingpasses()->associate($boardingpass);
         //$flight->tickets()->associate($ticket);
+        $flight->airportOrigen()->associate($airportO);
+        $flight->airportDestino()->associate($airportD);
         $flight->plane()->associate($plane);
         $flight->save();
 

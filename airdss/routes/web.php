@@ -22,4 +22,6 @@ Route::get('/flights', function () {
     return view('flights');
 });
 
-Route::get('/planes', 'PlanesController@show');
+Route::get('/planes', 'PlanesController@showAll');
+
+Route::get('/plane{id}/flights', 'PlanesController@showPlaneFlights');

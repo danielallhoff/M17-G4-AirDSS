@@ -5,6 +5,7 @@ use App\Flight;
 use App\BoardingPass;
 use App\Ticket;
 use App\Plane;
+use App\Airport;
 
 class BoardingPassesTableSeeder extends Seeder
 {
@@ -24,9 +25,23 @@ class BoardingPassesTableSeeder extends Seeder
 
         $flight = new Flight([
             'capacidad' => 150,
-            'fecha_llegada' => '19:00',
-            'fecha_salida' => '18:00'    
+            'fecha_llegada' => '19/03/2019 19:00',
+            'fecha_salida' => '19/03/2019 18:00'    
         ]);
+
+        $airportO = new Airport([
+            'codigo'=>12,
+            'ciudad'=>'Roma'
+        ]);
+        $airportO->save();
+
+        $airportD = new Airport([
+            'codigo'=>13,
+            'ciudad'=>'Venecia'
+        ]);
+        $airportD->save();
+        $flight->airportOrigen()->associate($airportO);
+        $flight->airportDestino()->associate($airportD);
         $flight->plane()->associate($plane);
         $flight->save();
 

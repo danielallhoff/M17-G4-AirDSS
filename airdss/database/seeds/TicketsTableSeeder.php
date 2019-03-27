@@ -6,6 +6,7 @@ use App\Client;
 use App\Flight;
 use App\BoardingPass;
 use App\Plane;
+use App\Airport;
 
 class TicketsTableSeeder extends Seeder
 {
@@ -36,9 +37,23 @@ class TicketsTableSeeder extends Seeder
 
         $flight = new Flight([
             'capacidad' => 132,
-            'fecha_llegada' => '19:00',
-            'fecha_salida' => '18:00'    
+            'fecha_llegada' => '19/03/2019 19:00',
+            'fecha_salida' => '19/03/2019 18:00'    
         ]);
+        
+        $airportO = new Airport([
+            'codigo'=>27,
+            'ciudad'=>'Sevilla'
+        ]);
+        $airportO->save();
+
+        $airportD = new Airport([
+            'codigo'=>40,
+            'ciudad'=>'Granada'
+        ]);
+        $airportD->save();
+        $flight->airportOrigen()->associate($airportO);
+        $flight->airportDestino()->associate($airportD);
         $flight->plane()->associate($plane);
         $flight->save();
 
@@ -84,9 +99,11 @@ class TicketsTableSeeder extends Seeder
         
         $flight = new Flight([
             'capacidad' => 132,
-            'fecha_llegada' => '10:00',
-            'fecha_salida' => '18:15'    
+            'fecha_llegada' => ' 20/03/2019 10:00',
+            'fecha_salida' => '20/02/2019 18:15'    
         ]);
+        $flight->airportOrigen()->associate($airportO);
+        $flight->airportDestino()->associate($airportD);
         $flight->plane()->associate($plane);
         $flight->save();
         
@@ -189,9 +206,11 @@ class TicketsTableSeeder extends Seeder
          
         $flight = new Flight([
             'capacidad' => 300,
-            'fecha_llegada' => '19:00',
-            'fecha_salida' => '7:00'    
+            'fecha_llegada' => '24/12/2019 19:00',
+            'fecha_salida' => '24/12/2019 17:00'    
         ]);
+        $flight->airportOrigen()->associate($airportO);
+        $flight->airportDestino()->associate($airportD);
         $flight->plane()->associate($plane);
         $flight->save();
 
