@@ -12,14 +12,16 @@
                 <th>Fecha salida</th>
                 <th>Fecha llegada</th>
             </tr>
-            @foreach($flights as $flight)
+            @forelse($flights as $flight)
             <tr>
                 <td>{{$flight->airportOrigen->ciudad}}</td>
                 <td>{{$flight->airportDestino->ciudad}}</td>
                 <td>{{$flight->fecha_salida}}</td>
                 <td>{{$flight->fecha_llegada}}</td>    
             </tr>
-            @endforeach
+            @empty
+            <p>El avión no tiene vuelos planeados</p>
+            @endforelse
         </table>
 
 
