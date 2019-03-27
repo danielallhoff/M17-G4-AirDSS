@@ -21,3 +21,5 @@ Route::get('/airdss', function () {
 Route::get('/flights', function () {
     return view('flights');
 });
+
+Route::get('/planes', 'PlanesController@show');
