@@ -12,7 +12,7 @@ class Ticket extends Model
     }
 
     public function boardingpasses() {
-        return $this->hasMany('App\Boardingpass'); 
+        return $this->hasMany('App\BoardingPass'); 
     }
 
     public function flight() {

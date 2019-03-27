@@ -22,9 +22,11 @@ Route::get('/flights', function () {
     return view('flights');
 });
 
+// planes
 Route::get('/planes', 'PlanesController@showAll');
-
 Route::get('/plane{id}/flights', 'PlanesController@showPlaneFlights');
-
 Route::get('/plane{id}/modify', 'PlanesController@modifyPlane');
 Route::post('/plane{id}{modelo}/{capacidad}/{distancia}/modify', 'PlanesController@edit');
+
+// boardingpass
+Route::get('/ticket{id}/boardingpasses', 'BoardingPassController@showBoardingTicket');
