@@ -26,7 +26,7 @@ Route::get('/flights', function () {
 Route::get('/planes', 'PlanesController@showAll');
 Route::get('/plane{id}/flights', 'PlanesController@showPlaneFlights');
 Route::get('/plane{id}/modify', 'PlanesController@modifyPlane');
-Route::post('/plane{id}{modelo}/{capacidad}/{distancia}/modify', 'PlanesController@edit');
+Route::post('/plane{id}/modify', 'PlanesController@edit');
 Route::get('/planes/orderBy/distancia', 'PlanesController@orderPlanesDistancia');
 Route::get('/planes/orderBy/capacidad', 'PlanesController@orderPlanesCapacidad');
 

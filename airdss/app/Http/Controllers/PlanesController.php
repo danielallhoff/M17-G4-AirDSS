@@ -35,21 +35,24 @@ class PlanesController extends Controller
     public function modifyPlane($id)
     {
         $plane = Plane::findOrFail($id);
-        $modelo = $plane->modelo;
-        $capacidad = $plane->capacidad;
-        $distancia = $plane->distancia_Vuelo;
-        return view('modifyPlane', array('plane' => $plane, 'id' =>$id, 
-        'modelo' => $modelo, 'capacidad' => $capacidad, 'distancia' => $distancia));
+        return view('modifyPlane', array('plane' => $plane));
     }
 
-    public function edit($id,$modelo, $capacidad, $distancia)
+    public function edit(Request $request)
     {
-        $plane = Plane::find($id);
-        $plane->modelo = $modelo;
-        $plane->capacidad = $capacidad;
-        $plane->distancia_Vuelo = $distancia;
+
+        $this->validate($request, [
+            'modelo' => 'required',
+            'capacidad' => 'required|numeric|min:1',
+            'distancia_Vuelo' => 'required|numeric|min:0'
+            ]);
+            
+        $plane = Plane::find($request->id);
+        $plane->distancia_Vuelo = $request->distancia;
+        $plane->capacidad = $request->capacidad;
+        $plane->modelo = $request->modelo;
         $plane->save();
-        $planes = Plane::all()->sortByDesc('distancia_Vuelo');
-        return view('planes', ['planes' => $planes]);
+
+        return view('modifyPlane', array('plane' => $plane));
     }
 }
