@@ -5,5 +5,7 @@
     <li><a href="/flights">Comprar vuelos</a></li>
     <li><a href="/myflights">Mis vuelos</a></li>
     <li><a href="/profile">Mi perfil</a></li>
+    <li><a href="/admin" align>Administración</a></li>
+
 </ul>
 

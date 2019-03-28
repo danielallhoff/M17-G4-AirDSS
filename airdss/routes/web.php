@@ -32,3 +32,6 @@ Route::get('/planes/orderBy/capacidad', 'PlanesController@orderPlanesCapacidad')
 
 // boardingpass
 Route::get('/ticket{id}/boardingpasses', 'BoardingPassController@showBoardingTicket');
+
+// administración
+Route::get('/admin', 'AdminController@showIndex');
