@@ -42,7 +42,7 @@ class PlanesController extends Controller
     {
 
         $this->validate($request, [
-            'modelo' => 'required',
+            'modelo' => 'required|alpha_dash',
             'capacidad' => 'required|numeric|min:1',
             'distancia' => 'required|numeric|min:0'
             ]);
