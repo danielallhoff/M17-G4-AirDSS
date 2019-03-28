@@ -4,7 +4,11 @@
 </head>
 @section('contenido')
     <div class="centrado">
-        <h1>Aviones de la compañía</h1>
+        <h1>Aviones de la compañía 
+        <a href="/planes/addPlane">
+        <button type="button">Añadir vuelo</button>
+        </a>
+        </h1>
         <table class="tabla">
             <tr>
                 <th>Modelo</th>
@@ -29,7 +33,7 @@
         Ordenar por: 
         <a href="/planes/orderBy/distancia">Distancia de vuelo</a>
         <a href="/planes/orderBy/capacidad">Capacidad</a>
-        <p>{{$planes->links()}}</p>
+        <a {{$planes->links()}} </a>
 
     </div>
 @endsection
