@@ -20,6 +20,18 @@ class PlanesController extends Controller
         return view('flightsPlane', array('flights' => $flights, 'plane' => $plane));
     }
 
+    public function orderPlanesDistancia()
+    {
+        $planes = Plane::orderBy('distancia_Vuelo')->paginate(5);
+        return view('planes', ['planes' => $planes]);
+    }
+
+    public function orderPlanesCapacidad()
+    {
+        $planes = Plane::orderBy('capacidad', 'desc')->paginate(5);
+        return view('planes', ['planes' => $planes]);
+    }
+
     public function modifyPlane($id)
     {
         $plane = Plane::findOrFail($id);

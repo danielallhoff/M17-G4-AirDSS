@@ -25,6 +25,10 @@
             </tr>
             @endforeach
         </table>
+        <br>
+        Ordenar por: 
+        <a href="/planes/orderBy/distancia">Distancia de vuelo</a>
+        <a href="/planes/orderBy/capacidad">Capacidad</a>
         <p>{{$planes->links()}}</p>
 
     </div>

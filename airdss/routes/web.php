@@ -27,6 +27,8 @@ Route::get('/planes', 'PlanesController@showAll');
 Route::get('/plane{id}/flights', 'PlanesController@showPlaneFlights');
 Route::get('/plane{id}/modify', 'PlanesController@modifyPlane');
 Route::post('/plane{id}{modelo}/{capacidad}/{distancia}/modify', 'PlanesController@edit');
+Route::get('/planes/orderBy/distancia', 'PlanesController@orderPlanesDistancia');
+Route::get('/planes/orderBy/capacidad', 'PlanesController@orderPlanesCapacidad');
 
 // boardingpass
 Route::get('/ticket{id}/boardingpasses', 'BoardingPassController@showBoardingTicket');
