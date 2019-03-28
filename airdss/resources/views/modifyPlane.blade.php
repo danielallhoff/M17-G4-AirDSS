@@ -5,18 +5,11 @@
 @section('contenido')
     <div class="centrado">
         <h1>Modificación de avión {{$plane->id}}</h1>
-        {{-- Error messages --}}
-        @if (count($errors) > 0)
-        <ul>
-        @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-        @endforeach
-        </ul>
-        @endif
-
         <form method="post" action="/plane{{$plane->id}}/modify">
             {{ csrf_field() }}
-            
+            @if($mod)
+                <p>Avión {{$plane->id}} modificado</p>
+            @endif
             <label for="modelo">Modelo:</label>
             <input type="text" name="modelo" id="modelo" value={{$plane->modelo}}>
             <br><br>
@@ -25,7 +18,15 @@
             <br><br>
             <label for="distancia">Distancia de vuelo:</label>
             <input type="text" name="distancia" id="distancia" value={{$plane->distancia_Vuelo}}>
-            <br><br>
+            <br>
+            @if (count($errors) > 0)
+                <p>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+                </p>
+            @endif
+            <br>
             <button type="submit">Modificar</button>
             <a href="/planes">
             <button type="button">Volver</button>
