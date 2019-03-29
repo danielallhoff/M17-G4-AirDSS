@@ -22,9 +22,11 @@ Route::get('/airdss', function () {
 Route::get('/planes', 'PlanesController@showAll');
 Route::get('/plane{id}/flights', 'PlanesController@showPlaneFlights');
 Route::get('/plane{id}/modify', 'PlanesController@modifyPlane');
-Route::post('/plane{id}{modelo}/{capacidad}/{distancia}/modify', 'PlanesController@edit');
+Route::post('/plane{id}/modify', 'PlanesController@edit');
 Route::get('/planes/orderBy/distancia', 'PlanesController@orderPlanesDistancia');
 Route::get('/planes/orderBy/capacidad', 'PlanesController@orderPlanesCapacidad');
+Route::get('/planes/addPlane', 'PlanesController@addPlane');
+Route::post('/planes/addPlane', 'PlanesController@create');
 
 // boardingpass
 Route::get('/ticket{id}/boardingpasses', 'BoardingPassController@showBoardingTicket');
@@ -40,3 +42,5 @@ Route::get('/modificarFlight{id}', 'FlightsController@modificarFlight');
 Route::get('/eliminarFlight{id}', 'FlightsController@eliminarFlight');
 //Airport
 Route::get('/airports', 'AirportsController@showAirports');
+// administración
+Route::get('/admin', 'AdminController@showIndex');
