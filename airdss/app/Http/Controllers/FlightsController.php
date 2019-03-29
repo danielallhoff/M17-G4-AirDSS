@@ -39,11 +39,15 @@ class FlightsController extends Controller
         $flights = Flight::orderBy('airportOrigen')->paginate(5);
         return view('flights', array('flights'=> $flights));
     }
-
+    public function modificarFlight($id){
+        $flight = Flight::findOrFail($id);
+        return view('modifyFlight', $flight);
+    }
     public function eliminarFlight($id){
         $flight = Flight::findOrFail($id);
         //$flight->delete();
-        return view('flights');
+        $flights = Flight::paginate(5);
+        return view('flights', array('flights'=>$flights));
     }
 /*
     public function modificarFlight($id){

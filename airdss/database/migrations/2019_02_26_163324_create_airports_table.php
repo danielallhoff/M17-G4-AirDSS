@@ -17,7 +17,6 @@ class CreateAirportsTable extends Migration
             $table->increments('id');
             $table->integer('codigo')->unique();
             $table->string('ciudad');
-
             $table->timestamps();
         });
     }

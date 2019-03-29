@@ -8,7 +8,8 @@ use App\Airport;
 class AirportsController extends Controller
 {
     public function showAll(){
-        return view('airports');
+        $airports = Airport::paginate(5);
+        return view('airports', array('airports' => $airports));
     }
 
     public function showTickets($id){

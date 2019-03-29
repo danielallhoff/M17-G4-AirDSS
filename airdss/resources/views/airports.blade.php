@@ -9,8 +9,8 @@
             </tr>
             @forelse($airports as $airport)
             <tr>
-                <td>{{$airports->codigo}}</td>
-                <td>{{$airports->ciudad}}</td>
+                <td>{{$airport->codigo}}</td>
+                <td>{{$airport->ciudad}}</td>
             </tr>
             @empty
                 <p>No hay aeropuertos disponibles! </p>
