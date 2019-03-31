@@ -1,4 +1,4 @@
-@extends('master')
+@extends('adminIndex')
 <head>
     <title>Clients </title>
 </head>
@@ -16,19 +16,25 @@
                 <th>Modificar</th>
                 <th>Eliminar</th>
             </tr>
-            @forelse ($clients as $client)
+            @forelse ($clientes as $client)
+            <tr>
                 <td>{{$client->dni}}</td>
                 <td>{{$client->nombre}}</td>
                 <td>{{$client->apellidos}}</td>
                 <td>{{$client->telefono}}</td>
                 <td>{{$client->email}}</td>
-                <td>{{$client->}}</td>
-                <td></td>
-                <td></td>
+                <td>{{$client->fechaNto}}</td>
+                <td><a href="/modificarClient{{$client->id}}"> Modificar</a></td>
+                <td><a href="/eliminarClient{{$client->id}}"> Eliminar</a></td>
+            </tr>            
             @empty<p>No hay clientes</p>
             @endforelse
-            <tr>
-            </tr>
+
         </table>
+        <br>
+        <p>Ordenar por:</p>
+        <a href="/client/orderBy/apellido">Nombre</a>
+        <a href="/client/orderBy/fechaNacimiento">Fecha Nacimiento</a>
+        <p>{{$clientes->links()}}</p>
     </div>
 @endsection
