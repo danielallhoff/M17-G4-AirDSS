@@ -435,6 +435,7 @@ class ComposerStaticInit46672f4ba58d99aa02daf2e3c30e488a
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\BoardingPassController' => __DIR__ . '/../..' . '/app/Http/Controllers/BoardingPassController.php',
+        'App\\Http\\Controllers\\ClientController' => __DIR__ . '/../..' . '/app/Http/Controllers/ClientController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\FlightsController' => __DIR__ . '/../..' . '/app/Http/Controllers/FlightsController.php',
         'App\\Http\\Controllers\\PlanesController' => __DIR__ . '/../..' . '/app/Http/Controllers/PlanesController.php',

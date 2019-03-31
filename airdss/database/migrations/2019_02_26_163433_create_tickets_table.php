@@ -19,10 +19,12 @@ class CreateTicketsTable extends Migration
             $table->string('asiento');
             $table->string('clase');
             $table->date('fecha');
+            /*
             $table->integer('flight_id')->nullable();
             $table->foreign('flight_id')->references('id')->on('flights');
             $table->integer('client_id')->nullable();
             $table->foreign('client_id')->references('id')->on('clients');
+            */
             $table->timestamps();
         });
     }

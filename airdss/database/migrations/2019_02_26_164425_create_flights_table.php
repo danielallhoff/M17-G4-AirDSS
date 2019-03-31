@@ -22,8 +22,10 @@ class CreateFlightsTable extends Migration
             $table->foreign('airport_origen_id')->references('id')->on('airports');
             $table->integer('airport_destino_id')->nullable();
             $table->foreign('airport_destino_id')->references('id')->on('airports');
+            /*
             $table->integer('plane_id');
             $table->foreign('plane_id')->references('id')->on('planes');
+            */
             $table->timestamps();
 
         });
