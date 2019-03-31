@@ -21,6 +21,7 @@ class CreatePackagesTable extends Migration
             $table->float('alto');
             $table->integer('ticket_id')->nullable();
             $table->foreign('ticket_id')->references('id')->on('tickets');
+            $table->timestamps();
         });
     }
 
