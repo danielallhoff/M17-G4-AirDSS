@@ -44,3 +44,6 @@ Route::get('/eliminarFlight{id}', 'FlightsController@eliminarFlight');
 Route::get('/airports', 'AirportsController@showAirports');
 // administración
 Route::get('/admin', 'AdminController@showIndex');
+
+//Client
+Route::get('/admin/clients', 'ClientController@showClients');
