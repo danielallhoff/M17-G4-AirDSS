@@ -47,3 +47,7 @@ Route::get('/admin', 'AdminController@showIndex');
 
 //Client
 Route::get('/admin/clients', 'ClientController@showClients');
+Route::get('/client/orderBy/nombreAsc','ClientController@orderClientNameAsc');
+Route::get('/client/orderBy/nombreDesc','ClientController@orderClientNameDesc');
+Route::get('/client/orderBy/fechaNacimientoAsc','ClientController@orderClientDateAsc');
+Route::get('/client/orderBy/fechaNacimientoDesc','ClientController@orderClientDateDesc');

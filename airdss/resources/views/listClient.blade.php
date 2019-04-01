@@ -32,9 +32,12 @@
 
         </table>
         <br>
-        <p>Ordenar por:</p>
-        <a href="/client/orderBy/apellido">Nombre</a>
-        <a href="/client/orderBy/fechaNacimiento">Fecha Nacimiento</a>
+        <!--<p>Ordenar por:</p>-->
+        Ordenar por:
+        <a href="/client/orderBy/nombreAsc">Nombre Ascendente</a>
+        <a href="/client/orderBy/nombreDesc">Nombre Descendente</a>
+        <a href="/client/orderBy/fechaNacimientoAsc">Fecha Nacimiento Ascendente</a>
+        <a href="/client/orderBy/fechaNacimientoDesc">Fecha Nacimiento Descendente</a>
         <p>{{$clientes->links()}}</p>
     </div>
 @endsection
