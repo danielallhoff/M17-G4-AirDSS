@@ -47,3 +47,9 @@ Route::get('/admin', 'AdminController@showIndex');
 
 //Client
 Route::get('/admin/clients', 'ClientController@showClients');
+
+//Ticket
+Route::get('/tickets', 'TicketsController@showTickets');
+
+//Package
+Route::get('/packages', 'PackagesController@showPackages');
