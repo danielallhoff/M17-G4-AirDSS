@@ -34,13 +34,18 @@ Route::get('/ticket{id}/boardingpasses', 'BoardingPassController@showBoardingTic
 
 //Flights
 Route::get('/flights', 'FlightsController@showAll');
+Route::get('/flights/add', 'FlightsController@addFlight');
+Route::post('/flights/add', 'FlightsController@add');
+Route::get('/flight{id}', 'FlightsController@showFlight');
 Route::get('/flight{id}/tickets', 'FlightsController@showTickets');
 Route::get('/flight{id}/boardingPasses', 'FlightsController@showBoardingPasses');
 Route::get('/flight{id}/plane', 'FlightsController@showPlanes');
-Route::get('/flights/orderBy/fechaSalida', 'FlightsController@orderFlightsDate');
-Route::get('/flights/orderBy/origen', 'FlightsController@orderFlightsOrigin');
-Route::get('/modificarFlight{id}', 'FlightsController@modificarFlight');
-Route::get('/eliminarFlight{id}', 'FlightsController@eliminarFlight');
+Route::get('/flights/orderBy/capacity', 'FlightsController@orderFlightsCapacity');
+Route::get('/flights/orderBy/salida', 'FlightsController@orderFlightsSalida');
+Route::get('/flight{id}/modify', 'FlightsController@modificarFlight');
+Route::get('/flight{id}/remove', 'FlightsController@eliminarFlight');
+Route::post('/flight{id}/modify', 'FlightsController@edit');
+
 //Airport
 Route::get('/airports', 'AirportsController@showAirports');
 // administración

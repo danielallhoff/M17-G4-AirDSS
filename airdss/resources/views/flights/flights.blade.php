@@ -5,11 +5,14 @@
 @section('contenido')
     <div class="centrado">
         <h1>Comprar vuelos</h1>
-        <table class="tabla" width="400px">
+        <a href="/flights/add">
+            <button type="button">Añadir avión</button>
+        </a>
+        <table class="tabla">
             <tr>
                 <th>Aeropuerto origen</th>
                 <th>Aeropuerto destino</th>
-                <th>Fecha destino</th>
+                <th>Fecha salida</th>
                 <th>Fecha llegada</th>
                 <th>Capacidad restante</th>
                 <th>Modificar</th>
@@ -19,11 +22,11 @@
             <tr>
                 <td><a href="/airport{{$flight->airportOrigen->id}}"> {{$flight->airportOrigen->ciudad}}</a></td>
                 <td><a href="/airport{{$flight->airportDestino->id}}"> {{$flight->airportDestino->ciudad}}</a></td>
-                <td>{{$flight->fecha_llegada}}</td>
                 <td>{{$flight->fecha_salida}}</td>
+                <td>{{$flight->fecha_llegada}}</td>
                 <td>{{$flight->capacidadRestante()}}</td>
-                <td><a href="/modificarFlight{{$flight->id}}"> Modificar</a></td>
-                <td><a href="/eliminarFlight{{$flight->id}}"> Eliminar</a></td>
+                <td><a href="/flight{{$flight->id}}/modify"> Modificar</a></td>
+                <td><a href="/flight{{$flight->id}}/remove"> Eliminar</a></td>
             </tr>
             @empty
                 <p>No hay vuelos disponibles! </p>
@@ -31,8 +34,8 @@
         </table>
         <br>
         Ordenar por: 
-        <a href="/flights/orderBy/fechaSalida">Fecha de salida</a>
-        <a href="/flights/orderBy/origen">Aeropuerto de origen</a>
+        <a href="/flights/orderBy/capacity">Capacidad</a>
+        <a href="/flights/orderBy/salida">Fecha salida</a>
         <p>{{$flights->links()}}</p>
     </div>
 @endsection
