@@ -23,6 +23,10 @@
                 <p>No hay equipaje facturado con este Ticket!</p>
             @endforelse
         </table>
-
+        <br>
+        <!--<p>Ordenar por:</p>-->
+        <h4>Ordenar por:</h4>
+        <a href="/ticket{{$ticket->id}}/packages/pesoAsc"><button style="font-size:20px;border-radius:5px" type="button">Peso Ascendente</button></a>
+        <a href="/ticket{{$ticket->id}}/packages/pesoDesc"><button style="font-size:20px;border-radius:5px" type="button">Peso Descendente</button></a>
     </div>
 @endsection

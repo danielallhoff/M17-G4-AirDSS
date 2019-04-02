@@ -60,8 +60,17 @@ Route::post('/admin/client/buscar','ClientController@buscar');
 
 //Ticket
 Route::get('/tickets', 'TicketsController@showTickets');
+Route::get('/ticket/codigoAsc', 'TicketsController@orderTicketsCodAsc');
+Route::get('/ticket/codigoDesc', 'TicketsController@orderTicketsCodDesc');
+Route::get('/ticket/claseAsc', 'TicketsController@orderTicketsClaseAsc');
+Route::get('/ticket/claseDesc', 'TicketsController@orderTicketsClaseDesc');
 
 //Package
 Route::get('/addPackages', 'PackagesController@addPackage');
 Route::get('/packages', 'PackagesController@showPackages');
+Route::get('/ticket{id}/packages/pesoAsc', 'PackagesController@orderPackagesPesoAsc');
+Route::get('/ticket{id}/packages/pesoDesc', 'PackagesController@orderPackagesPesoDesc');
 Route::get('/ticket{id}/packages', 'PackagesController@showTicketPackages');
+
+//Usuario
+Route::get('/loginUser', 'TicketsController@showLogin');

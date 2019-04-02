@@ -19,9 +19,17 @@ class PackagesController extends Controller
         $packages = $ticket->packages;
         return view('packages',array ('ticket' => $ticket, 'packages'=> $packages));
     }
-    /*
-    //Añadir un equipaje/package
-    public function addPackage() {
-        return view('addPackage', []);
-    }*/
+
+    //Ordenar por PESO ascendente
+    public function orderPackagesPesoAsc ($id){
+        $ticket = Ticket::findOrFail($id);
+        $packages = Package::where('ticket_id','like',$id)->orderBy('peso','asc')->paginate(10);
+        return view('packages', ['ticket' => $ticket, 'packages'=>$packages]);
+    }
+    //Ordenar por PESO descendente
+    public function orderPackagesPesoDesc ($id){
+        $ticket = Ticket::findOrFail($id);
+        $packages = Package::where('ticket_id','like',$id)->orderBy('peso','desc')->paginate(10);
+        return view('packages', ['ticket' => $ticket, 'packages'=>$packages]);
+    }
 }

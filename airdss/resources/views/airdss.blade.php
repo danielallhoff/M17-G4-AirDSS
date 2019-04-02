@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="card">
-        <img src="../images/Rapido.jpg" alt="Avatar" style="width:100%;height:50%">
+            <img src="../images/Rapido.jpg" alt="Avatar" style="width:100%;height:50%">
             <div class="container">
                 <h4><b>Rápido</b></h4> 
                 <p>En nuestra web es muy sencillo comprar tu próximo
@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="card">
-        <img src="../images/Servicio.jpg" alt="Avatar" style="width:100%;height:50%">
+            <img src="../images/Servicio.jpg" alt="Avatar" style="width:100%;height:50%">
             <div class="container">
                 <h4><b>Servicio</b></h4> 
                 <p>AirDSS se caracterisa por un excelente servicio</p> 

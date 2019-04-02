@@ -24,7 +24,7 @@ class TicketsTableSeeder extends Seeder
             'apellidos'=>'Garcia Gonzales',
             'telefono' => 672000000,
             'email'=>'jgg@gmail.com',
-            'fechaNto'=>'15/12/2000'
+            'fechaNto'=>'15-12-2000'
         ]);
         $client->save();
 
