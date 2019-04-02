@@ -15,6 +15,10 @@ class Ticket extends Model
         return $this->hasMany('App\BoardingPass'); 
     }
 
+    public function packages() {
+        return $this->hasMany('App\Package'); 
+    }
+
     public function flight() {
         return $this->belongsTo('App\Flight'); 
     }
