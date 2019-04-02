@@ -19,9 +19,9 @@
                 <td>{{$ticket->codigo}}</td>
                 <td>{{$ticket->clase}}</td>
                 <td>{{$ticket->asiento}}</td>
-                <td><a href="/tickets{{$ticket->id}}/flights">{{$ticket->flight_id}}</a></td>
+                <td><a href="/ticket{{$ticket->flight_id}}/flights">{{$ticket->flight_id}}</a></td>
                 <td><a href="/ticket{{$ticket->id}}/boardingpasses">Tarjetas de embarque</a></td>
-                <td><a href="/tickets{{$ticket->id}}/packages">Packages</a></td>
+                <td><a href="/ticket{{$ticket->id}}/packages">Packages</a></td>
             </tr>
             @empty
                 <p>No hay tickes disponibles! </p>

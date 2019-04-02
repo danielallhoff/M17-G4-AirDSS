@@ -10,7 +10,11 @@ class FlightsController extends Controller
 {
     public function showAll(){
         $flights = Flight::paginate(5);
-        return view('flights', array('flights' => $flights));
+        return view('flights.flights', array('flights' => $flights));
+    }
+    public function showFlight($id){
+        $flight = Flight::findOrFail($id);
+        return view('flights.flights', array('flights' => $flight));
     }
 
     public function showTickets($id){
@@ -30,81 +34,59 @@ class FlightsController extends Controller
         return view('planes', array('planes' => $plane));
     }
 
-    public function orderFlightsDate(){
-        $flights = Flight::orderBy('')->paginate(5);
-        return view('flights', array('flights'=> $flights));
+    public function orderFlightsCapacity(){
+        $flights = Flight::orderBy('capacidadRestante')->paginate(5);
+        return view('flights.flights', array('flights'=> $flights));
     }
 
-    public function orderFlightsOrigin(){
-        $flights = Flight::orderBy('airportOrigen')->paginate(5);
-        return view('flights', array('flights'=> $flights));
+    public function orderFlightsSalida(){
+        $flights = Flight::orderBy('fecha_salida')->paginate(5);
+        return view('flights.flights', array('flights'=> $flights));
     }
     public function modificarFlight($id){
         $flight = Flight::findOrFail($id);
-        return view('modifyFlight', $flight);
+        return view('flights.modifyFlight', array('flight' =>$flight));
     }
     public function eliminarFlight($id){
         $flight = Flight::findOrFail($id);
-        //$flight->delete();
-        $flights = Flight::paginate(5);
-        return view('flights', array('flights'=>$flights));
-    }
-/*
-    public function modificarFlight($id){
-
-    }*/
-}
-
-
-
-
-/*
-class FlightsController extends Controller
-{
-    public function showAll()
-    {
-        $planes = Plane::paginate(5);
-        return view('planes', ['planes' => $planes]);
+        $flight->delete();
+        return view('FlightsController@showAll');
     }
 
-    public function showPlaneFlights($id)
-    {
-        $plane = Plane::findOrFail($id);
-        $flights = $plane->flights;
-        return view('flightsPlane', array('flights' => $flights, 'plane' => $plane));
+    public function add(Request $request){
+        $this->validate($request, [
+            'AeropuertoOrigen' => 'required|alpha_dash',
+            'AeropuertoDestino' => 'required|alpha_dash',
+            'fechaSalida' => 'required|numeric|min:0',
+            'fechaLlegada' => 'required|numeric|min:0',
+            ]);
+        $flight = new Flight();
+        $flight->$aeropuertoOrigen = $request->input('AeropuertoOrigen');
+        $flight->$aeropuertoDestino = $request->input('AeropuertoDestino');
+        $flight->$fechaSalida = $request->input('fechaSalida');
+        $flight->$fechaLlegada = $request->input('fechaLlegada');
+        $flight->save();
+
+        return view('FlightsController@showAll');
     }
 
-    public function orderPlanesDistancia()
-    {
-        $planes = Plane::orderBy('distancia_Vuelo')->paginate(5);
-        return view('planes', ['planes' => $planes]);
+    public function edit(Request $request){
+        $this->validate($request, [
+            'AeropuertoOrigen' => 'required|alpha_dash',
+            'AeropuertoDestino' => 'required|alpha_dash',
+            'fechaSalida' => 'required|numeric|min:0',
+            'fechaLlegada' => 'required|numeric|min:0',
+            ]);
+        $flight = Flight::find($request->id);
+        $flight->$aeropuertoOrigen = $request->input('AeropuertoOrigen');
+        $flight->$aeropuertoDestino = $request->input('AeropuertoDestino');
+        $flight->$fechaSalida = $request->input('fechaSalida');
+        $flight->$fechaLlegada = $request->input('fechaLlegada');
+        $flight->save();
+        return view('FlightsController@showAll');
     }
 
-    public function orderPlanesCapacidad()
-    {
-        $planes = Plane::orderBy('capacidad', 'desc')->paginate(5);
-        return view('planes', ['planes' => $planes]);
-    }
-
-    public function modifyPlane($id)
-    {
-        $plane = Plane::findOrFail($id);
-        $modelo = $plane->modelo;
-        $capacidad = $plane->capacidad;
-        $distancia = $plane->distancia_Vuelo;
-        return view('modifyPlane', array('plane' => $plane, 'id' =>$id, 
-        'modelo' => $modelo, 'capacidad' => $capacidad, 'distancia' => $distancia));
-    }
-
-    public function edit($id,$modelo, $capacidad, $distancia)
-    {
-        $plane = Plane::find($id);
-        $plane->modelo = $modelo;
-        $plane->capacidad = $capacidad;
-        $plane->distancia_Vuelo = $distancia;
-        $plane->save();
-        $planes = Plane::all()->sortByDesc('distancia_Vuelo');
-        return view('planes', ['planes' => $planes]);
+    public function addFlight(){
+        return view('flights.addFlight');
     }
 }
-*/

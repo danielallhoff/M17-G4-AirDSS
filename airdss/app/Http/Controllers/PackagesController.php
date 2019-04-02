@@ -12,10 +12,16 @@ class PackagesController extends Controller
         $packages = Package::paginate(5);
         return view('packages',array ('packages'=> $packages));
     }
+
     //Mostar packages relacionados con un ticket
     public function showTicketPackages($id) {
         $ticket = Ticket::findOrFail($id);
         $packages = $ticket->packages;
         return view('packages',array ('ticket' => $ticket, 'packages'=> $packages));
     }
+    /*
+    //Añadir un equipaje/package
+    public function addPackage() {
+        return view('addPackage', []);
+    }*/
 }

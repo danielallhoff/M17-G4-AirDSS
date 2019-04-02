@@ -1,12 +1,14 @@
 @extends('master')
 <head>
-    <title>Flights </title>
+    <title>Add Flights </title>
 </head>
 @section('contenido')
     <div class="centrado">
-        <h1>Modificación de avión{{$flight->id}}</h1>
-        <form action="" method="POST">
-            <table class="tabla" width="400px">
+        <h1>Añadir vuelo</h1>
+        <form action="/flights/add" method="POST">
+            {{csrf_field()}}
+            {{method_field('PUT')}}
+            <table class="tabla">
                 <tr>
                     <td><label for="Aeropuerto origen">Aeropuerto origen</label></td>
                     <td><input type="text" id="AeropuertoOrigen"></td>
@@ -21,10 +23,10 @@
                 </tr>
                 <tr>
                     <td><label for="Fecha llegada">Fecha llegada</label></td>
-                    <td><input type="date" id="fechaLlegada"></td>
+                    <td><input type="date" id="date"></td>
                 </tr>
                 <tr>
-                    <td><button type="submit">Enviar</button></td>
+                    <td><button type="submit">Añadir</button></td>
                 </tr>
             </table>
         </form>
