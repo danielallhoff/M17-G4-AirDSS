@@ -53,6 +53,7 @@ class ClientController extends Controller
     }
     public function orderClientNameDesc(){
         echo "ordenando por".session('opcion');
+        
         $clientes = Client::orderBy('nombre', 'desc')->paginate(5);
         return view('listClient' ,['clientes'=>$clientes]);
     }
