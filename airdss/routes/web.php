@@ -47,10 +47,10 @@ Route::get('/admin', 'AdminController@showIndex');
 
 //Client
 Route::get('/admin/clients', 'ClientController@showClients');
-Route::get('/admin/client/orderBy/nombreAsc','ClientController@orderClientNameAsc');
-Route::get('/admin/client/orderBy/nombreDesc','ClientController@orderClientNameDesc');
-Route::get('/admin/client/orderBy/fechaNacimientoAsc','ClientController@orderClientDateAsc');
-Route::get('/admin/client/orderBy/fechaNacimientoDesc','ClientController@orderClientDateDesc');
+Route::get('/admin/client/nombreAsc','ClientController@orderClientNameAsc');
+Route::get('/admin/client/nombreDesc','ClientController@orderClientNameDesc');
+Route::get('/admin/client/fechaNacimientoAsc','ClientController@orderClientDateAsc');
+Route::get('/admin/client/fechaNacimientoDesc','ClientController@orderClientDateDesc');
 Route::post('/admin/client/buscar','ClientController@buscar');
 
 //Ticket
