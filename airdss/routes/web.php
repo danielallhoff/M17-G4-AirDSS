@@ -44,6 +44,7 @@ Route::get('/modificarFlight{id}', 'FlightsController@modificarFlight');
 Route::get('/eliminarFlight{id}', 'FlightsController@eliminarFlight');
 //Airport
 Route::get('/airports', 'AirportsController@showAirports');
+
 // administración
 Route::get('/admin', 'AdminController@showIndex');
 
@@ -59,5 +60,6 @@ Route::post('/admin/client/buscar','ClientController@buscar');
 Route::get('/tickets', 'TicketsController@showTickets');
 
 //Package
+Route::get('/addPackages', 'PackagesController@addPackage');
 Route::get('/packages', 'PackagesController@showPackages');
-Route::get('/tickets{id}/packages', 'PackagesController@showTicketPackages');
+Route::get('/ticket{id}/packages', 'PackagesController@showTicketPackages');
