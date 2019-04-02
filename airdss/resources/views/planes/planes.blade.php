@@ -25,7 +25,10 @@
                 <td>{{$plane->distancia_Vuelo}}</td>
                 <td><a href="/plane{{$plane->id}}/flights">Vuelos</td>
                 <td><a href="/plane{{$plane->id}}/modify">Modificar</td>
-                <td><a href="/planes">Eliminar</td>
+                <form action="{{action('PlanesController@delete', [$plane->id])}}" method="POST">
+                @csrf
+                <td><button type="submit">Eliminar</button></td>
+                </form>
             </tr>
             @endforeach
         </table>
