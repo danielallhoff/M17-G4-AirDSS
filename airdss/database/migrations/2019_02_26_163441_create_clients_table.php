@@ -20,7 +20,7 @@ class CreateClientsTable extends Migration
             $table->string('apellidos');
             $table->integer('telefono');
             $table->string('email');
-            $table->datetime('fechaNto');
+            $table->date('fechaNto');
 
             $table->timestamps();
         });
