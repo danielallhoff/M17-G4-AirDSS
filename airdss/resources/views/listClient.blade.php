@@ -8,11 +8,14 @@
         <div class="buscador">
             <form action="{{url('/admin/client/buscar')}}" method="POST">
                 {{ csrf_field() }}
-                <label for="nombre">Buscador</label>
-                <input type="text" name="nombre" id="nombre" value="Busca lo que desees">
-                <button type="submit">Enviar</button>
-
+                <label for="buscar">Buscador</label>
+                <input type="text" name="buscar" id="buscar" PlaceHolder="Busca lo que desees">
                 
+                <button type="submit">Enviar</button><br>
+                <label for="opcion">Elige una opcion para buscar:</label>
+                <input type="radio" name="opcion" id="opcion" value="nombre", checked>Nombre
+                <input type="radio" name="opcion" id="opcion" value="dni">DNI
+    
             </form>
         </div>
         <table class="tabla" width="400px">
@@ -44,10 +47,14 @@
         <br>
         <!--<p>Ordenar por:</p>-->
         Ordenar por:
-        <a href="/admin/client/orderBy/nombreAsc">Nombre Ascendente</a>
-        <a href="/admin/client/orderBy/nombreDesc">Nombre Descendente</a>
-        <a href="/admin/client/orderBy/fechaNacimientoAsc">Fecha Nacimiento Ascendente</a>
-        <a href="/admin/client/orderBy/fechaNacimientoDesc">Fecha Nacimiento Descendente</a>
+        <a href="/admin/client/nombreAsc">Nombre Ascendente</a>
+        <a href="/admin/client/nombreDesc">Nombre Descendente</a>
+        <a href="/admin/client/fechaNacimientoAsc">Fecha Nacimiento Ascendente</a>
+        <a href="/admin/client/fechaNacimientoDesc">Fecha Nacimiento Descendente</a>
         <p>{{$clientes->links()}}</p>
     </div>
 @endsection
+<?php
+
+//echo gettype($clientes[0]);
+?>
