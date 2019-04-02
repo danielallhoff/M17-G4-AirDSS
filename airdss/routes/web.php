@@ -11,12 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('airdss');
-});
-Route::get('/airdss', function () {
-    return view('airdss');
-});
+// inicio
+Route::get('/', 'InicioController@inicio');
+Route::get('/airdss', 'InicioController@inicio');
 
 // planes
 Route::get('/planes', 'PlanesController@showAll');
@@ -27,7 +24,8 @@ Route::get('/planes/orderBy/distancia', 'PlanesController@orderPlanesDistancia')
 Route::get('/planes/orderBy/capacidad', 'PlanesController@orderPlanesCapacidad');
 Route::get('/planes/addPlane', 'PlanesController@addPlane');
 Route::post('/planes/addPlane', 'PlanesController@create');
-Route::post('/planes', 'PlanesController@delete');
+Route::get('/plane{id}/delete', 'PlanesController@delete');
+Route::post('/plane{id}/delete', 'PlanesController@destroy');
 
 // boardingpass
 Route::get('/ticket{id}/boardingpasses', 'BoardingPassController@showBoardingTicket');
@@ -48,19 +46,22 @@ Route::post('/flight{id}/modify', 'FlightsController@edit');
 
 //Airport
 Route::get('/airports', 'AirportsController@showAirports');
+
 // administración
 Route::get('/admin', 'AdminController@showIndex');
 
 //Client
 Route::get('/admin/clients', 'ClientController@showClients');
-Route::get('/admin/client/orderBy/nombreAsc','ClientController@orderClientNameAsc');
-Route::get('/admin/client/orderBy/nombreDesc','ClientController@orderClientNameDesc');
-Route::get('/admin/client/orderBy/fechaNacimientoAsc','ClientController@orderClientDateAsc');
-Route::get('/admin/client/orderBy/fechaNacimientoDesc','ClientController@orderClientDateDesc');
+Route::get('/admin/client/nombreAsc','ClientController@orderClientNameAsc');
+Route::get('/admin/client/nombreDesc','ClientController@orderClientNameDesc');
+Route::get('/admin/client/fechaNacimientoAsc','ClientController@orderClientDateAsc');
+Route::get('/admin/client/fechaNacimientoDesc','ClientController@orderClientDateDesc');
 Route::post('/admin/client/buscar','ClientController@buscar');
 
 //Ticket
 Route::get('/tickets', 'TicketsController@showTickets');
 
 //Package
+Route::get('/addPackages', 'PackagesController@addPackage');
 Route::get('/packages', 'PackagesController@showPackages');
+Route::get('/ticket{id}/packages', 'PackagesController@showTicketPackages');
