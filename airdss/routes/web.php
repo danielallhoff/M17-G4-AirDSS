@@ -57,3 +57,4 @@ Route::get('/tickets', 'TicketsController@showTickets');
 
 //Package
 Route::get('/packages', 'PackagesController@showPackages');
+Route::get('/tickets{id}/packages', 'PackagesController@showTicketPackages');
