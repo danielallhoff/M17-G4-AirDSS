@@ -69,11 +69,10 @@ class ClientController extends Controller
         //$nombre= $request->buscar;
         //$nombre = '%%';
         $opcion = $request->opcion;
-        $opcion ='%'.$opcion.'%';
         $client;
 
         if ($opcion=="nombre") {
-            $client = Client::where('nombre',$text)->paginate(5);
+            $client = Client::where('nombre','like',$text)->paginate(5);
         }
         else{
             $client = Client::where('dni','like',$text)->paginate(5);
