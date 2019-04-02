@@ -21,10 +21,10 @@ class TicketsTableSeeder extends Seeder
         $client = new Client([
             'dni'=>'00000000A',
             'nombre'=>'Juan',
-            'apellido1'=>'Garcia',
-            'apellido2'=>'Gonzales',
+            'apellidos'=>'Garcia Gonzales',
             'telefono' => 672000000,
-            'email'=>'jgg@gmail.com'
+            'email'=>'jgg@gmail.com',
+            'fechaNto'=>'15/12/2000'
         ]);
         $client->save();
 

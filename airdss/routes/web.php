@@ -18,10 +18,6 @@ Route::get('/airdss', function () {
     return view('airdss');
 });
 
-Route::get('/flights', function () {
-    return view('flights');
-});
-
 // planes
 Route::get('/planes', 'PlanesController@showAll');
 Route::get('/plane{id}/flights', 'PlanesController@showPlaneFlights');
@@ -36,5 +32,30 @@ Route::post('/planes', 'PlanesController@delete');
 // boardingpass
 Route::get('/ticket{id}/boardingpasses', 'BoardingPassController@showBoardingTicket');
 
+//Flights
+Route::get('/flights', 'FlightsController@showAll');
+Route::get('/flight{id}/tickets', 'FlightsController@showTickets');
+Route::get('/flight{id}/boardingPasses', 'FlightsController@showBoardingPasses');
+Route::get('/flight{id}/plane', 'FlightsController@showPlanes');
+Route::get('/flights/orderBy/fechaSalida', 'FlightsController@orderFlightsDate');
+Route::get('/flights/orderBy/origen', 'FlightsController@orderFlightsOrigin');
+Route::get('/modificarFlight{id}', 'FlightsController@modificarFlight');
+Route::get('/eliminarFlight{id}', 'FlightsController@eliminarFlight');
+//Airport
+Route::get('/airports', 'AirportsController@showAirports');
 // administración
 Route::get('/admin', 'AdminController@showIndex');
+
+//Client
+Route::get('/admin/clients', 'ClientController@showClients');
+Route::get('/admin/client/orderBy/nombreAsc','ClientController@orderClientNameAsc');
+Route::get('/admin/client/orderBy/nombreDesc','ClientController@orderClientNameDesc');
+Route::get('/admin/client/orderBy/fechaNacimientoAsc','ClientController@orderClientDateAsc');
+Route::get('/admin/client/orderBy/fechaNacimientoDesc','ClientController@orderClientDateDesc');
+Route::post('/admin/client/buscar','ClientController@buscar');
+
+//Ticket
+Route::get('/tickets', 'TicketsController@showTickets');
+
+//Package
+Route::get('/packages', 'PackagesController@showPackages');

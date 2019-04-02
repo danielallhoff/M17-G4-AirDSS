@@ -9,6 +9,8 @@
     </head>
     <body>
     @include('menu')
+    @section('submenu')
+    @show
     @section('contenido')       
     @show  
     @include('footer')

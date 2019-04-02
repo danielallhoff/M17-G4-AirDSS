@@ -23,4 +23,7 @@ class Flight extends Model
     public function airportDestino(){
         return $this->belongsTo('App\Airport');
     }
+    public function capacidadRestante(){
+        return $this->capacidad - count($this->tickets());
+    }
 }
