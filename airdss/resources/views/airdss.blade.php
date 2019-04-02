@@ -1,4 +1,5 @@
 @extends('master')
+    <head><title>¡¡ Bienvenido !!</title></head>
 @section('contenido')
     <h1>BIENVENIDO A AIRDSS</h1>
     <p>Somos una nueva aerolínea, con base en Alicante.</p>
