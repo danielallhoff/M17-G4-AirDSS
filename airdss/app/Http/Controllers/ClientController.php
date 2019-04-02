@@ -65,16 +65,18 @@ class ClientController extends Controller
     }
     public function buscar(Request $request){
         $text = $request->buscar;
+        $text='%'.$text.'%';
         //$nombre= $request->buscar;
         //$nombre = '%%';
         $opcion = $request->opcion;
+        $opcion ='%'.$opcion.'%';
         $client;
 
         if ($opcion=="nombre") {
             $client = Client::where('nombre',$text)->paginate(5);
         }
         else{
-            $client = Client::where('dni',$text)->paginate(5);
+            $client = Client::where('dni','like',$text)->paginate(5);
         }
         //return view('listClient', ['clientes'=>$client])->with('opcion',$opcion)->with('text',$text);
         return view('listClient', ['clientes'=>$client]);
