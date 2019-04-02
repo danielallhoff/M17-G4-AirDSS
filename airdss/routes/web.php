@@ -11,12 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('airdss');
-});
-Route::get('/airdss', function () {
-    return view('airdss');
-});
+// inicio
+Route::get('/', 'InicioController@inicio');
+Route::get('/airdss', 'InicioController@inicio');
 
 // planes
 Route::get('/planes', 'PlanesController@showAll');
@@ -27,22 +24,29 @@ Route::get('/planes/orderBy/distancia', 'PlanesController@orderPlanesDistancia')
 Route::get('/planes/orderBy/capacidad', 'PlanesController@orderPlanesCapacidad');
 Route::get('/planes/addPlane', 'PlanesController@addPlane');
 Route::post('/planes/addPlane', 'PlanesController@create');
-Route::post('/planes', 'PlanesController@delete');
+Route::get('/plane{id}/delete', 'PlanesController@delete');
+Route::post('/plane{id}/delete', 'PlanesController@destroy');
 
 // boardingpass
 Route::get('/ticket{id}/boardingpasses', 'BoardingPassController@showBoardingTicket');
 
 //Flights
 Route::get('/flights', 'FlightsController@showAll');
+Route::get('/flights/add', 'FlightsController@addFlight');
+Route::post('/flights/add', 'FlightsController@add');
+Route::get('/flight{id}', 'FlightsController@showFlight');
 Route::get('/flight{id}/tickets', 'FlightsController@showTickets');
 Route::get('/flight{id}/boardingPasses', 'FlightsController@showBoardingPasses');
 Route::get('/flight{id}/plane', 'FlightsController@showPlanes');
-Route::get('/flights/orderBy/fechaSalida', 'FlightsController@orderFlightsDate');
-Route::get('/flights/orderBy/origen', 'FlightsController@orderFlightsOrigin');
-Route::get('/modificarFlight{id}', 'FlightsController@modificarFlight');
-Route::get('/eliminarFlight{id}', 'FlightsController@eliminarFlight');
+Route::get('/flights/orderBy/capacity', 'FlightsController@orderFlightsCapacity');
+Route::get('/flights/orderBy/salida', 'FlightsController@orderFlightsSalida');
+Route::get('/flight{id}/modify', 'FlightsController@modificarFlight');
+Route::get('/flight{id}/remove', 'FlightsController@eliminarFlight');
+Route::post('/flight{id}/modify', 'FlightsController@edit');
+
 //Airport
 Route::get('/airports', 'AirportsController@showAirports');
+
 // administración
 Route::get('/admin', 'AdminController@showIndex');
 
@@ -58,4 +62,6 @@ Route::post('/admin/client/buscar','ClientController@buscar');
 Route::get('/tickets', 'TicketsController@showTickets');
 
 //Package
+Route::get('/addPackages', 'PackagesController@addPackage');
 Route::get('/packages', 'PackagesController@showPackages');
+Route::get('/ticket{id}/packages', 'PackagesController@showTicketPackages');

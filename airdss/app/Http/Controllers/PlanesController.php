@@ -82,9 +82,7 @@ class PlanesController extends Controller
     public function delete($id)
     {
         $plane = Plane::find($id);
-        $plane->delete();
-
-        $planes = Plane::paginate(5);
-        return view('planes.planes', ['planes' => $planes]);
+        $plane->delete();       
+        return back();
     }
 }
