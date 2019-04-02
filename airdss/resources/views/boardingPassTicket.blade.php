@@ -15,7 +15,7 @@
                 <th>Modificar</th>
                 <th>Eliminar</th>
             </tr>
-            @foreach($boardingPasses as $pass)
+            @forelse($boardingPasses as $pass)
             <tr>
                 <td>{{$pass->asiento}}</td>
                 <td>{{$pass->puerta}}</td>
@@ -25,7 +25,9 @@
                 <td><a href="/boardingpass{{$pass->id}}/modify">Modificar</td>
                 <td><a href="/boardingpass">Eliminar</td>
             </tr>
-            @endforeach
+            @empty
+            <p>No hay tarjetas de embarque disponibles para este ticket</p>
+            @endforelse
         </table>
 
     </div>
