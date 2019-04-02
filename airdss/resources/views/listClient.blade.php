@@ -5,6 +5,16 @@
 @section('contenido')
     <div class="centrado">
         <h1>Clientes</h1>
+        <div class="buscador">
+            <form action="{{url('/admin/client/buscar')}}" method="POST">
+                {{ csrf_field() }}
+                <label for="nombre">Buscador</label>
+                <input type="text" name="nombre" id="nombre" value="Busca lo que desees">
+                <button type="submit">Enviar</button>
+
+                
+            </form>
+        </div>
         <table class="tabla" width="400px">
             <tr>
                 <th>DNI</th>
@@ -34,10 +44,10 @@
         <br>
         <!--<p>Ordenar por:</p>-->
         Ordenar por:
-        <a href="/client/orderBy/nombreAsc">Nombre Ascendente</a>
-        <a href="/client/orderBy/nombreDesc">Nombre Descendente</a>
-        <a href="/client/orderBy/fechaNacimientoAsc">Fecha Nacimiento Ascendente</a>
-        <a href="/client/orderBy/fechaNacimientoDesc">Fecha Nacimiento Descendente</a>
+        <a href="/admin/client/orderBy/nombreAsc">Nombre Ascendente</a>
+        <a href="/admin/client/orderBy/nombreDesc">Nombre Descendente</a>
+        <a href="/admin/client/orderBy/fechaNacimientoAsc">Fecha Nacimiento Ascendente</a>
+        <a href="/admin/client/orderBy/fechaNacimientoDesc">Fecha Nacimiento Descendente</a>
         <p>{{$clientes->links()}}</p>
     </div>
 @endsection
