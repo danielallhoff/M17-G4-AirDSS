@@ -1,4 +1,4 @@
-@extends('master')
+@extends('adminIndex')
 <head>
     <title>Alta de avión</title>
 </head>

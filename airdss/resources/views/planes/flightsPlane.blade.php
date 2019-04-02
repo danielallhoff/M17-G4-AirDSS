@@ -1,4 +1,4 @@
-@extends('master')
+@extends('adminIndex')
 <head>
     <title>Vuelos del avión {{$plane->id}}</title>
 </head>
