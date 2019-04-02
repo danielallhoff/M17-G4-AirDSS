@@ -82,14 +82,7 @@ class PlanesController extends Controller
     public function delete($id)
     {
         $plane = Plane::find($id);
-        return view('planes.deletePlane', ['plane' => $plane]);
-    }
-
-    public function destroy(Request $request)
-    {
-        $plane = Plane::find($request->id);
-        $plane->delete();
-
-        return redirect()->action('PlanesController@showAll');
+        $plane->delete();       
+        return back();
     }
 }

@@ -11,12 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('airdss');
-});
-Route::get('/airdss', function () {
-    return view('airdss');
-});
+// inicio
+Route::get('/', 'InicioController@inicio');
+Route::get('/airdss', 'InicioController@inicio');
 
 // planes
 Route::get('/planes', 'PlanesController@showAll');
