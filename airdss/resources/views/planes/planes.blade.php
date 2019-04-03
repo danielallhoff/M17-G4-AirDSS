@@ -6,7 +6,7 @@
     <div class="centrado">
         <h1>Aviones de la compañía 
         <a href="/planes/addPlane">
-        <button type="button">Añadir vuelo</button>
+        <button type="button">Añadir avión</button>
         </a>
         </h1>
         <table class="tabla">

@@ -12,8 +12,6 @@
                 <th>Fecha</th>
                 <th>Embarque</th>
                 <th>Llegada</th>
-                <th>Modificar</th>
-                <th>Eliminar</th>
             </tr>
             @forelse($boardingPasses as $pass)
             <tr>
@@ -22,8 +20,6 @@
                 <td>{{$pass->fecha}}</td>
                 <td>{{$pass->embarque}}</td>
                 <td>{{$pass->llegada}}</td>
-                <td><a href="/boardingpass{{$pass->id}}/modify">Modificar</td>
-                <td><a href="/boardingpass">Eliminar</td>
             </tr>
             @empty
             <p>No hay tarjetas de embarque disponibles para este ticket</p>

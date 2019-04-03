@@ -4,7 +4,7 @@
 </head>
 @section('contenido')
     <div class="centrado">
-    <h1>Iniciar Sesision</h1>
+    <h1>Iniciar Sesión</h1>
         <form method="post" action="">
             <label for="user">Usuario:</label>
             <input type="text" name="user" PlaceHolder="admin@example.com">
