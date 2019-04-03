@@ -16,69 +16,69 @@ class ClientController extends Controller
         return view('listClient',array ('clientes'=> $clientes)) ;
     }
     public function orderClientNameAsc(){
-        /*function array_sort_by(&$arrIni, $col, $order = SORT_ASC)
-        {
-            $arrAux = array();
-            foreach ($arrIni as $key=> $row)
-            {
-                $arrAux[$key] = is_object($row) ? $arrAux[$key] = $row->$col : $row[$col];
-                $arrAux[$key] = strtolower($arrAux[$key]);
-            }
-            array_multisort($arrAux, $order, $arrIni);
-        }
+        //$clientes = Client::orderBy('nombre', 'asc')->paginate(5);
 
-
-        */
-        /*$clientes;
-        if($opcion=="nombre"){
-            $clientes = Client::where('nombre',$text)->orderBy('nombre', 'asc')->paginate(5);
-        }
-        else if($opcion =="dni"){
-
+        $opcion=session('opcion');
+        if(session()->has('opcion')){
+            $clientes = Client::where($opcion,'like',session('text'))->orderBy('nombre', 'asc')->paginate(5);
         }
         else{
             $clientes = Client::orderBy('nombre', 'asc')->paginate(5);
-        }*/
-        $clientes = Client::orderBy('nombre', 'asc')->paginate(5);
-
-        /*$clientes = Client::all();
-        $aux = array();
-        foreach ($clientes as $cliente) {
-            $aux[]=$cliente;
-        }   
-        array_sort_by($aux, 'nombre',$order = SORT_ASC);*/
-        //echo gettype($clientes);
-        //$clientesM= asort($clientes);
+        }
+        
         return view('listClient' ,['clientes'=>$clientes]);
     }
     public function orderClientNameDesc(){
-        echo "ordenando por".session('opcion');
+        //echo "ordenando por ".session('opcion') .", con el texto ".session('text');
+        $opcion=session('opcion');
+        if(session()->has('opcion')){
+            $clientes = Client::where($opcion,'like',session('text'))->orderBy('nombre', 'desc')->paginate(5);
+        }
+        else{
+            $clientes = Client::orderBy('nombre', 'desc')->paginate(5);
+        }
         
-        $clientes = Client::orderBy('nombre', 'desc')->paginate(5);
         return view('listClient' ,['clientes'=>$clientes]);
     }
     public function orderClientDateAsc(){
-        $clientes = Client::orderBy('fechaNto','asc')->paginate(5);
+        //$clientes = Client::orderBy('fechaNto','asc')->paginate(5);
+
+        $opcion=session('opcion');
+        if(session()->has('opcion')){
+            $clientes = Client::where($opcion,'like',session('text'))->orderBy('fechaNto', 'asc')->paginate(5);
+        }
+        else{
+            $clientes = Client::orderBy('fechaNto', 'asc')->paginate(5);
+        }
         return view('listClient', ['clientes'=>$clientes]);
     }
     public function orderClientDateDesc(){
-        $clientes = Client::orderBy('fechaNto','desc')->paginate(5);
+        //$clientes = Client::orderBy('fechaNto','desc')->paginate(5);
+
+        $opcion=session('opcion');
+        if(session()->has('opcion')){
+            $clientes = Client::where($opcion,'like',session('text'))->orderBy('fechaNto', 'desc')->paginate(5);
+        }
+        else{
+            $clientes = Client::orderBy('fechaNto', 'desc')->paginate(5);
+        }
         return view('listClient', ['clientes'=>$clientes]);
     }
     public function buscar(Request $request){
         $text = $request->buscar;
         $text='%'.$text.'%';
-        //$nombre= $request->buscar;
-        //$nombre = '%%';
+
         $opcion = $request->opcion;
-        $client;
-        session(['opcion'=>$opcion]);
-        if ($opcion=="nombre") {
+        //$client;
+        //echo "texto".$text;
+        session(['opcion'=>$opcion,'text'=>$text]);
+        /*if ($opcion=="nombre") {
             $client = Client::where('nombre','like',$text)->paginate(5);
         }
         else{
             $client = Client::where('dni','like',$text)->paginate(5);
-        }
+        }*/
+        $client = Client::where($opcion,'like',$text)->paginate(5);
         //return view('listClient', ['clientes'=>$client])->with('opcion',$opcion)->with('text',$text);
         return view('listClient', ['clientes'=>$client]);
     }
