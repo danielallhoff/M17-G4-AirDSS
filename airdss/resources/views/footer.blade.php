@@ -1,3 +1,3 @@
 <div class="footer">
-    <p>Footer airdss@hotmail.com</p>
+    <p>E-mail : airdss@hotmail.com</p>
 </div>
