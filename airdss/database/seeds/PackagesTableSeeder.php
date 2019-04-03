@@ -14,13 +14,14 @@ class PackagesTableSeeder extends Seeder
     public function run()
     {
         //
+        $dmy = DateTime::createFromFormat('Y-m-d', '2000-12-15')->format('Y-m-d');
         $client = new Client([
             'dni'=>'00000001A',
             'nombre'=>'Juan',
             'apellidos'=>'Garcia Gonzales',
             'telefono' => 672000000,
             'email'=>'jgg@gmail.com',
-            'fechaNto'=>'15/12/2000'
+            'fechaNto'=>$dmy
         ]);
         $client->save();
 
