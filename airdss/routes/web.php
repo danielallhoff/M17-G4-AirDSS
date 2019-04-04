@@ -57,6 +57,9 @@ Route::get('/admin/client/nombreDesc','ClientController@orderClientNameDesc');
 Route::get('/admin/client/fechaNacimientoAsc','ClientController@orderClientDateAsc');
 Route::get('/admin/client/fechaNacimientoDesc','ClientController@orderClientDateDesc');
 Route::post('/admin/client/buscar','ClientController@buscar');
+Route::get('/eliminarClient{id}','ClientController@deleteClient');
+Route::get('/createClient','ClientController@createClient');
+Route::post('/createClient','ClientController@saveClient');
 
 //Ticket
 Route::get('/tickets', 'TicketsController@showTickets');

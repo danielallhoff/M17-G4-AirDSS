@@ -54,7 +54,4 @@
         <p>{{$clientes->links()}}</p>
     </div>
 @endsection
-<?php
 
-//echo gettype($clientes[0]);
-?>

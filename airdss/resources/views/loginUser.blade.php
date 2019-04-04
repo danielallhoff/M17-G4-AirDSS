@@ -13,7 +13,7 @@
             <input type="text" name="password"  PlaceHolder="Password">
             <br><br>
             <button type="submit" style="font-size:20px;border-radius:5px">Login</button>
-            <a href=""><button type="button" style="font-size:20px;border-radius:5px">Registrar</button></a>
+            <a href="/createClient"><button type="button" style="font-size:20px;border-radius:5px">Registrar</button></a>
         </form>
     </div>
 @endsection
