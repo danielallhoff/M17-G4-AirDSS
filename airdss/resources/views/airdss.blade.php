@@ -10,14 +10,14 @@
             <img src="../images/Puntual.jpg" alt="Avatar" style="width:100%;height:50%">
             <div class="container">
                 <h2><b>Puntual</b></h2> 
-                <p style="font-size:20px">AirDSS se destaca en el sector por ser la compañia mas puntual.</p> 
+                <p style="font-size:20px">AirDSS se destaca en el sector por ser la compañía más puntual.</p> 
             </div>
         </div>
         <div class="card">
             <img src="../images/Rapido.jpg" alt="Avatar" style="width:100%;height:50%">
             <div class="container">
                 <h2><b>Sencillo</b></h2> 
-                <p style="font-size:20px">En nuestra web podras comprar de manera rapida y sencilla tu próximo
+                <p style="font-size:20px">En nuestra web podrás comprar de manera rápida y sencilla tu próximo
                     vuelo.</p> 
             </div>
         </div>
