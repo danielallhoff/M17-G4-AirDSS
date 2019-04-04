@@ -19,7 +19,8 @@
                 <td>{{$ticket->codigo}}</td>
                 <td>{{$ticket->clase}}</td>
                 <td>{{$ticket->asiento}}</td>
-                <td><a href="/flight{{$ticket->flight_id}}">{{$ticket->flight_id}}</a></td> 
+                <!-- <td><a href="/flight{{$ticket->flight_id}}">{{$ticket->flight_id}}</a></td> -->
+                <td>{{$ticket->flight_id}}</td>
                 <td><a href="/ticket{{$ticket->id}}/boardingpasses">Tarjetas de embarque</a></td>
                 <td><a href="/ticket{{$ticket->id}}/packages">Packages</a></td>
             </tr>

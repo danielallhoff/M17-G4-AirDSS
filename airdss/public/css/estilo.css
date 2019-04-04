@@ -59,9 +59,12 @@ p{
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: rgb(192, 11, 26);
+    background-color: rgb(13, 111, 192);
     color: white;
     text-align: center;
+ }
+ .footer p{
+  color: white;
  }
   
 .cards {
@@ -88,4 +91,45 @@ p{
 
 .container {
   padding: 2px 16px;
+}
+
+.intro {
+  width:75%;
+  text-align: center;
+  padding-top: 5%;
+  background-image: url("../images/intro.jpg");
+  background-size: 100% 100%;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+.intro::after {
+  display: block;
+  position: relative;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, #fff 100%);
+  margin-top: 0px;
+  height: 150px;
+  width: 100%;
+  content: '';
+}
+
+.areaAdmin {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  background-color: black;
+  background-size: 100% 100%;
+}
+
+.optionTabla {
+  width:70%;
+  height: 15%;
+  font-size: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  color: #fff;
+  border-radius: 10px;
+  background-color:rgba(250, 250, 250, 0.336);
 }
