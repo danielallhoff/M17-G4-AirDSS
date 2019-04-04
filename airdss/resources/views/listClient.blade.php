@@ -37,7 +37,7 @@
                 <td>{{$client->telefono}}</td>
                 <td>{{$client->email}}</td>
                 <td>{{$client->fechaNto}}</td>
-                <td><a href="/modificarClient{{$client->id}}"> Modificar</a></td>
+                <td><a href="/modificarClient{{$client->id}}/modify"> Modificar</a></td>
                 <td><a href="/eliminarClient{{$client->id}}"> Eliminar</a></td>
             </tr>            
             @empty<p>No hay clientes</p>

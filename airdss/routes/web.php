@@ -60,6 +60,8 @@ Route::post('/admin/client/buscar','ClientController@buscar');
 Route::get('/eliminarClient{id}','ClientController@deleteClient');
 Route::get('/createClient','ClientController@createClient');
 Route::post('/createClient','ClientController@saveClient');
+Route::get('/modificarClient{id}/modify','ClientController@modify');
+Route::post('/modificarClient{id}/modify','ClientController@edit');
 
 //Ticket
 Route::get('/tickets', 'TicketsController@showTickets');

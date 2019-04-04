@@ -126,8 +126,8 @@ class ClientController extends Controller
         ]);*/
         $this->validate($request, [
             'dni'=>'required|alpha_dash|size:9',
-            'nombre'=>'required|alpha',
-            'apellidos'=>'required|alpha',
+            'nombre'=>'required|',
+            'apellidos'=>'required|',
             'telefono'=>'required|numeric|min:99999999',    //con size:9 no iba
             'email'=>'required|email',
             'fecha'=>'required|date',
@@ -147,4 +147,38 @@ class ClientController extends Controller
     }
     
     //---------------------------------------------------------------------------------
+
+
+    //Modificar cliente----------------------------------------------------------------
+    public function modify($id){
+        $cliente = Client::findOrFail($id);
+        return view('editClient',['cliente'=>$cliente]);
+    }
+    public function edit(Request $request){
+
+
+        $this->validate($request, [
+            'dni'=>'required|alpha_dash|size:9',
+            'nombre'=>'required|',
+            'apellidos'=>'required|',
+            'telefono'=>'required|numeric|min:99999999',    //con size:9 no iba
+            'email'=>'required|email',
+            'fecha'=>'required|date',
+            ]);
+        $cliente = Client::findOrFail($request->id);
+        
+        $cliente->dni=$request->dni;
+        $cliente->nombre= $request->nombre;
+        $cliente->apellidos= $request->apellidos;
+        $cliente->telefono=$request->telefono;
+        $cliente->email=$request->email;
+        $cliente->fechaNto=$request->fecha;
+
+        $cliente->save();
+        //return view('editClient',['cliente'=>$cliente]);
+        
+        //return view('listClient');
+        return redirect()->action('ClientController@showClients');
+    }
+
 }
