@@ -32,4 +32,9 @@ class AirportsController extends Controller
         $airports = Airport::paginate(5);
         return view('airports', array('airports' => $airports));
     }
+
+    public function showAirport($id){
+        $airport = Airport::findOrFail($id);
+        return view('airports', array('airports'=> $airport));
+    }
 }

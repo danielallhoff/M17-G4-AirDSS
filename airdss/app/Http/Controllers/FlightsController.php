@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Flight;
-
+use App\Airport;
 class FlightsController extends Controller
 {
     public function showAll(){
@@ -34,8 +34,8 @@ class FlightsController extends Controller
         return view('planes', array('planes' => $plane));
     }
 
-    public function orderFlightsCapacity(){
-        $flights = Flight::orderBy('capacidadRestante')->paginate(5);
+    public function orderFlightsOrigin(){
+        $flights = Flight::orderBy('airportOrigen', 'desc')->paginate(5);
         return view('flights.flights', array('flights'=> $flights));
     }
 
@@ -45,48 +45,59 @@ class FlightsController extends Controller
     }
     public function modificarFlight($id){
         $flight = Flight::findOrFail($id);
-        return view('flights.modifyFlight', array('flight' =>$flight));
+        $airports = Airport::all();
+        return view('flights.modifyFlight', array('flight' =>$flight , 'airports'=>$airports));
     }
     public function eliminarFlight($id){
         $flight = Flight::findOrFail($id);
         $flight->delete();
-        return view('FlightsController@showAll');
+        return back();
     }
 
     public function add(Request $request){
         $this->validate($request, [
-            'AeropuertoOrigen' => 'required|alpha_dash',
-            'AeropuertoDestino' => 'required|alpha_dash',
-            'fechaSalida' => 'required|numeric|min:0',
-            'fechaLlegada' => 'required|numeric|min:0',
+            'origen' => 'required',
+            'destino' => 'required',
+            'capacidad' => 'required|integer|min:1',
+            'salida' => 'required',
+            'llegada' => 'required'
+
+            //'salida' => 'required|date_format:d/m/Y H|before:llegada',
+            //'llegada' => 'required|date_format:d/m/Y h|after_or_equal:salida'
             ]);
         $flight = new Flight();
-        $flight->$aeropuertoOrigen = $request->input('AeropuertoOrigen');
-        $flight->$aeropuertoDestino = $request->input('AeropuertoDestino');
-        $flight->$fechaSalida = $request->input('fechaSalida');
-        $flight->$fechaLlegada = $request->input('fechaLlegada');
+        $flight->capacidad = $request->input('capacidad');
+        $flight->airport_origen_id = $request->input('origen');
+        $flight->airport_destino_id = $request->input('destino');
+        $flight->fecha_salida = $request->input('salida');
+        $flight->fecha_llegada = $request->input('llegada');
         $flight->save();
 
-        return view('FlightsController@showAll');
+        return $this->showAll();
     }
-
     public function edit(Request $request){
+        $flight = Flight::findOrFail($request->id);
         $this->validate($request, [
-            'AeropuertoOrigen' => 'required|alpha_dash',
-            'AeropuertoDestino' => 'required|alpha_dash',
-            'fechaSalida' => 'required|numeric|min:0',
-            'fechaLlegada' => 'required|numeric|min:0',
+            'origen' => 'required',
+            'destino' => 'required',
+            'capacidad' => 'required|integer|min:'.$flight->capacidadRestante(),
+            'salida' => 'required',
+            'llegada' => 'required'
+
+            //'salida' => 'required|date_format:d/m/Y h:i:s|before:llegada',
+            //'llegada' => 'required|date_format:d/m/Y h:i:s|after_or_equal:salida'
             ]);
-        $flight = Flight::find($request->id);
-        $flight->$aeropuertoOrigen = $request->input('AeropuertoOrigen');
-        $flight->$aeropuertoDestino = $request->input('AeropuertoDestino');
-        $flight->$fechaSalida = $request->input('fechaSalida');
-        $flight->$fechaLlegada = $request->input('fechaLlegada');
+        $flight->capacidad = $request->input('capacidad');
+        $flight->airport_origen_id = $request->input('origen');
+        $flight->airport_destino_id = $request->input('destino');
+        $flight->fecha_salida = $request->input('salida');
+        $flight->fecha_llegada = $request->input('llegada');
         $flight->save();
-        return view('FlightsController@showAll');
+        return $this->showAll();
     }
 
     public function addFlight(){
-        return view('flights.addFlight');
+        $airports = Airport::all();
+        return view('flights.addFlight', array('airports'=>$airports));
     }
 }

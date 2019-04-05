@@ -20,8 +20,9 @@
             </tr>
             @forelse($flights as $flight)
             <tr>
-                <td><a href="/airport{{$flight->airportOrigen->id}}"> {{$flight->airportOrigen->ciudad}}</a></td>
-                <td><a href="/airport{{$flight->airportDestino->id}}"> {{$flight->airportDestino->ciudad}}</a></td>
+                <!--<td><a href="/airport{{$flight->airportOrigen->id}}"> {{$flight->airportOrigen->codigo}}-{{$flight->airportOrigen->ciudad}}</a></td>-->
+                <td>{{$flight->airportOrigen->codigo}}-{{$flight->airportOrigen->ciudad}}</td>
+                <td>{{$flight->airportOrigen->codigo}}-{{$flight->airportDestino->ciudad}}</td>
                 <td>{{$flight->fecha_salida}}</td>
                 <td>{{$flight->fecha_llegada}}</td>
                 <td>{{$flight->capacidadRestante()}}</td>
@@ -34,7 +35,7 @@
         </table>
         <br>
         Ordenar por: 
-        <a href="/flights/orderBy/capacity">Capacidad</a>
+        <a href="/flights/orderBy/origin">Aeropuerto Origen</a>
         <a href="/flights/orderBy/salida">Fecha salida</a>
         <p>{{$flights->links()}}</p>
     </div>
