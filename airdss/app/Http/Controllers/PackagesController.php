@@ -10,13 +10,17 @@ class PackagesController extends Controller
     //Mostrar todos los paquetes
     public function showPackages(){
         $packages = Package::paginate(5);
-        return view('packages',array ('packages'=> $packages));
+        return view('listPackages',array ('packages'=> $packages));
     }
-
+    public function removePackage($id){
+        $package = Package::findOrFail($id);
+        $package->delete();
+        return back();
+    }
     //Mostar packages relacionados con un ticket
     public function showTicketPackages($id) {
         $ticket = Ticket::findOrFail($id);
-        $packages = $ticket->packages;
+        $packages = Package::where('ticket_id','like',$id)->paginate(10);
         return view('packages',array ('ticket' => $ticket, 'packages'=> $packages));
     }
 

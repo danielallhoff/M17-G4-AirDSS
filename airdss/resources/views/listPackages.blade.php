@@ -1,10 +1,10 @@
-@extends('master')
+@extends('adminIndex')
 <head>
-    <title>Equipaje | Ticket {{$ticket->id}}</title>
+    <title>Equipaje</title>
 </head>
 @section('contenido')
     <div class="centrado">
-        <h1>Equipaje del Ticket {{$ticket->id}}</h1>
+        <h1>Equipajes</h1>
         <table class="tabla" width="400px">
             <tr>
                 <th>Peso</th>
@@ -12,7 +12,7 @@
                 <th>Largo</th>
                 <th>Alto</th>
                 <th>Volumen</th>
-                <th>Eliminar </th>
+                <th>Eliminar</th>
             </tr>
             @forelse($packages as $package)
             <tr>
@@ -24,14 +24,10 @@
                 <td><a href="/package{{$package->id}}/remove">Eliminar</a></td>
             </tr>
             @empty
-                <p>No hay equipaje facturado con este Ticket!</p>
+                <p>No hay equipajes existentes!</p>
             @endforelse
         </table>
         <br>
-        <!--<p>Ordenar por:</p>-->
-        <h4>Ordenar por:</h4>
-        <a href="/ticket{{$ticket->id}}/packages/pesoAsc"><button style="font-size:20px;border-radius:5px" type="button">Peso Ascendente</button></a>
-        <a href="/ticket{{$ticket->id}}/packages/pesoDesc"><button style="font-size:20px;border-radius:5px" type="button">Peso Descendente</button></a>
         <p>{{$packages->links()}}</p>
     </div>
 @endsection

@@ -33,8 +33,9 @@ class AirportsController extends Controller
         return view('airports', array('airports' => $airports));
     }
 
-    public function showAirport($id){
+    public function removeAirport($id){
         $airport = Airport::findOrFail($id);
-        return view('airports', array('airports'=> $airport));
+        $airport->delete();
+        return back();
     }
 }

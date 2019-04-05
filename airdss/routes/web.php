@@ -46,7 +46,7 @@ Route::post('/flight{id}/modify', 'FlightsController@edit');
 
 //Airport
 Route::get('/airports', 'AirportsController@showAirports');
-Route::get('/airport{id}', 'AirportsController@showAirport');
+Route::get('/airport{id}/remove', 'AirportsController@removeAirport');
 
 // administración
 Route::get('/admin', 'AdminController@showIndex');
@@ -70,10 +70,12 @@ Route::get('/ticket/codigoAsc', 'TicketsController@orderTicketsCodAsc');
 Route::get('/ticket/codigoDesc', 'TicketsController@orderTicketsCodDesc');
 Route::get('/ticket/claseAsc', 'TicketsController@orderTicketsClaseAsc');
 Route::get('/ticket/claseDesc', 'TicketsController@orderTicketsClaseDesc');
+Route::get('/ticket{id}/remove', 'TicketsController@removeTicket');
 
 //Package
 Route::get('/addPackages', 'PackagesController@addPackage');
 Route::get('/packages', 'PackagesController@showPackages');
+Route::get('/package{id}/remove', 'PackagesController@removePackage');
 Route::get('/ticket{id}/packages/pesoAsc', 'PackagesController@orderPackagesPesoAsc');
 Route::get('/ticket{id}/packages/pesoDesc', 'PackagesController@orderPackagesPesoDesc');
 Route::get('/ticket{id}/packages', 'PackagesController@showTicketPackages');

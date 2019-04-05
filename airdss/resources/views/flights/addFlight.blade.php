@@ -5,6 +5,9 @@
 @section('contenido')
     <div class="centrado">
         <h1>Añadir vuelo</h1>
+        @if($creado == 1)
+            <p>Avión creado correctamente</p>
+        @endif
         <form action="/flights/add" method="post">
             {{ csrf_field() }}
             <table class="tabla">

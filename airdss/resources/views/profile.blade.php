@@ -4,17 +4,15 @@
     <div class="centrado">
         <h1>Perfil {{$cliente->nombre}}</h1>
         <table class="tabla">
-            
             <tr>
-                <td><a href="/airport{{$flight->airportOrigen->id}}"> {{$flight->airportOrigen->ciudad}}</a></td>
-                <td><a href="/airport{{$flight->airportDestino->id}}"> {{$flight->airportDestino->ciudad}}</a></td>
-                <td>{{$flight->fecha_salida}}</td>
-                <td>{{$flight->fecha_llegada}}</td>
-                <td>{{$flight->capacidadRestante()}}</td>
-                <td><a href="/flight{{$flight->id}}/modify"> Modificar</a></td>
-                <td><a href="/flight{{$flight->id}}/remove"> Eliminar</a></td>
+                <td>DNI: {{$cliente->dni}}</td>
+                <td>Nombre: {{$cliente->nombre}}</td>
+                <td>Apellidos: {{$cliente->apellidos}}</td>
+                <td>Telefono: {{$cliente->telefono}}</td>
+                <td>Email: {{$cliente->email}}</td>
+                <td>Fecha nacimiento: {{$cliente->fechaNto}}</td>
+                <td>Edad actual: {{$cliente->edad()}}</td>
             </tr>
-            
         </table>
     </div>
 @endsection

@@ -14,6 +14,12 @@ class TicketsController extends Controller
         return view('tickets',array ('tickets'=> $tickets)) ;
     }
 
+    public function removeTicket($id){
+        $ticket = Ticket::findOrFail($id);
+        $ticket->delete();
+        return back();
+    }
+
     //Ordenar Tickets por clase descendente
     public function orderTicketsClaseDesc (){
         $tickets = Ticket::orderBy('clase','desc')->paginate(10);

@@ -46,7 +46,7 @@ class FlightsController extends Controller
     public function modificarFlight($id){
         $flight = Flight::findOrFail($id);
         $airports = Airport::all();
-        return view('flights.modifyFlight', array('flight' =>$flight , 'airports'=>$airports));
+        return view('flights.modifyFlight', array('flight' =>$flight , 'airports'=>$airports,'modificado'=>0));
     }
     public function eliminarFlight($id){
         $flight = Flight::findOrFail($id);
@@ -73,7 +73,7 @@ class FlightsController extends Controller
         $flight->fecha_llegada = $request->input('llegada');
         $flight->save();
 
-        return $this->showAll();
+        return view('flights.addFlight', array('creado'=>1));;
     }
     public function edit(Request $request){
         $flight = Flight::findOrFail($request->id);
@@ -85,7 +85,7 @@ class FlightsController extends Controller
             'llegada' => 'required'
 
             //'salida' => 'required|date_format:d/m/Y h:i:s|before:llegada',
-            //'llegada' => 'required|date_format:d/m/Y h:i:s|after_or_equal:salida'
+            //'llegada' => 'required|date_foarmat:d/m/Y h:i:s|after_or_equal:salida'
             ]);
         $flight->capacidad = $request->input('capacidad');
         $flight->airport_origen_id = $request->input('origen');
@@ -93,11 +93,13 @@ class FlightsController extends Controller
         $flight->fecha_salida = $request->input('salida');
         $flight->fecha_llegada = $request->input('llegada');
         $flight->save();
-        return $this->showAll();
+        
+        $airports = Airport::all();
+        return view('flights.modifyFlight', array('airports'=>$airports,'flight'=>$flight,'modificado'=>1));
     }
 
     public function addFlight(){
         $airports = Airport::all();
-        return view('flights.addFlight', array('airports'=>$airports));
+        return view('flights.addFlight', array('airports'=>$airports, 'creado'=>0));
     }
 }

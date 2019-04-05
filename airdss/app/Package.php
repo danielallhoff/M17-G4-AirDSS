@@ -10,4 +10,8 @@ class Package extends Model
     {
         return $this->belongsTo('App\Ticket'); 
     }
+
+    public function volumen(){
+        return $this->ancho * $this->largo * $this->alto;
+    }
 }

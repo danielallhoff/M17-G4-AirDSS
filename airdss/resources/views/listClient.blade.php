@@ -26,6 +26,7 @@
                 <th>Telefono</th>
                 <th>Email</th>
                 <th>FechaNacimiento</th>
+                <th>Edad</th>
                 <th>Modificar</th>
                 <th>Eliminar</th>
             </tr>
@@ -37,6 +38,7 @@
                 <td>{{$client->telefono}}</td>
                 <td>{{$client->email}}</td>
                 <td>{{$client->fechaNto}}</td>
+                <td>{{$client->edad()}}</td>
                 <td><a href="/modificarClient{{$client->id}}/modify"> Modificar</a></td>
                 <td><a href="/eliminarClient{{$client->id}}"> Eliminar</a></td>
             </tr>            
