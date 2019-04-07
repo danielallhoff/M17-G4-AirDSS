@@ -80,7 +80,7 @@ class FlightsController extends Controller
         $this->validate($request, [
             'origen' => 'required',
             'destino' => 'required',
-            'capacidad' => 'required|integer|min:'.$flight->capacidadRestante(),
+            'capacidad' => 'required|integer|min:'.(count($flight->tickets())),
             'salida' => 'required',
             'llegada' => 'required'
 
