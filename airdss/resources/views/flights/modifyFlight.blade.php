@@ -4,9 +4,9 @@
 </head>
 @section('contenido')
     <div class="centrado">
-        <h1>Modificación de avión{{$flight->id}}</h1>
+        <h1>Modificación de vuelo{{$flight->id}}</h1>
         @if($modificado == 1)
-            <p>Avión{{$flight->id}} modificado correctamente</p>
+            <p>Vuelo{{$flight->id}} modificado correctamente</p>
         @endif
         <form method="post" action="/flight{{$flight->id}}/modify" >
             {{ csrf_field() }}
