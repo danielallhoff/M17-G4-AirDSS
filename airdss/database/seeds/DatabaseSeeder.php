@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         //Mirar en que orden ejecutar los distintos seeders
 
-        $this->call(ClientTableSeeder::class);
+        $this->call(UsersTableSeeder::class);
         $this->call(PlanesTableSeeder::class);
         $this->call(FlightsTableSeeder::class);
         $this->call(AirportTableSeeder::class);

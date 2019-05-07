@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Ticket;
-use App\Client;
+use App\User;
 use App\Package;
 use App\Plane;
 use App\Flight;
@@ -48,15 +48,17 @@ class PackagesTableSeeder extends Seeder
         $flight->save();
 
         $dmy = DateTime::createFromFormat('Y-m-d', '2000-12-15')->format('Y-m-d');
-        $client = new Client([
+        $User = new User([
             'dni'=>'10000001A',
-            'nombre'=>'Alejandro',
+            'name'=>'Alejandro',
             'apellidos'=>'Garcia Puerta',
             'telefono' => 672000000,
             'email'=>'agp@gmail.com',
-            'fechaNto'=>$dmy
+            'fechaNto'=>$dmy,
+            'password' => '1234',
+            'esAdmin' => 0
         ]);
-        $client->save();
+        $User->save();
 
         $ticket = new Ticket([
             'codigo' => 222,
@@ -65,7 +67,7 @@ class PackagesTableSeeder extends Seeder
             'fecha' => '3/04/2019'
         ]);
         
-        $ticket->client()->associate($client);
+        $ticket->User()->associate($User);
         $ticket->flight()->associate($flight);
         $ticket->save();
 
@@ -139,15 +141,17 @@ class PackagesTableSeeder extends Seeder
         $flight->save();
 
         $dmy = DateTime::createFromFormat('Y-m-d', '1997-5-4')->format('Y-m-d');
-        $client = new Client([
+        $user = new User([
             'dni'=>'10000002A',
-            'nombre'=>'David',
+            'name'=>'David',
             'apellidos'=>'Diaz Puerta',
             'telefono' => 672000000,
             'email'=>'ddp@gmail.com',
-            'fechaNto'=>$dmy
+            'fechaNto'=>$dmy,
+            'password' => '1234',
+            'esAdmin' => 0
         ]);
-        $client->save();
+        $user->save();
 
         $ticket = new Ticket([
             'codigo' => 109,
@@ -156,7 +160,7 @@ class PackagesTableSeeder extends Seeder
             'fecha' => '5/04/2019'
         ]);
         
-        $ticket->client()->associate($client);
+        $ticket->User()->associate($User);
         $ticket->flight()->associate($flight);
         $ticket->save();
 
@@ -220,15 +224,17 @@ class PackagesTableSeeder extends Seeder
         $flight->save();
 
         $dmy = DateTime::createFromFormat('Y-m-d', '1989-1-17')->format('Y-m-d');
-        $client = new Client([
+        $user = new User([
             'dni'=>'10000003A',
-            'nombre'=>'Marisol',
+            'name'=>'Marisol',
             'apellidos'=>'Arriola Echeverria',
             'telefono' => 672000000,
             'email'=>'mae@gmail.com',
-            'fechaNto'=>$dmy
+            'fechaNto'=>$dmy,
+            'password' => '1234',
+            'esAdmin' => 0
         ]);
-        $client->save();
+        $user->save();
 
         $ticket = new Ticket([
             'codigo' => 110,
@@ -237,7 +243,7 @@ class PackagesTableSeeder extends Seeder
             'fecha' => '9/04/2019'
         ]);
         
-        $ticket->client()->associate($client);
+        $ticket->user()->associate($User);
         $ticket->flight()->associate($flight);
         $ticket->save();
 

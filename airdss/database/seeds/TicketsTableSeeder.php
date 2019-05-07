@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Ticket;
-use App\Client;
+use App\User;
 use App\Flight;
 use App\BoardingPass;
 use App\Plane;
@@ -18,13 +18,15 @@ class TicketsTableSeeder extends Seeder
     public function run()
     {
         $dmy = DateTime::createFromFormat('Y-m-d', '2000-12-15')->format('Y-m-d');
-        $client = new Client([
+        $client = new User([
             'dni'=>'00000000A',
-            'nombre'=>'Juan',
+            'name'=>'Juan',
             'apellidos'=>'Garcia Gonzales',
             'telefono' => 672000000,
             'email'=>'jgg@gmail.com',
-            'fechaNto'=>$dmy
+            'fechaNto'=>$dmy,
+            'password' => '1234',
+            'esAdmin' => 0
         ]);
         $client->save();
 
