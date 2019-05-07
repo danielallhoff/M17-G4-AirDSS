@@ -15,4 +15,9 @@ class InicioController extends Controller
     {
         return view('contacto.contacto');
     }
+
+    public function informacion()
+    {
+        return view('infoProyecto');
+    }
 }

@@ -14,6 +14,7 @@
 // inicio
 Route::get('/', 'InicioController@inicio');
 Route::get('/airdss', 'InicioController@inicio');
+Route::get('/info', 'InicioController@informacion');
 
 // planes
 Route::get('/planes', 'PlanesController@showAll');
