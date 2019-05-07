@@ -11,4 +11,8 @@ class InicioController extends Controller
     {
         return view('airdss');
     }
+    public function contacto()
+    {
+        return view('contacto.contacto');
+    }
 }

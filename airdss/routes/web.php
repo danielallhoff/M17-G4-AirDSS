@@ -85,3 +85,6 @@ Route::get('/loginUser', 'TicketsController@showLogin');
 
 //Profile
 Route::get('/profile', 'ProfileController@show');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

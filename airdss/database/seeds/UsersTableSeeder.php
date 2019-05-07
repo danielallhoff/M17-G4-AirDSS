@@ -13,7 +13,7 @@ class UsersTableSeeder extends Seeder
     {
         $user= new User([
             'name'=>'daniel41735',
-            'email'=>'dani.allhoff@hotmail.com'
+            'email'=>'dani.allhoff@hotmail.com',
             'password'=>'1234'
         ]);
         $user->save();
