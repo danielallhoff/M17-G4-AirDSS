@@ -14,8 +14,8 @@ class AddForeignToTicketsTable extends Migration
     public function up()
     {
         Schema::table('tickets', function (Blueprint $table) {
-            $table->integer('client_id')->nullable();
-            $table->foreign('client_id')->references('id')->on('clients');
+            $table->integer('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->integer('flight_id')->nullable();
             $table->foreign('flight_id')->references('id')->on('flights');
         });

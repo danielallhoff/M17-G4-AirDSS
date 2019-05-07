@@ -11,21 +11,8 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-<<<<<<< HEAD
-        $user= new User([
-            'name'=>'daniel41735',
-            'email'=>'dani.allhoff@hotmail.com',
-            'password'=>'1234'
-        ]);
-        $user->save();
-        $user= new User([
-            'name'=>'davidrizo',
-            'email'=>'davidrizo@ua.es',
-            'password'=>'1234'
-        ]);
-        $user->save();
-=======
-        DB::table('user')->delete();
+
+        DB::table('users')->delete();
 
         $dnis = ['50547898r','65847521r','98756425q','74855628f','56541232v','65547582p','30259564m','20568479d'];
         $nombres =['Juan','Francisco','Javier','Marta','Veronica','Eva','Ines','Alba'];
@@ -55,6 +42,6 @@ class UsersTableSeeder extends Seeder
             ]);
             $user->save();
         }
->>>>>>> master
+
     }
 }

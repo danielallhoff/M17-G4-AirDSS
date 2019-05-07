@@ -71,7 +71,7 @@ class TicketsTableSeeder extends Seeder
             'fecha' => '19/03/2019'
         ]);
         
-        $ticket->client()->associate($client);
+        $ticket->user()->associate($client);
         $ticket->flight()->associate($flight);
         $ticket->save();
         //Comprobamos varios boardingpass asociados a un ticket
@@ -117,7 +117,7 @@ class TicketsTableSeeder extends Seeder
             'fecha' => '20/03/2019'
         ]);
 
-        $ticket->client()->associate($client);
+        $ticket->user()->associate($client);
         $ticket->flight()->associate($flight);
         $ticket->save();
 
@@ -143,7 +143,7 @@ class TicketsTableSeeder extends Seeder
             'fecha' => '26/04/2019'
         ]);
 
-        $ticket->client()->associate($client);
+        $ticket->user()->associate($client);
         $ticket->flight()->associate($flight);
         $ticket->save();
 
@@ -157,7 +157,7 @@ class TicketsTableSeeder extends Seeder
             'fecha' => '30/05/2019'
         ]);
 
-        $ticket->client()->associate($client);
+        $ticket->user()->associate($client);
         $ticket->flight()->associate($flight);
         $ticket->save();
 
@@ -171,7 +171,7 @@ class TicketsTableSeeder extends Seeder
             'fecha' => '10/06/2019'
         ]);
 
-        $ticket->client()->associate($client);
+        $ticket->user()->associate($client);
         $ticket->flight()->associate($flight);
         $ticket->save();
 
@@ -185,7 +185,7 @@ class TicketsTableSeeder extends Seeder
             'fecha' => '12/06/2019'
         ]);
 
-        $ticket->client()->associate($client);
+        $ticket->user()->associate($client);
         $ticket->flight()->associate($flight);
         $ticket->save();
 
@@ -199,7 +199,7 @@ class TicketsTableSeeder extends Seeder
             'fecha' => '09/08/2019'
         ]);
 
-        $ticket->client()->associate($client);
+        $ticket->user()->associate($client);
         $ticket->flight()->associate($flight);
         $ticket->save();
 
@@ -223,7 +223,7 @@ class TicketsTableSeeder extends Seeder
             'fecha' => '24/12/2019'
         ]);
 
-        $ticket->client()->associate($client);
+        $ticket->user()->associate($client);
         $ticket->flight()->associate($flight);
         $ticket->save();
         
