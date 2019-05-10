@@ -55,7 +55,7 @@ class PackagesTableSeeder extends Seeder
             'telefono' => 672000000,
             'email'=>'agp@gmail.com',
             'fechaNto'=>$dmy,
-            'password' => '1234',
+            'password' => bcrypt('1234'),
             'esAdmin' => 0
         ]);
         $User->save();
@@ -148,7 +148,7 @@ class PackagesTableSeeder extends Seeder
             'telefono' => 672000000,
             'email'=>'ddp@gmail.com',
             'fechaNto'=>$dmy,
-            'password' => '1234',
+            'password' => bcrypt('1234'),
             'esAdmin' => 0
         ]);
         $user->save();
@@ -231,7 +231,7 @@ class PackagesTableSeeder extends Seeder
             'telefono' => 672000000,
             'email'=>'mae@gmail.com',
             'fechaNto'=>$dmy,
-            'password' => '1234',
+            'password' => bcrypt('1234'),
             'esAdmin' => 0
         ]);
         $user->save();

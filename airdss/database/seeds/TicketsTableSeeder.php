@@ -25,7 +25,7 @@ class TicketsTableSeeder extends Seeder
             'telefono' => 672000000,
             'email'=>'jgg@gmail.com',
             'fechaNto'=>$dmy,
-            'password' => '1234',
+            'password' => bcrypt('1234'),
             'esAdmin' => 0
         ]);
         $client->save();
