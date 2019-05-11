@@ -13,7 +13,8 @@ class InicioController extends Controller
     }
     public function contacto()
     {
-        return view('contacto.contacto');
+        //return view('contacto.contacto');
+        return view('contactUs');
     }
 
     public function informacion()
