@@ -18,6 +18,6 @@ class InicioController extends Controller
 
     public function informacion()
     {
-        return view('infoProyecto');
+        return view('about_us.infoProyecto');
     }
 }

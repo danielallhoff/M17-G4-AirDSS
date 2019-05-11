@@ -16,14 +16,38 @@ html{
 }
 
 .tabla{
-    width:70%;
+    width:100%;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
     background-color:rgb(250,250,250);
-    box-shadow: 5px 1px 3px #888;
-
+    border-collapse: collapse;
 }
+
+.tabla th, td {
+  text-align: center;
+  padding: 8px;
+}
+.tabla tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.tabla th {
+  background-color: rgb(13, 111, 192);
+  color: white;
+}
+
+.button_tabla {
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  font-size:20px;
+  border-color: none;
+  border-radius:5px;
+}
+.button_tabla:hover {
+  color: #fff;
+  background-color: rgb(13, 111, 192);
+}
+
 ul {
     list-style-type: none;
     text-align: center;
@@ -69,7 +93,7 @@ p{
  .footer p{
   color: white;
  }
-  
+  /*Pagina de bienvenida*/
 .cards {
     font-family: calibri;
     box-sizing: border-box;
@@ -116,6 +140,19 @@ p{
   content: '';
 }
 
+.boton_filtrar {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  font-size: 20px;
+  border-radius:5px
+}
+
+.boton_filtrar:hover {
+  border: 2px solid rgb(15, 131, 226);
+}
+
+/*Pagina de area administrativa*/
 .areaAdmin {
   width: 80%;
   margin-left: auto;
@@ -135,4 +172,49 @@ p{
   color: #fff;
   border-radius: 10px;
   background-color:rgba(250, 250, 250, 0.336);
+}
+
+/*Pagina de informacion*/
+.info_container {
+  width:75%;
+  text-align: left;
+  padding-top: 2%;
+  background-size: 100% 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.info_container::after {
+  display: block;
+  position: relative;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, #fff 100%);
+  margin-top: 0px;
+  height: 150px;
+  width: 100%;
+  content: '';
+}
+.info_container a {
+  color: rgb(15, 131, 226);
+  font-size: 70px;
+}
+.info_container p {
+  color: rgb(0, 0, 0);
+  font-size: 25px;
+}
+
+.info_container img {
+  width: 100%;
+  height: auto;
+}
+.boton_contacto-info {
+  
+  font-size: 30px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(15, 131, 226);
+  border-radius: 5px;
+} 
+
+.boton_contacto-info:hover {
+  color: rgb(255, 255, 255);
+  text-decoration: underline;
+  background-color: rgb(21, 112, 187);
 }
