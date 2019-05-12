@@ -10,23 +10,17 @@
     <!-- Grid row -->
     <div class="row">
 
-      <!-- Grid column -->
-      <div class="col-sm-3">
-        <a href="/flights"> Vuelos</a>
-      </div>
-      <!-- Grid column -->
-
-      <div class="col-sm-3">
+      <div class="col-sm-4">
         <!-- Content -->
         <a href="/profile"> Mi perfil </a>
       </div>
       <!-- Grid column -->
-      <div class="col-sm-3">
+      <div class="col-sm-4">
         <!-- Content -->
         <a href="/info"> Acerca de nosotros </a>
       </div>
       <!-- Grid column -->
-      <div class="col-sm-3">
+      <div class="col-sm-4">
         <!-- Content -->
         <a href="/contacto"> Contacto </a>
       </div>

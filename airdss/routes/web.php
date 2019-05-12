@@ -68,6 +68,7 @@ Route::post('/modificarClient{id}/modify','ClientController@edit');
 
 //Ticket
 Route::get('/tickets', 'TicketsController@showTickets');
+Route::get('/tickets{id}', 'TicketsController@showTicketsfromUser');
 Route::get('/ticket/codigoAsc', 'TicketsController@orderTicketsCodAsc');
 Route::get('/ticket/codigoDesc', 'TicketsController@orderTicketsCodDesc');
 Route::get('/ticket/claseAsc', 'TicketsController@orderTicketsClaseAsc');
@@ -84,7 +85,8 @@ Route::get('/ticket{id}/packages', 'PackagesController@showTicketPackages');
 
 //Usuario
 Route::get('/loginUser', 'TicketsController@showLogin');
-Route::get('/logout', 'LoginController@logout');
+Route::get('/logout', 'Auth\LoginController@logout');
+
 
 //Profile
 Route::get('/profile', 'ProfileController@show');

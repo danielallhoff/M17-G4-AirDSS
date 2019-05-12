@@ -3,6 +3,7 @@
         <title>Inicio | Bienvenido</title>
     </head>
 @section('contenido')
+<div class="container-fluid">
     <div class="intro">
         <p style="font-size:70px;color:white">Bienvenido a AirDSS</p>
         <p style="font-size:30px;color:white">Le damos vuelo a tus sueños.</p>
@@ -31,4 +32,5 @@
             </div>
         </div>
     </div>
+</div>
 @endsection

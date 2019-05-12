@@ -6,6 +6,7 @@
 
 </head>
 @section('contenido')
+<div class="contenido">
     <div class="centrado">
         <h1>Equipaje del Ticket {{$ticket->id}}</h1>
         <table class="table" width="400px">
@@ -37,4 +38,5 @@
         <a href="/ticket{{$ticket->id}}/packages/pesoDesc"><button class="boton_filtrar" type="button">Peso Descendente</button></a>
         <p>{{$packages->links()}}</p>
     </div>
+</div>
 @endsection

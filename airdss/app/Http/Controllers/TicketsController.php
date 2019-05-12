@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Ticket;
 use App\Flight;
+use App\User;
 
 class TicketsController extends Controller
 {
@@ -16,6 +17,12 @@ class TicketsController extends Controller
     public function showTickets(){
         $tickets = Ticket::paginate(10);
         return view('tickets',array ('tickets'=> $tickets)) ;
+    }
+
+    public function showTicketsfromUser($id){
+        $user = User::findOrFail($id);
+        $tickets = Ticket::where('user_id','like',$id)->paginate(10);
+        return view('tickets',array ('ticket' => $user, 'tickets'=> $tickets));
     }
 
     public function removeTicket($id){

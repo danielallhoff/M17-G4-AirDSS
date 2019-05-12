@@ -5,8 +5,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 @section('contenido')
+<div class="container-fluid">
     <div class="centrado">
-        <h1>Tickets</h1>
+        <h1>{{Auth::user()->name}}  estos son tus Tickets</h1>
         <div style="overflow-x:auto">
             <table class="tabla" width="400px">
                 <tr>
@@ -16,7 +17,9 @@
                     <th>Vuelo</th>
                     <th>Tarjetas de embarque</th>
                     <th>Equipajes</th>
+                    @if(Auth::user()->esAdmin == 1)
                     <th>Eliminar</th>
+                    @endif
                 </tr>
                 @forelse($tickets as $ticket)
                 <tr>
@@ -27,7 +30,9 @@
                     <td>{{$ticket->flight_id}}</td>
                     <td><a href="/ticket{{$ticket->id}}/boardingpasses">Tarjetas de embarque</a></td>
                     <td><a href="/ticket{{$ticket->id}}/packages">Packages</a></td>
-                    <td><a href="/ticket{{$ticket->id}}/remove">Eliminar</a></td>
+                    @if(Auth::user()->esAdmin == 1)
+                        <td><a href="/ticket{{$ticket->id}}/remove">Eliminar</a></td>
+                    @endif
                 </tr>
                 @empty
                     <p>No hay tickes disponibles! </p>
@@ -51,4 +56,5 @@
         </a>
         <p>{{$tickets->links()}}</p>
     </div>
+</div>
 @endsection

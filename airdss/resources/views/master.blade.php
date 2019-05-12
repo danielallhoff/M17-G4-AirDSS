@@ -13,7 +13,7 @@
     @include('menu')
     @section('submenu')
     @show
-    @section('contenido')       
+    @section('contenido')     
     @show  
     @include('footer')
     </body>
