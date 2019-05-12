@@ -19,7 +19,7 @@ class ClientController extends Controller
         }
 
         $clientes = User::where('esAdmin','0')->paginate(5);
-        return view('listClient',array ('clientes'=> $clientes)) ;
+        return view('client.listClient',array ('clientes'=> $clientes)) ;
         //Falta añadir que no muestre los usuarios admin
     }
     //---------------------------------------------------------------------------------
@@ -36,7 +36,7 @@ class ClientController extends Controller
             $clientes = User::where('esAdmin','0')->orderBy('name', 'asc')->paginate(5);
         }
         
-        return view('listClient' ,['clientes'=>$clientes]);
+        return view('client.listClient' ,['clientes'=>$clientes]);
     }
     public function orderClientNameDesc(){
         //echo "ordenando por ".session('opcion') .", con el texto ".session('text');
@@ -48,7 +48,7 @@ class ClientController extends Controller
             $clientes = User::where('esAdmin','0')->orderBy('name', 'desc')->paginate(5);
         }
         
-        return view('listClient' ,['clientes'=>$clientes]);
+        return view('client.listClient' ,['clientes'=>$clientes]);
     }
     public function orderClientDateAsc(){
         //$clientes = User::orderBy('fechaNto','asc')->paginate(5);
@@ -60,7 +60,7 @@ class ClientController extends Controller
         else{
             $clientes = User::where('esAdmin','0')->orderBy('fechaNto', 'asc')->paginate(5);
         }
-        return view('listClient', ['clientes'=>$clientes]);
+        return view('client.listClient', ['clientes'=>$clientes]);
     }
     public function orderClientDateDesc(){
         //$clientes = User::orderBy('fechaNto','desc')->paginate(5);
@@ -72,7 +72,7 @@ class ClientController extends Controller
         else{
             $clientes = User::where('esAdmin','0')->orderBy('fechaNto', 'desc')->paginate(5);
         }
-        return view('listClient', ['clientes'=>$clientes]);
+        return view('client.listClient', ['clientes'=>$clientes]);
     }
     //---------------------------------------------------------------------------------
 
@@ -86,7 +86,7 @@ class ClientController extends Controller
         session(['opcion'=>$opcion,'text'=>$text]);
 
         $client = User::where('esAdmin','0')->where($opcion,'like',$text)->paginate(5);
-        return view('listClient', ['clientes'=>$client]);
+        return view('client.listClient', ['clientes'=>$client]);
     }
     //---------------------------------------------------------------------------------
 
@@ -99,7 +99,7 @@ class ClientController extends Controller
         if(session()->has('opcion')){
             //return redirect()->action('ClientController@buscar')->withInput();
             $clientes = User::where('esAdmin','0')->paginate(5);
-            return view('listClient',array ('clientes'=> $clientes)) ;
+            return view('client.listClient',array ('clientes'=> $clientes)) ;
         }
         else{
             //return redirect()->action('ClientController@showClients');
@@ -114,7 +114,7 @@ class ClientController extends Controller
 
     public function createClient(){
 
-        return view('createClient');
+        return view('client.createClient');
     }
 
     public function saveClient(Request $request){
@@ -155,7 +155,7 @@ class ClientController extends Controller
     //Modificar cliente----------------------------------------------------------------
     public function modify($id){
         $cliente = User::findOrFail($id);
-        return view('editClient',['cliente'=>$cliente]);
+        return view('client.editClient',['cliente'=>$cliente]);
     }
     public function edit(Request $request){
 
