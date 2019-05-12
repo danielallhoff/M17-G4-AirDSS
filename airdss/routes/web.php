@@ -84,6 +84,7 @@ Route::get('/ticket{id}/packages', 'PackagesController@showTicketPackages');
 
 //Usuario
 Route::get('/loginUser', 'TicketsController@showLogin');
+Route::get('/logout', 'LoginController@logout');
 
 //Profile
 Route::get('/profile', 'ProfileController@show');

@@ -8,6 +8,10 @@ use App\Flight;
 
 class TicketsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     //
     public function showTickets(){
         $tickets = Ticket::paginate(10);

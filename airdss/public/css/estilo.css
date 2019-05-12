@@ -86,7 +86,7 @@ p{
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: rgb(13, 111, 192);
+    background-color: rgb(107, 115, 122);
     color: white;
     text-align: center;
  }
@@ -101,7 +101,7 @@ p{
     display: flex;
     flex-wrap: wrap;
 }
-.card {
+.tarjeta {
   width: 350px;
   height: 400px;
   border: 1px solid gray;
@@ -112,7 +112,7 @@ p{
   margin: 10px;
 }
 
-.card:hover {
+.tarjeta:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
@@ -121,7 +121,8 @@ p{
 }
 
 .intro {
-  width:75%;
+  width: 100%;
+  height: auto;
   text-align: center;
   padding-top: 5%;
   background-image: url("../images/intro.jpg");
@@ -217,4 +218,9 @@ p{
   color: rgb(255, 255, 255);
   text-decoration: underline;
   background-color: rgb(21, 112, 187);
+}
+
+.col-sm-3 a {
+  color: rgb(255, 255, 255);
+  font-size: 20px;
 }
