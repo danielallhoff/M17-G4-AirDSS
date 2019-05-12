@@ -5,9 +5,11 @@
 @section('contenido')
     <div class="centrado">
         <h1>Comprar vuelos</h1>
+        @if (Auth::check() && Auth::user()->esAdmin)
         <a href="/flights/add">
             <button type="button">Añadir vuelo</button>
         </a>
+        @endif
         <table class="tabla">
             <tr>
                 <th>Aeropuerto origen</th>
@@ -15,8 +17,17 @@
                 <th>Fecha salida</th>
                 <th>Fecha llegada</th>
                 <th>Capacidad restante</th>
-                <th>Modificar</th>
-                <th>Eliminar</th>
+                @if (Auth::check())                
+                    @if (Auth::user()->esAdmin)
+                    <th>Modificar</th>
+                    <th>Eliminar</th>
+                    @else
+                    <th>Comprar</th>
+                    @endif
+                @else
+                <th>Comprar</th>
+                @endif
+                
             </tr>
             @forelse($flights as $flight)
             <tr>
@@ -26,8 +37,16 @@
                 <td>{{$flight->fecha_salida}}</td>
                 <td>{{$flight->fecha_llegada}}</td>
                 <td>{{$flight->capacidadRestante()}}</td>
-                <td><a href="/flight{{$flight->id}}/modify"> Modificar</a></td>
-                <td><a href="/flight{{$flight->id}}/remove"> Eliminar</a></td>
+                @if (Auth::check())                
+                    @if (Auth::user()->esAdmin)
+                    <td><a href="/flight{{$flight->id}}/modify"> Modificar</a></td>
+                    <td><a href="/flight{{$flight->id}}/remove"> Eliminar</a></td>
+                    @else
+                    <td><a href="/flight{{$flight->id}}/buy"> Comprar</a></td>
+                    @endif
+                @else
+                <td><a href="/flight{{$flight->id}}/buy"> Comprar</a></td>
+                @endif
             </tr>
             @empty
                 <p>No hay vuelos disponibles! </p>
