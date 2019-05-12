@@ -84,9 +84,7 @@ Route::get('/ticket{id}/packages/pesoDesc', 'PackagesController@orderPackagesPes
 Route::get('/ticket{id}/packages', 'PackagesController@showTicketPackages');
 
 //Usuario
-Route::get('/loginUser', 'TicketsController@showLogin');
 Route::get('/logout', 'Auth\LoginController@logout');
-
 
 //Profile
 Route::get('/profile', 'ProfileController@show');

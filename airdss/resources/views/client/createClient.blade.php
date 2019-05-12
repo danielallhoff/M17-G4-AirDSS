@@ -12,8 +12,8 @@
         <input type="text" name="dni" id="dni" value="{{old('dni')}}">
         <br>
         <br>
-        <label for="nombre">Nombre:</label>
-        <input type="text" name="nombre" id="nombre" value="{{old('nombre')}}">
+        <label for="name">Nombre:</label>
+        <input type="text" name="name" id="name" value="{{old('name')}}">
         <br>
         <br>
         <label for="apellidos">Apellidos:</label>

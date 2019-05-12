@@ -12,6 +12,8 @@
     @if(Auth::check() == 0)
         <li><a href="/login">Login</a></li>
         <li><a href="/register">Registrarse</a></li>
+    @else
+        <li><a href="{{ route('logout') }}">Logout</a></li>
     @endif
 </ul>
 

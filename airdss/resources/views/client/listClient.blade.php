@@ -13,7 +13,7 @@
                 
                 <button type="submit">Enviar</button><br>
                 <label for="opcion">Elige una opcion para buscar:</label>
-                <input type="radio" name="opcion" id="opcion" value="nombre", checked>Nombre
+                <input type="radio" name="opcion" id="opcion" value="name", checked>Nombre
                 <input type="radio" name="opcion" id="opcion" value="dni">DNI
     
             </form>
@@ -33,7 +33,7 @@
             @forelse ($clientes as $client)
             <tr>
                 <td>{{$client->dni}}</td>
-                <td>{{$client->nombre}}</td>
+                <td>{{$client->name}}</td>
                 <td>{{$client->apellidos}}</td>
                 <td>{{$client->telefono}}</td>
                 <td>{{$client->email}}</td>

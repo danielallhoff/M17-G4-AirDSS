@@ -5,15 +5,15 @@
 @section('contenido')
 
 <div class="centrado">
-    <h1>Crear Cliente</h1>
+    <h1>Editar Cliente</h1>
     <form method="post", action="/modificarClient{{$cliente->id}}/modify">
         {{ csrf_field() }}
         <label for="dni">DNI:</label>
         <input type="text" name="dni" id="dni" value="{{$cliente->dni}}">
         <br>
         <br>
-        <label for="nombre">Nombre:</label>
-        <input type="text" name="nombre" id="nombre" value="{{$cliente->nombre}}">
+        <label for="name">Nombre:</label>
+        <input type="text" name="name" id="name" value="{{$cliente->name}}">
         <br>
         <br>
         <label for="apellidos">Apellidos:</label>
@@ -41,7 +41,7 @@
             </p>
         @endif
         <input type="submit", value="Crear/Modificar Usuario">
-        <a href="/airdss">
+        <a href="/admin">
         <button type="button">Volver</button>
     
     </form>

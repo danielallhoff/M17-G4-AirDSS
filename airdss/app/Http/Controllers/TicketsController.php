@@ -55,8 +55,4 @@ class TicketsController extends Controller
         return view('tickets', ['tickets'=>$tickets]);
     }
 
-
-    public function showLogin() {
-        return view('loginUser');
-    }
 }
