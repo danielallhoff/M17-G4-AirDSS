@@ -1,5 +1,9 @@
 @extends('layouts.app')
-
+@extends('master')
+<head>
+    <title>Login</title>
+</head>
+@section('contenido')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -70,4 +74,5 @@
         </div>
     </div>
 </div>
+@endsection
 @endsection
