@@ -42,16 +42,16 @@
         <br>
         <!--<p>Ordenar por:</p>-->
         <h4>Ordenar por:</h4>
-        <a href="/ticket/codigoAsc">
+        <a href="/ticket/codigoAsc{{Auth::user()->id}}">
             <button class="boton_filtrar" type="button">Código Ascendente</button>
         </a>
-        <a href="/ticket/codigoDesc">
+        <a href="/ticket/codigoDesc{{Auth::user()->id}}">
             <button class="boton_filtrar" type="button">Código Descendente</button>
         </a>
-        <a href="/ticket/claseAsc">
+        <a href="/ticket/claseAsc{{Auth::user()->id}}">
             <button class="boton_filtrar" type="button">Clase Ascendente</button>
         </a>
-        <a href="/ticket/claseDesc">
+        <a href="/ticket/claseDesc{{Auth::user()->id}}">
             <button class="boton_filtrar" type="button">Clase Descendente</button>
         </a>
         <p>{{$tickets->links()}}</p>

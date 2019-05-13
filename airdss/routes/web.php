@@ -69,10 +69,10 @@ Route::post('/modificarClient{id}/modify','ClientController@edit');
 //Ticket
 Route::get('/tickets', 'TicketsController@showTickets');
 Route::get('/tickets{id}', 'TicketsController@showTicketsfromUser');
-Route::get('/ticket/codigoAsc', 'TicketsController@orderTicketsCodAsc');
-Route::get('/ticket/codigoDesc', 'TicketsController@orderTicketsCodDesc');
-Route::get('/ticket/claseAsc', 'TicketsController@orderTicketsClaseAsc');
-Route::get('/ticket/claseDesc', 'TicketsController@orderTicketsClaseDesc');
+Route::get('/ticket/codigoAsc{id}', 'TicketsController@orderTicketsCodAsc');
+Route::get('/ticket/codigoDesc{id}', 'TicketsController@orderTicketsCodDesc');
+Route::get('/ticket/claseAsc{id}', 'TicketsController@orderTicketsClaseAsc');
+Route::get('/ticket/claseDesc{id}', 'TicketsController@orderTicketsClaseDesc');
 Route::get('/ticket{id}/remove', 'TicketsController@removeTicket');
 
 //Package
