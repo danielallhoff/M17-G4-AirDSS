@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Flight;
 
 class BuyController extends Controller
 {
     public function confView($id){
         $flight = Flight::findOrFail($id);
-        return view('conf', 'flight'=>$flight);
+        return view('conf', array('flight'=>$flight));
     }
 
     public function conf(Request $request){
