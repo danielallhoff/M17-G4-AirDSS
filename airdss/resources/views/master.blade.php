@@ -11,8 +11,10 @@
     </head>
     <body>
     @include('menu')
-    @section('submenu')
-    @show
+    @if(Auth::check() && Auth::user()->esAdmin == 1)
+        @section('submenu')
+        @show
+    @endif
     @section('contenido')     
     @show  
     @include('footer')
