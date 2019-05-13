@@ -26,9 +26,9 @@ class Kernel extends ConsoleKernel
         'web' => [],
 
         'api' => [],
-        'authMiddleware' => [\App\Http\Middleware\AuthMiddleware::class]
+        'authMiddleware' => [\App\Http\Middleware\AuthMiddleware::class],
         'adminMiddleware' => [\App\Http\Middleware\AdminMiddleware::class]
-    ]
+    ];
     
     protected $commands = [
 
