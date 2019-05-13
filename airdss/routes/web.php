@@ -30,7 +30,7 @@ Route::get('/plane{id}/delete', 'PlanesController@delete');
 Route::post('/plane{id}/delete', 'PlanesController@destroy');
 
 // boardingpass
-Route::get('/ticket{id}/boardingpasses', 'BoardingPassController@showBoardingTicket');
+Route::get('/ticket{id}/boardingpasses', 'BoardingPassController@showBoardingTicket')->middleware('auth');
 
 //Flights
 Route::get('/flights', 'FlightsController@showAll');

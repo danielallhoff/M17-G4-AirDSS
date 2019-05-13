@@ -8,11 +8,6 @@ use App\BoardingPass;
 
 class BoardingPassController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('admin');
-    }
-
     public function showBoardingTicket($id)
     {
         $ticket = Ticket::find($id);
