@@ -18,6 +18,6 @@ class AdminMiddleware
         if (auth()->check() && auth()->user()->esAdmin)
             return $next($request);
 
-        return redirect('/');
+        return redirect('/login');
     }
 }

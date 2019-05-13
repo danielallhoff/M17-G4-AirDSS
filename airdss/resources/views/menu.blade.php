@@ -15,7 +15,9 @@
     @if(Auth::check() == 0)
         <li><a href="/login">Login</a></li>
         <li><a href="/register">Registrarse</a></li>
+    
     @else
+        <li><a href="/profile">{{Auth::user()->name}}</a></li>
         <li><a href="{{ route('logout') }}">Logout</a></li>
     @endif
 </ul>
