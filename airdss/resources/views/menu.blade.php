@@ -1,6 +1,9 @@
 
 <ul class="menu">
     <li><a href="/airdss">AIRDSS</a></li>
+    @if(Auth::check() == 0)
+    <li><a href="/flights">Comprar vuelos</a></li>
+    @endif
     @if(Auth::check() == 1 && Auth::user()->esAdmin == 0)
         <li><a href="/flights">Comprar vuelos</a></li>
         <li><a href="/tickets{{Auth::user()->id}}">Mis vuelos</a></li>
