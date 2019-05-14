@@ -75,6 +75,7 @@ p{
 }
 .menu li {
     float: left;
+    border-right: 1px solid rgb(63, 63, 63);
   }
 
 .menu li a {
@@ -165,6 +166,7 @@ p{
 
 /*Pagina de area administrativa*/
 .areaAdmin {
+  height: 100%;
   width: 80%;
   margin-left: auto;
   margin-right: auto;
