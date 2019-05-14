@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-//use App\Client;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use App\DataAccess\UserDataAccess as U;
 
 class ClientController extends Controller
 {
@@ -14,11 +14,7 @@ class ClientController extends Controller
 
     //ListarCliente-------------------------------------------------------------------
     public function showClients(){
-        if(session()->has('opcion')){
-            session()->forget('opcion','text');
-        }
-
-        $clientes = User::where('esAdmin','0')->paginate(5);
+        $clientes = U::showClients();
         return view('client.listClient',array ('clientes'=> $clientes)) ;
         //Falta añadir que no muestre los usuarios admin
     }
@@ -26,66 +22,26 @@ class ClientController extends Controller
 
     //OrdenarClientes------------------------------------------------------------------
     public function orderClientNameAsc(){
-        //$clientes = User::orderBy('nombre', 'asc')->paginate(5);
-
-        $opcion=session('opcion');
-        if(session()->has('opcion')){
-            $clientes = User::where('esAdmin','0')->where($opcion,'like',session('text'))->orderBy('name', 'asc')->paginate(5);
-        }
-        else{
-            $clientes = User::where('esAdmin','0')->orderBy('name', 'asc')->paginate(5);
-        }
-        
+        $clientes = U::orderClientNameAsc();        
         return view('client.listClient' ,['clientes'=>$clientes]);
     }
     public function orderClientNameDesc(){
-        //echo "ordenando por ".session('opcion') .", con el texto ".session('text');
-        $opcion=session('opcion');
-        if(session()->has('opcion')){
-            $clientes = User::where('esAdmin','0')->where($opcion,'like',session('text'))->where('esAdmin','0')->orderBy('name', 'desc')->paginate(5);
-        }
-        else{
-            $clientes = User::where('esAdmin','0')->orderBy('name', 'desc')->paginate(5);
-        }
-        
+        $clientes = U::orderClientNameDesc();
         return view('client.listClient' ,['clientes'=>$clientes]);
     }
     public function orderClientDateAsc(){
-        //$clientes = User::orderBy('fechaNto','asc')->paginate(5);
-
-        $opcion=session('opcion');
-        if(session()->has('opcion')){
-            $clientes = User::where('esAdmin','0')->where($opcion,'like',session('text'))->orderBy('fechaNto', 'asc')->paginate(5);
-        }
-        else{
-            $clientes = User::where('esAdmin','0')->orderBy('fechaNto', 'asc')->paginate(5);
-        }
+        $clientes = U::orderClientDateAsc();
         return view('client.listClient', ['clientes'=>$clientes]);
     }
     public function orderClientDateDesc(){
-        //$clientes = User::orderBy('fechaNto','desc')->paginate(5);
-
-        $opcion=session('opcion');
-        if(session()->has('opcion')){
-            $clientes = User::where('esAdmin','0')->where($opcion,'like',session('text'))->orderBy('fechaNto', 'desc')->paginate(5);
-        }
-        else{
-            $clientes = User::where('esAdmin','0')->orderBy('fechaNto', 'desc')->paginate(5);
-        }
+        $clientes = U::orderClientDateDesc();
         return view('client.listClient', ['clientes'=>$clientes]);
     }
     //---------------------------------------------------------------------------------
 
     //Buscar Cliente ------------------------------------------------------------------
     public function buscar(Request $request){
-        $text = $request->buscar;
-        $text='%'.$text.'%';
-
-        $opcion = $request->opcion;
-
-        session(['opcion'=>$opcion,'text'=>$text]);
-
-        $client = User::where('esAdmin','0')->where($opcion,'like',$text)->paginate(5);
+        $client = U::buscar($request);
         return view('client.listClient', ['clientes'=>$client]);
     }
     //---------------------------------------------------------------------------------
