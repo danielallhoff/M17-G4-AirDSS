@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-/*
+
 // inicio
 Route::get('/', 'InicioController@inicio');
 Route::get('/airdss', 'InicioController@inicio');
@@ -23,10 +23,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/logout', 'Auth\LoginController@logout');
 
     Route::get('/profile', 'ProfileController@show');
-});
 
-Route::group(['middleware' => 'authMiddleware'], function() { 
-    
     Route::get('/flight{id}/buy', 'BuyController@confView');
     Route::post('/flight{id}/buy', 'BuyController@conf');
     Route::post('/flight{id}/pay', 'BuyController@pay');
@@ -48,10 +45,10 @@ Route::group(['middleware' => 'authMiddleware'], function() {
             return redirect('/');        
         }
     });
-
 });
 
-Route::group(['middleware' => 'adminMiddleware'], function() { 
+
+Route::group(['middleware' => 'admin'], function() { 
   
     //Planes
     Route::get('/plane{id}/modify', 'PlanesController@modifyPlane');
@@ -135,9 +132,9 @@ Route::get('/flights/orderBy/salida', 'FlightsController@orderFlightsSalida');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-*/
 
-Route::get('/', 'InicioController@inicio');
+
+/*Route::get('/', 'InicioController@inicio');
 Route::get('/airdss', 'InicioController@inicio');
 Route::get('/info', 'InicioController@informacion');
 Route::get('/contacto', 'InicioController@contacto');
@@ -193,8 +190,8 @@ Route::get('/modificarClient{id}/modify','ClientController@modify');
 Route::post('/modificarClient{id}/modify','ClientController@edit');
 
 //Ticket
-Route::get('/tickets', 'TicketsController@showTickets');
-Route::get('/tickets{id}', 'TicketsController@showTicketsfromUser');
+Route::get('/tickets', 'TicketsController@showTickets')->middleware('admin');
+Route::post('/tickets{id}', 'TicketsController@showTicketsfromUser');
 Route::get('/ticket/codigoAsc', 'TicketsController@orderTicketsCodAsc');
 Route::get('/ticket/codigoDesc', 'TicketsController@orderTicketsCodDesc');
 Route::get('/ticket/claseAsc', 'TicketsController@orderTicketsClaseAsc');
@@ -222,3 +219,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+*/
