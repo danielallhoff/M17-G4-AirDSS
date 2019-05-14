@@ -18,34 +18,36 @@
     
             </form>
         </div>
-        <table class="tabla" width="400px">
-            <tr>
-                <th>DNI</th>
-                <th>Nombre</th>
-                <th>Apellidos</th>
-                <th>Telefono</th>
-                <th>Email</th>
-                <th>FechaNacimiento</th>
-                <th>Edad</th>
-                <th>Modificar</th>
-                <th>Eliminar</th>
-            </tr>
-            @forelse ($clientes as $client)
-            <tr>
-                <td>{{$client->dni}}</td>
-                <td>{{$client->name}}</td>
-                <td>{{$client->apellidos}}</td>
-                <td>{{$client->telefono}}</td>
-                <td>{{$client->email}}</td>
-                <td>{{$client->fechaNto}}</td>
-                <td>{{$client->edad()}}</td>
-                <td><a href="/modificarClient{{$client->id}}/modify"> Modificar</a></td>
-                <td><a href="/eliminarClient{{$client->id}}"> Eliminar</a></td>
-            </tr>            
-            @empty<p>No hay clientes</p>
-            @endforelse
+        <div style="overflow-x:auto">
+            <table class="tabla" width="400px">
+                <tr>
+                    <th>DNI</th>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Telefono</th>
+                    <th>Email</th>
+                    <th>FechaNacimiento</th>
+                    <th>Edad</th>
+                    <th>Modificar</th>
+                    <th>Eliminar</th>
+                </tr>
+                @forelse ($clientes as $client)
+                <tr>
+                    <td>{{$client->dni}}</td>
+                    <td>{{$client->name}}</td>
+                    <td>{{$client->apellidos}}</td>
+                    <td>{{$client->telefono}}</td>
+                    <td>{{$client->email}}</td>
+                    <td>{{$client->fechaNto}}</td>
+                    <td>{{$client->edad()}}</td>
+                    <td><a href="/modificarClient{{$client->id}}/modify"> Modificar</a></td>
+                    <td><a href="/eliminarClient{{$client->id}}"> Eliminar</a></td>
+                </tr>            
+                @empty<p>No hay clientes</p>
+                @endforelse
 
-        </table>
+            </table>
+        </div>
         <br>
         <!--<p>Ordenar por:</p>-->
         Ordenar por:

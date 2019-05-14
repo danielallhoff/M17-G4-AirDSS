@@ -5,6 +5,7 @@
 @section('contenido')
     <div class="centrado">
         <h1>Tarjetas de embarque del Ticket{{$ticket->id}}</h1>
+        <div style="overflow-x:auto">
         <table class="tabla">
             <tr>
                 <th>Asiento</th>
@@ -25,6 +26,6 @@
             <p>No hay tarjetas de embarque disponibles para este ticket</p>
             @endforelse
         </table>
-
+        </div>
     </div>
 @endsection
