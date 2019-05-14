@@ -29,7 +29,7 @@
                 <img src="../images/Servicio.jpg" alt="Avatar" style="width:100%;height:50%">
                 <div class="container">
                     <h2><b>Servicio</b></h2> 
-                    <p style="font-size:20px">AirDSS se caracteriza por su excelente servicio y atención al cliente</p> 
+                    <p style="font-size:20px;">AirDSS se caracteriza por su excelente servicio y atención al cliente</p> 
                 </div>
             </div>
         </div>
