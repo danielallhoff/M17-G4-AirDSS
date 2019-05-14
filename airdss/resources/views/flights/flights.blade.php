@@ -45,7 +45,7 @@
                     <td><a href="/flight{{$flight->id}}/buy"> Comprar</a></td>
                     @endif
                 @else
-                <td><a href="/flight{{$flight->id}}/buy"> Comprar</a></td>
+                <td><a href="/login"> Comprar</a></td>
                 @endif
             </tr>
             @empty

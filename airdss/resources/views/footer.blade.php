@@ -9,11 +9,6 @@
 
     <!-- Grid row -->
     <div class="row">
-
-      <div class="col-sm-4">
-        <!-- Content -->
-        <a href="/profile"> Mi perfil </a>
-      </div>
       <!-- Grid column -->
       <div class="col-sm-4">
         <!-- Content -->

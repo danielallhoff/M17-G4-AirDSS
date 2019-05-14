@@ -33,7 +33,7 @@
         Ordenar por: 
         <a href="/planes/orderBy/distancia">Distancia de vuelo</a>
         <a href="/planes/orderBy/capacidad">Capacidad</a>
-        <a {{$planes->links()}} </a>
+        {{$planes->links()}}
 
     </div>
 @endsection

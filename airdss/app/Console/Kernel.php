@@ -12,8 +12,26 @@ class Kernel extends ConsoleKernel
      *
      * @var array
      */
+    protected $middleware = [
+        'authMiddleware' => \App\Http\Middleware\AuthMiddleware::class,
+        'adminMiddleware' => \App\Http\Middleware\AdminMiddleware::class
+    ];
+
+    protected $RouteMiddleware = [
+        'authMiddleware' => \App\Http\Middleware\AuthMiddleware::class,
+        'adminMiddleware' => \App\Http\Middleware\AdminMiddleware::class
+    ];
+
+    protected $middlewareGroups = [
+        'web' => [],
+
+        'api' => [],
+        'authMiddleware' => [\App\Http\Middleware\AuthMiddleware::class],
+        'adminMiddleware' => [\App\Http\Middleware\AdminMiddleware::class]
+    ];
+    
     protected $commands = [
-        //
+
     ];
 
     /**
