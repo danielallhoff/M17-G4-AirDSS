@@ -7,11 +7,6 @@ use App\Plane;
 
 class PlanesController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('admin');
-    }
-
     public function showAll()
     {
         $planes = Plane::paginate(5);

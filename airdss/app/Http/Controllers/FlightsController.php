@@ -6,47 +6,45 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Flight;
 use App\Airport;
+use App\DataAccess\FlightDataAccess as F;
+
 class FlightsController extends Controller
 {
     public function showAll(){
-        $flights = Flight::paginate(5);
+        $flights = F::showAll();
         return view('flights.flights', array('flights' => $flights));
     }
     public function showFlight($id){
-        $flight = Flight::findOrFail($id);
+        $flight = F::showFlight($id);
         return view('flights.flights', array('flights' => $flight));
     }
 
     public function showTickets($id){
-        $flight = Flight::findOrFail($id);
-        $tickets = $flight->tickets();
-        return view('tickets', array('tickets' => $flights));
+        $tickets = F::showTickets($id);
+        return view('tickets', array('tickets' => $tickets));
     }
 
     public function showBoardingPasses($id){
-        $flight = Flight::findOrFail($id);
-        $boardingpasses = $flight->boardingpasses();
+        $boardingpasses = F::showBoardingPasses($id);
         return view('boardingpasses', array('boardingpasses' => $boardingpasses));
     }
     public function showPlanes($id){
-        $flight = Flight::findOrFail($id);
-        $plane = $flight->plane();
+        $plane = F::showPlanes($id);
         return view('planes', array('planes' => $plane));
     }
 
     public function orderFlightsOrigin(){
-        $flights = Flight::orderBy('airportOrigen', 'desc')->paginate(5);
+        $flights = F::orderFlightsOrigin();
         return view('flights.flights', array('flights'=> $flights));
     }
 
     public function orderFlightsSalida(){
-        $flights = Flight::orderBy('fecha_salida')->paginate(5);
+        $flights = F::orderFlightsSalida();
         return view('flights.flights', array('flights'=> $flights));
     }
     public function modificarFlight($id){
-        $flight = Flight::findOrFail($id);
-        $airports = Airport::all();
-        return view('flights.modifyFlight', array('flight' =>$flight , 'airports'=>$airports,'modificado'=>0));
+        $result = F::modificarFlight($id);
+        return view('flights.modifyFlight', array('flight' =>$result[0] , 'airports'=>$result[1],'modificado'=>0));
     }
     public function eliminarFlight($id){
         $flight = Flight::findOrFail($id);
