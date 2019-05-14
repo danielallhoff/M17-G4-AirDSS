@@ -2,6 +2,7 @@
 
 namespace App\DataAccess;
 
+use Illuminate\Http\Request;
 use App\Flight as F;
 use App\Airport;
 
@@ -58,13 +59,17 @@ class FlightDataAccess
 
     static public function add(Request $request){
         
-        $flight = new Flight();
+        $flight = new F();
         $flight->capacidad = $request->input('capacidad');
         $flight->airport_origen_id = $request->input('origen');
         $flight->airport_destino_id = $request->input('destino');
         $flight->fecha_salida = $request->input('salida');
         $flight->fecha_llegada = $request->input('llegada');
         $flight->save();
+
+        $airports = Airport::all();
+
+        return $airports;
     }
     
     static public function edit(Request $request){
@@ -81,7 +86,7 @@ class FlightDataAccess
         return array($airports, $flight);
     }
 
-    public function addFlight(){
+    static public function addFlight(){
         $airports = Airport::all();
         return $airports;
     }

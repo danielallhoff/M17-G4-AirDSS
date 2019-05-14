@@ -63,9 +63,9 @@ class FlightsController extends Controller
             //'llegada' => 'required|date_format:d/m/Y h|after_or_equal:salida'
             ]);
         
-        F::add($request);
+        $airports = F::add($request);
         
-        return view('flights.addFlight', array('creado'=>1));;
+        return view('flights.addFlight', array('airports' => $airports, 'creado'=>1));;
     }
 
     public function edit(Request $request){
