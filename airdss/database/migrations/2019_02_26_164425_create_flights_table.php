@@ -22,6 +22,7 @@ class CreateFlightsTable extends Migration
             $table->foreign('airport_origen_id')->references('id')->on('airports')->onDelete('set null');
             $table->integer('airport_destino_id')->nullable();
             $table->foreign('airport_destino_id')->references('id')->on('airports')->onDelete('set null');
+            $table->boolean('cancelado')->nullable()->default(0);
             $table->timestamps();
 
         });

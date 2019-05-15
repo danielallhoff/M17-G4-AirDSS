@@ -8,7 +8,9 @@
         <form method="post" action="/plane{{$plane->id}}/modify">
             {{ csrf_field() }}
             @if($mod)
-                <p>Avión {{$plane->id}} modificado</p>
+            <div class="alert alert-success" role="alert">
+            <strong>¡Excelente!</strong> Avión {{$plane->id}} modificado.
+            </div>
             @endif
             <label for="modelo">Modelo:</label>
             <input type="text" name="modelo" id="modelo" value={{$plane->modelo}}>

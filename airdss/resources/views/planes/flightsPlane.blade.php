@@ -20,7 +20,9 @@
                 <td>{{$flight->fecha_llegada}}</td>    
             </tr>
             @empty
-            <p>El avión no tiene vuelos planeados</p>
+            <div class="alert alert-info" role="alert">
+                <strong>0 vuelos.</strong> El avión no tiene vuelos planeados
+            </div>
             @endforelse
         </table>
 
