@@ -6,7 +6,7 @@ use App\BoardingPass;
 
 class BoardingPassDataAccess
 {
-    public function showBoardingTicket($id)
+    static public function showBoardingTicket($id)
     {
         $ticket = Ticket::find($id);
         $boardingPasses = $ticket->boardingPasses;
