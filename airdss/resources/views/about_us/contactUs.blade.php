@@ -1,6 +1,6 @@
 @extends('master')
 <head>
-    <title>Contactanos</title>
+    <title>Contáctanos</title>
 </head>
 @section('contenido')
         <div class="info_container">

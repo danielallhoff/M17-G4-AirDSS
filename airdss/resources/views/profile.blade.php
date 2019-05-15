@@ -4,17 +4,33 @@
     <div class="centrado">
         <h1>Perfil {{$cliente->nombre}}</h1>
         <div style="overflow-x:auto">
-            <table class="tabla">
+            <table class="cards">
                 <tr>
-                    <td>DNI: {{$cliente->dni}}</td>
-                    <td>Nombre: {{$cliente->nombre}}</td>
-                    <td>Apellidos: {{$cliente->apellidos}}</td>
-                    <td>Telefono: {{$cliente->telefono}}</td>
-                    <td>Email: {{$cliente->email}}</td>
-                    <td>Fecha nacimiento: {{$cliente->fechaNto}}</td>
-                    <td>Edad actual: {{$cliente->edad()}}</td>
+                    <th>DNI:</th> <td>{{$cliente->dni}}</td>
+                </tr>
+                <tr>
+                    <th>Nombre:</th> <td>{{$cliente->name}}</td>
+                </tr>
+                <tr>
+                    <th>Apellidos:</th> <td>{{$cliente->apellidos}}</td>
+                </tr>
+                <tr>
+                    <th>Telefono:</th> <td>{{$cliente->telefono}}</td>
+                </tr>
+                <tr>
+                    <th>Email:</th> <td>{{$cliente->email}}</td>
+                </tr>
+                <tr>
+                    <th>Fecha nacimiento:</th> <td>{{$cliente->fechaNto}}</td>
+                </tr>
+                <tr>
+                    <th>Edad actual:</th> <td>{{$cliente->edad()}}</td>
                 </tr>
             </table>
+            <br>
+            <a href="/profile/change">
+                <button type="button">Editar perfil</button>
+            </a>
         </div>
     </div>
 @endsection

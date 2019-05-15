@@ -7,7 +7,7 @@
 
                 <div class="card-body">
                     @if (Auth::check())
-                        <strong>Bienvenido, {{Auth::user()->name}}, tu sesión se ha iniciado</strong>
+                        <strong>Bienvenido/a, {{Auth::user()->name}}, tu sesión se ha iniciado</strong>
                     @endif
                 </div>
             </div>
