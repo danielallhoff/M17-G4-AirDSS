@@ -6,6 +6,13 @@
 
 <div class="centrado">
     <h1>Crear Cliente</h1>
+    @if (count($errors) > 0)
+        <div class="alert alert-danger" role="alert">
+            @foreach ($errors->all() as $error)
+            <strong>Error.</strong> {{ $error }}<br>
+            @endforeach
+        </div>
+    @endif
     <form method="post", action="/createClient">
         {{ csrf_field() }}
         <label for="dni">DNI:</label>
@@ -31,15 +38,6 @@
         <label for="fecha">Fecha de Nacimento:</label>
         <input type="date" name="fecha" id="fecha" value="{{old('fecha')}}">
         <br>
-        <br>
-
-        @if (count($errors) > 0)
-            <p>    
-            @foreach ($errors->all() as $error)        
-                <li>{{ $error }}</li>    
-            @endforeach    
-            </p>
-        @endif
         <input type="submit", value="Crear/Modificar Usuario">
        <!-- <input type="submit", value="Crear/Modificar Usuario", onclick="msg()"> 
         <script>
