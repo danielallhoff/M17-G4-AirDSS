@@ -10,7 +10,6 @@ use App\DataAccess\UserDataAccess as U;
 
 class ClientController extends Controller
 {
-    public $nombre;
 
     //ListarCliente-------------------------------------------------------------------
     public function showClients(){
@@ -49,13 +48,11 @@ class ClientController extends Controller
     //Eliminar CLiente-----------------------------------------------------------------
 
     public function deleteClient($id){
-        $cliente = User::findOrFail($id);
-        $cliente->delete();
+        $result = U::deleteClient($id);
 
-        if(session()->has('opcion')){
+        if($result[0] == 1){
             //return redirect()->action('ClientController@buscar')->withInput();
-            $clientes = User::where('esAdmin','0')->paginate(5);
-            return view('client.listClient',array ('clientes'=> $clientes)) ;
+            return view('client.listClient',array ('clientes'=> $result[1])) ;
         }
         else{
             //return redirect()->action('ClientController@showClients');
@@ -92,16 +89,8 @@ class ClientController extends Controller
             'fecha'=>'required|date',
             ]);
 
+        U::saveClient($request);
 
-        $cliente= new Client();
-        $cliente->dni=$request->dni;
-        $cliente->name= $request->name;
-        $cliente->apellidos= $request->apellidos;
-        $cliente->telefono=$request->telefono;
-        $cliente->email=$request->email;
-        $cliente->fechaNto=$request->fecha;
-
-        $cliente->save();
         return view('adminIndex');
     }
     
@@ -110,7 +99,7 @@ class ClientController extends Controller
 
     //Modificar cliente----------------------------------------------------------------
     public function modify($id){
-        $cliente = User::findOrFail($id);
+        $cliente = U::modify($id);
         return view('client.editClient',['cliente'=>$cliente]);
     }
     public function edit(Request $request){
@@ -124,16 +113,8 @@ class ClientController extends Controller
             'email'=>'required|email',
             'fecha'=>'required|date',
             ]);
-        $cliente = User::findOrFail($request->id);
         
-        $cliente->dni=$request->dni;
-        $cliente->name= $request->name;
-        $cliente->apellidos= $request->apellidos;
-        $cliente->telefono=$request->telefono;
-        $cliente->email=$request->email;
-        $cliente->fechaNto=$request->fecha;
-
-        $cliente->save();
+        U::edit($request);
         //return view('editClient',['cliente'=>$cliente]);
         
         //return view('listClient');
