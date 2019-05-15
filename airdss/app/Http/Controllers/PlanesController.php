@@ -4,37 +4,37 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Plane;
+use App\DataAccess\PlaneDataAccess as P;
 
 class PlanesController extends Controller
 {
     public function showAll()
     {
-        $planes = Plane::paginate(5);
+        $planes = P::showAll();
         return view('planes.planes', ['planes' => $planes]);
     }
 
     public function showPlaneFlights($id)
     {
-        $plane = Plane::findOrFail($id);
-        $flights = $plane->flights;
-        return view('planes.flightsPlane', array('flights' => $flights, 'plane' => $plane));
+        $result = P::showPlaneFlights($id);
+        return view('planes.flightsPlane', array('flights' => $result[0], 'plane' => $result[1]));
     }
 
     public function orderPlanesDistancia()
     {
-        $planes = Plane::orderBy('distancia_Vuelo')->paginate(5);
+        $planes = P::orderPlanesDistancia();
         return view('planes.planes', ['planes' => $planes]);
     }
 
     public function orderPlanesCapacidad()
     {
-        $planes = Plane::orderBy('capacidad', 'desc')->paginate(5);
+        $planes = P::orderPlanesCapacidad();
         return view('planes.planes', ['planes' => $planes]);
     }
 
     public function modifyPlane($id)
     {
-        $plane = Plane::findOrFail($id);
+        $plane = P::modifyPlane($id);
         return view('planes.modifyPlane', array('plane' => $plane, 'mod' => 0));
     }
 
@@ -47,11 +47,7 @@ class PlanesController extends Controller
             'distancia' => 'required|numeric|min:0'
             ]);
             
-        $plane = Plane::find($request->id);
-        $plane->distancia_Vuelo = $request->distancia;
-        $plane->capacidad = $request->capacidad;
-        $plane->modelo = $request->modelo;
-        $plane->save();
+        $plane = P::edit($request);
 
         return view('planes.modifyPlane', array('plane' => $plane, 'mod' => 1));
     }
@@ -70,19 +66,14 @@ class PlanesController extends Controller
             'distancia' => 'required|numeric|min:0'
             ]);
             
-        $plane = new Plane();
-        $plane->distancia_Vuelo = $request->distancia;
-        $plane->capacidad = $request->capacidad;
-        $plane->modelo = $request->modelo;
-        $plane->save();
+        $plane = P::create($request);
 
         return view('planes.addPlane', array('plane' => $plane, 'cre' => 1));
     }
 
     public function delete($id)
     {
-        $plane = Plane::find($id);
-        $plane->delete();       
+        P::delete($id);
         return back();
     }
 }
