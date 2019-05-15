@@ -26,11 +26,11 @@ class FlightsController extends Controller
 
     public function showBoardingPasses($id){
         $boardingpasses = F::showBoardingPasses($id);
-        return view('boardingpasses', array('boardingpasses' => $boardingpasses));
+        return view('boardingPass.boardingpasses', array('boardingpasses' => $boardingpasses));
     }
     public function showPlanes($id){
         $plane = F::showPlanes($id);
-        return view('planes', array('planes' => $plane));
+        return view('planes.planes', array('planes' => $plane));
     }
 
     public function orderFlightsOrigin(){

@@ -4,12 +4,14 @@
 </head>
 @section('contenido')
     <div class="centrado">
-        <h1>Comprar vuelos</h1>
         @if (Auth::check() && Auth::user()->esAdmin)
+        <h1>Vuelos de la compañía</h1>
         <a href="/flights/add">
             <button type="button">Añadir vuelo</button>
         </a>
-        @endif
+        @else
+        <h1>Comprar vuelos</h1>
+        @endif        
         <div style="overflow-x:auto">
             <table class="tabla">
                 <tr>

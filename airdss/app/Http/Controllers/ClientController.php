@@ -91,7 +91,7 @@ class ClientController extends Controller
 
         U::saveClient($request);
 
-        return view('adminIndex');
+        return view('menu.adminIndex');
     }
     
     //---------------------------------------------------------------------------------

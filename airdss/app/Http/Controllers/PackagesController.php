@@ -12,7 +12,7 @@ class PackagesController extends Controller
     //Mostrar todos los paquetes
     public function showPackages(){
         $packages = P::showPackages();
-        return view('listPackages',array ('packages'=> $packages));
+        return view('packages.listPackages',array ('packages'=> $packages));
     }
     public function removePackage($id){
         P::removePackage($id);
@@ -21,17 +21,17 @@ class PackagesController extends Controller
     //Mostar packages relacionados con un ticket
     public function showTicketPackages($id) {
         $result = P::showTicketPackages($id);
-        return view('packages',array ('ticket' => $result[0], 'packages'=> $result[1]));
+        return view('packages.packages',array ('ticket' => $result[0], 'packages'=> $result[1]));
     }
 
     //Ordenar por PESO ascendente
     public function orderPackagesPesoAsc ($id){
         $result = P::orderPackagesPesoAsc($id);
-        return view('packages', ['ticket' => $result[0], 'packages'=>$result[1]]);
+        return view('packages.packages', ['ticket' => $result[0], 'packages'=>$result[1]]);
     }
     //Ordenar por PESO descendente
     public function orderPackagesPesoDesc ($id){
         $result = P::orderPackagesPesoDesc($id);
-        return view('packages', ['ticket' => $result[0], 'packages'=>$result[1]]);
+        return view('packages.packages', ['ticket' => $result[0], 'packages'=>$result[1]]);
     }
 }

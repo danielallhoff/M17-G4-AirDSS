@@ -13,12 +13,12 @@ class TicketsController extends Controller
     //
     public function showTickets(){
         $tickets = T::showTickets();
-        return view('tickets',array ('tickets'=> $tickets));
+        return view('tickets.tickets',array ('tickets'=> $tickets));
     }
 
     public function showTicketsfromUser($id){
         $result = T::showTicketsfromUser($id);
-        return view('tickets',array ('ticket' => $result[0], 'tickets'=> $result[1]));
+        return view('tickets.tickets',array ('ticket' => $result[0], 'tickets'=> $result[1]));
     }
 
     public function removeTicket($id){
@@ -29,25 +29,25 @@ class TicketsController extends Controller
     //Ordenar Tickets por clase descendente
     public function orderTicketsClaseDesc ($id){
         $tickets = T::orderTicketsClaseDesc($id);
-        return view('tickets', ['tickets'=>$tickets]);
+        return view('tickets.tickets', ['tickets'=>$tickets]);
     }
 
     //Ordenar Tickets por clase ascendente
     public function orderTicketsClaseAsc ($id){
         $tickets = T::orderTicketsClaseAsc($id);
-        return view('tickets', ['tickets'=>$tickets]);
+        return view('tickets.tickets', ['tickets'=>$tickets]);
     }
 
     //Ordenar por Codigo ascendente
     public function orderTicketsCodAsc ($id){
         $tickets = T::orderTicketsCodAsc($id);
-        return view('tickets', ['tickets'=>$tickets]);
+        return view('tickets.tickets', ['tickets'=>$tickets]);
     }
 
     //Ordenar por Codigo descendente
     public function orderTicketsCodDesc ($id){
         $tickets = T::orderTicketsCodDesc($id);
-        return view('tickets', ['tickets'=>$tickets]);
+        return view('tickets.tickets', ['tickets'=>$tickets]);
     }
 
 }

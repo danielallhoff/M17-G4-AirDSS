@@ -12,6 +12,6 @@ class BoardingPassController extends Controller
     public function showBoardingTicket($id)
     {
         $result = B::showBoardingTicket($id);
-        return view('boardingPassTicket', array('ticket' => $result[0], 'boardingPasses' => $result[1]));
+        return view('boardingPass.boardingPassTicket', array('ticket' => $result[0], 'boardingPasses' => $result[1]));
     }
 }

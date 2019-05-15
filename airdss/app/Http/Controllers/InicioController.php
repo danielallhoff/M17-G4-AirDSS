@@ -9,12 +9,12 @@ class InicioController extends Controller
     //
     public function inicio()
     {
-        return view('airdss');
+        return view('inicio.airdss');
     }
     public function contacto()
     {
         //return view('contacto.contacto');
-        return view('contactUs');
+        return view('about_us.contactUs');
     }
 
     public function informacion()

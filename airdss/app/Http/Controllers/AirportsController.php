@@ -12,25 +12,25 @@ class AirportsController extends Controller
 {
     public function showAll(){
         $airports = A::showAll();
-        return view('airports', array('airports' => $airports));
+        return view('airports.airports', array('airports' => $airports));
     }
 
     public function showTickets($id){
         $flights = A::showTickets($id);
-        return view('tickets', array('tickets' => $flights));
+        return view('tickets.tickets', array('tickets' => $flights));
     }
 
     public function showBoardingPasses($id){
         $boardingpasses = A::showBoardingPasses($id);
-        return view('boardingpasses', array('boardingpasses' => $boardingpasses));
+        return view('boardingPass.boardingpasses', array('boardingpasses' => $boardingpasses));
     }
     public function showPlanes($id){
         $plane = A::showPlanes($id);
-        return view('planes', array('planes' => $plane));
+        return view('planes.planes', array('planes' => $plane));
     }
     public function showAirports(){
         $airports = A::showAirports();
-        return view('airports', array('airports' => $airports));
+        return view('airports.airports', array('airports' => $airports));
     }
 
     public function removeAirport($id){
