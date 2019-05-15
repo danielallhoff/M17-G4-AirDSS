@@ -19,10 +19,14 @@ Route::get('/contacto', 'InicioController@contacto');
 
 
 Route::group(['middleware' => 'auth'], function() { 
+    //Client
+    Route::get('/modificarClient{id}/modify','ClientController@modify');
+    Route::post('/modificarClient{id}/modify','ClientController@edit');
+    
     //Usuario
     Route::get('/logout', 'Auth\LoginController@logout');
 
-    Route::get('/profile', 'ProfileController@show');
+    Route::get('/profile{id}', 'ProfileController@show');
 
     Route::get('/flight{id}/buy', 'BuyController@confView');
     Route::post('/flight{id}/buy', 'BuyController@conf');
@@ -76,8 +80,8 @@ Route::group(['middleware' => 'admin'], function() {
     Route::get('/eliminarClient{id}','ClientController@deleteClient');
     Route::get('/createClient','ClientController@createClient');
     Route::post('/createClient','ClientController@saveClient');
-    Route::get('/modificarClient{id}/modify','ClientController@modify');
-    Route::post('/modificarClient{id}/modify','ClientController@edit');
+    //Route::get('/modificarClient{id}/modify','ClientController@modify');
+    //Route::post('/modificarClient{id}/modify','ClientController@edit');
 
     //Ticket
     Route::get('/ticket{id}/remove', 'TicketsController@removeTicket');

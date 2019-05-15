@@ -162,7 +162,12 @@ class ClientController extends Controller
         //return view('editClient',['cliente'=>$cliente]);
         
         //return view('listClient');
-        return redirect()->action('ClientController@showClients');
+        if (Auth::check()==0 && Auth::user()->esAdmin == 1){
+            return redirect()->action('ClientController@showClients');
+        }
+        else{
+            return redirect()->action('InicioController@inicio');
+        }   
     }
 
 }

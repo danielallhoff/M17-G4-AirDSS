@@ -42,18 +42,19 @@
     @endif
     @if(Auth::check() == 1 && Auth::user()->esAdmin == 0)
         <li class="nav-item"><a class="nav-link" href="/tickets{{Auth::user()->id}}">Mis vuelos</a></li>
-        <li class="nav-item"><a class="nav-link" href="/profile">Mi perfil</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile{{Auth::user()->id}}">Mi perfil</a></li>
     @endif
     @if(Auth::check() == 1 && Auth::user()->esAdmin == 1)
         <li class="nav-item"><a class="nav-link" href="/admin" align>Administración</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile{{Auth::user()->id}}">Mi perfil</a></li>
     @endif
     @if(Auth::check() == 0)
         <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
         <li class="nav-item"><a class="nav-link" href="/register">Registrarse</a></li>
     
     @else
-        <li class="nav-item"><a class="nav-link" href="/profile">{{Auth::user()->name}}</a></li>
-        <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}">Logout</a></li>
+        <!--<li class="nav-item"><a class="nav-link" href="/profile{{Auth::user()->id}}">{{Auth::user()->name}}</a></li>!-->
+        <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}" >Logout</a></li>
     @endif
     </ul>
   </div>  

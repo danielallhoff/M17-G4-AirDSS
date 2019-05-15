@@ -9,8 +9,9 @@ class UserDataAccess
 {
 
 //ProfileController----------
-    static public function showProfile(){
-        $cliente = User::findOrFail(1);
+    static public function showProfile($id){
+        //$cliente = User::findOrFail(1);
+        $cliente = User::findOrFail($id);
         return $cliente;
     }
 
