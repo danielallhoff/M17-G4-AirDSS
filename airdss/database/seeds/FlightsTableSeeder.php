@@ -37,7 +37,7 @@ class FlightsTableSeeder extends Seeder
 
         $ticket = new Ticket([
             'codigo' => 302,
-            'asiento' => '02C',
+            'asiento' => 9,
             'clase' => 'turista',
             'fecha' => '21/03/2018'
         ]);
@@ -66,7 +66,7 @@ class FlightsTableSeeder extends Seeder
         //flight2
         $ticket = new Ticket([
             'codigo' => 303,
-            'asiento' => '02C',
+            'asiento' => 10,
             'clase' => 'turista',
             'fecha' => '21/03/2018'
         ]);

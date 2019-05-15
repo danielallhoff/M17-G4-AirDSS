@@ -631,7 +631,7 @@
         },
         "time": "2018-08-14T00:04:02+00:00",
         "type": "library",
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
             "files": [
                 "oophp-iban.php",
@@ -1622,7 +1622,7 @@
         },
         "time": "2019-04-09T12:45:07+00:00",
         "type": "library",
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
             "psr-4": {
                 "MPijierro\\Identity\\": "src/"
@@ -2955,7 +2955,7 @@
                 "dev-master": "1.0.x-dev"
             }
         },
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
             "psr-4": {
                 "Psr\\Http\\Message\\": "src/"
@@ -4600,7 +4600,7 @@
                 "dev-master": "1.11-dev"
             }
         },
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
             "psr-4": {
                 "Symfony\\Polyfill\\Iconv\\": ""
@@ -4663,7 +4663,7 @@
                 "dev-master": "1.9-dev"
             }
         },
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
             "psr-4": {
                 "Symfony\\Polyfill\\Intl\\Idn\\": ""

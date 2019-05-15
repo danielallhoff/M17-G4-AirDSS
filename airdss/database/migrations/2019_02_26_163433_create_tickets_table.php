@@ -16,7 +16,7 @@ class CreateTicketsTable extends Migration
         Schema::create('tickets', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('codigo')->unique();
-            $table->string('asiento');
+            $table->integer('asiento');
             $table->string('clase');
             $table->date('fecha');
             /*

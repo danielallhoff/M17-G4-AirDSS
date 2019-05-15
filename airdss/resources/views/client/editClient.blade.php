@@ -5,12 +5,19 @@
 @section('contenido')
 
 <div class="centrado">
-        @if (Auth::check()==1 && Auth::user()->esAdmin == 1)
-            <h1>Editar Cliente</h1>
-        @else
-            <h1>Editar Perfil</h1>
-        @endif
+    @if (Auth::check()==1 && Auth::user()->esAdmin == 1)
+        <h1>Editar Cliente</h1>
+    @else
+        <h1>Editar Perfil</h1>
+    @endif
     
+    @if (count($errors) > 0)
+        <div class="alert alert-danger" role="alert">
+            @foreach ($errors->all() as $error)
+            <strong>Error.</strong> {{ $error }}<br>
+            @endforeach
+        </div>
+    @endif
     <form method="post", action="/modificarClient{{$cliente->id}}/modify">
         {{ csrf_field() }}
         <label for="dni">DNI:</label>
@@ -38,13 +45,13 @@
         <br>
         <br>
 
-        @if (count($errors) > 0)
+        <!--@if (count($errors) > 0)
             <p>    
             @foreach ($errors->all() as $error)        
                 <li>{{ $error }}</li>    
             @endforeach    
             </p>
-        @endif
+        @endif!-->
         <input type="submit", value="Modificar Usuario">
         @if (Auth::check()==1 && Auth::user()->esAdmin == 1)
             <a href="/admin">
