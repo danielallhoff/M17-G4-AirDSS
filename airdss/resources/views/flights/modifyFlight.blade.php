@@ -6,7 +6,16 @@
     <div class="centrado">
         <h1>Modificación de vuelo{{$flight->id}}</h1>
         @if($modificado == 1)
-            <p>Vuelo{{$flight->id}} modificado correctamente</p>
+            <div class="alert alert-success" role="alert">
+            <strong>¡Excelente!</strong> Vuelo {{$flight->id}} modificado.
+            </div>
+        @endif
+        @if (count($errors) > 0)
+            <div class="alert alert-danger" role="alert">
+            @foreach ($errors->all() as $error)
+            <strong>Error.</strong> {{ $error }}<br>
+            @endforeach
+            </div>
         @endif
         <form method="post" action="/flight{{$flight->id}}/modify" >
             {{ csrf_field() }}
@@ -62,13 +71,6 @@
                 </tr>
             </table>
             <br>
-            @if (count($errors) > 0)
-            <ul id="errores">
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-            @endif
         </form>
     </div>
 @endsection
