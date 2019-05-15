@@ -91,4 +91,16 @@ class FlightDataAccess
         $airports = Airport::all();
         return $airports;
     }
+
+    static public function totalVuelos()
+    {
+        $flight = F::count();
+        return $flight;
+    }
+
+    static public function allFlight()
+    {
+        $flight = F::all();
+        return $flight;
+    }
 }

@@ -37,7 +37,9 @@
                     @endif
                 </tr>
                 @empty
-                    <p>No hay tickes disponibles! </p>
+                <div class="alert alert-info" role="alert">
+                <strong>0 tickets.</strong> No hay tickes disponibles. 
+                </div> 
                 @endforelse
             </table>
         </div>

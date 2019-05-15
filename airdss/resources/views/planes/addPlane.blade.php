@@ -8,7 +8,16 @@
         <form method="post" action="/planes/addPlane">
             {{ csrf_field() }}
             @if($cre)
-                <p>Avión creado correctamente</p>
+            <div class="alert alert-success" role="alert">
+            <strong>¡Excelente!</strong> Avión creado correctamente.
+            </div>
+            @endif
+            @if (count($errors) > 0)
+                <div class="alert alert-danger" role="alert">
+                @foreach ($errors->all() as $error)
+                <strong>Error.</strong> {{ $error }}<br>
+                @endforeach
+                </div>
             @endif
             <label for="modelo">Modelo:</label>
             <input type="text" name="modelo" id="modelo" value="{{ old('modelo')}}">
@@ -18,14 +27,6 @@
             <br><br>
             <label for="distancia">Distancia de vuelo:</label>
             <input type="text" name="distancia" id="distancia" value="{{old('distancia')}}">
-            <br>
-            @if (count($errors) > 0)
-                <p>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-                </p>
-            @endif
             <br>
             <button type="submit">Añadir</button>
             <a href="/planes">

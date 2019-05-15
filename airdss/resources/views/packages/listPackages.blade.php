@@ -25,7 +25,9 @@
                     <td><a href="/package{{$package->id}}/remove">Eliminar</a></td>
                 </tr>
                 @empty
-                    <p>No hay equipajes existentes!</p>
+                <div class="alert alert-info" role="alert">
+                <strong>0 equipajes.</strong> No hay equipajes existentes.
+                </div>
                 @endforelse
             </table>
         </div>

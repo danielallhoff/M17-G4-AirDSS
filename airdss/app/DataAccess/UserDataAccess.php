@@ -128,7 +128,7 @@ class UserDataAccess
         $cliente->fechaNto=$request->fecha;
 
         $cliente->save();
-        return view('adminIndex');
+        
     }
     
     //---------------------------------------------------------------------------------

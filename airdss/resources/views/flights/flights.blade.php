@@ -20,6 +20,7 @@
                     <th>Fecha salida</th>
                     <th>Fecha llegada</th>
                     <th>Capacidad restante</th>
+                    <th>Estado</th>
                     @if (Auth::check())                
                         @if (Auth::user()->esAdmin)
                         <th>Modificar</th>
@@ -40,6 +41,13 @@
                     <td>{{$flight->fecha_salida}}</td>
                     <td>{{$flight->fecha_llegada}}</td>
                     <td>{{$flight->capacidadRestante()}}</td>
+                    @if($flight->cancelado)
+                    <td><div class="alert alert-danger" role="alert">Cancelado</div></td>
+                    @elseif($flight->capacidadRestante() == 0)
+                    <td><div class="alert alert-danger" role="alert">Agotado</div></td>
+                    @else
+                    <td><div class="alert alert-info" role="alert">Libre</div></td>
+                    @endif
                     @if (Auth::check())                
                         @if (Auth::user()->esAdmin)
                         <td><a href="/flight{{$flight->id}}/modify"> Modificar</a></td>
