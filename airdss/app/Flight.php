@@ -26,4 +26,18 @@ class Flight extends Model
     public function capacidadRestante(){
         return $this->capacidad - count($this->tickets());
     }
+
+    public function ticketsDisponibles(){
+        $reservedPlaces = [];
+        foreach($this->tickets() as $ticket){
+            array_push($reservedPlaces, $ticket->asiento);
+        }
+        $placesAvailable = [];
+        foreach (range(0,$this->capacidad) as $asiento){
+            if(!in_array($asiento, $reservedPlaces)){
+                array_push($placesAvailable,$asiento);
+            }
+        }
+        return $placesAvailable;
+    }
 }

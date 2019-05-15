@@ -8,6 +8,9 @@
                 {{ csrf_field() }}
             <h1>Pagar tu vuelo</h1>
             <table class="tablaInvisible" width="400px">
+                <input type="hidden" value="{{$flight->id}}">
+                <input type="hidden" value="{{$asiento}}">
+                <input type="hidden" value="{{$equipaje}}">
                 <tr>
                     <th>Titular:</th>
                     <th><input type="text" name="titular" PlaceHolder="Titular"></th>
@@ -21,9 +24,18 @@
                     <th><input type="text" name="cvv" maxlength="3" PlaceHolder="CVV"></th>
                 </tr>
                 <tr>
-                    <th>Precio: </th>
-                    <th>20$</th>
+                    <th>Asiento: </th>
+                    <th>{{$asiento}}</th>
                 </tr>
+                <tr>
+                    <th>Equipaje: </th>
+                    <th>{{$equipaje}}</th>
+                </tr>
+                <tr>
+                    <th>Precio: </th>
+                    <th>X$</th>
+                </tr>
+                
                 <tr>
                     <th><button type="submit">Pagar</button></th>
                     <th><a href="/flights">Cancelar</a></th>
