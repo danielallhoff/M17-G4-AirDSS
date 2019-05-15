@@ -120,7 +120,7 @@ Route::group(['middleware' => 'admin'], function() {
 
 //Flights
 Route::get('/flights', 'FlightsController@showAll');
-Route::get('/flight{id}', 'FlightsController@showFlight');
+Route::get('/flight{id}', 'FlightsController@showFlight'); // --- DUDA
 
 Route::get('/flights/orderBy/origin', 'FlightsController@orderFlightsOrigin');
 Route::get('/flights/orderBy/salida', 'FlightsController@orderFlightsSalida');

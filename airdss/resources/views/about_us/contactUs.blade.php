@@ -12,7 +12,7 @@
             <div class="tarjeta">
                 <img src="../images/movil.png" alt="smartphone" style="width:80%;height:50%;">
                 <div class="container">
-                    <h2><b>Telefono AirDSS</b></h2> 
+                    <h2><b>Teléfono AirDSS</b></h2> 
                     <p style="font-size:20px">684529875</p> 
                 </div>
             </div>
