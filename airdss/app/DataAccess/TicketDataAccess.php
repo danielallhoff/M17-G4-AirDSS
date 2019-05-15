@@ -4,6 +4,7 @@ namespace App\DataAccess;
 
 use Illuminate\Http\Request;
 use App\Ticket;
+use App\User;
 
 
 class TicketDataAccess
@@ -14,9 +15,9 @@ class TicketDataAccess
     }
 
     static public function showTicketsfromUser($id){
-        $user = User::findOrFail($id);
-        $tickets = Ticket::where('user_id','like',$id)->paginate(10);
-        return array($user, $tickets);
+            $user = User::findOrFail($id);
+            $tickets = Ticket::where('user_id','like',$id)->paginate(10);
+            return array($user, $tickets);
     }
 
     static public function removeTicket($id){

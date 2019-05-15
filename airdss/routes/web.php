@@ -31,23 +31,21 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/flight{id}/buy', 'BuyController@conf');
     Route::post('/flight{id}/pay', 'BuyController@pay');
 
-    Route::get('/tickets{id}', function(){
-        if(Auth::user()->id == $id){
-            Route::get('/tickets{id}','TicketsController@showTicketsfromUser');
-        }
-        else{
-            return redirect('/');        
-        }
-    });
+    //Route::get('/tickets{id}', function(){
+        
+        Route::get('/tickets{id}','TicketsController@showTicketsfromUser');
+
+    //});
+    Route::get('/ticket/codigoAsc{id}', 'TicketsController@orderTicketsCodAsc');
+    Route::get('/ticket/codigoDesc{id}', 'TicketsController@orderTicketsCodDesc');
+    Route::get('/ticket/claseAsc{id}', 'TicketsController@orderTicketsClaseAsc');
+    Route::get('/ticket/claseDesc{id}', 'TicketsController@orderTicketsClaseDesc');
     
-    Route::get('/ticket{id}/boardingpasses', function(){
-        if(Auth::user()->id == $id){
-            Route::get('/ticket{id}','BoardingPassController@showBoardingTicket');
-        }
-        else{
-            return redirect('/');        
-        }
-    });
+    //Route::get('/ticket{id}/boardingpasses', function(){
+        
+            Route::get('/ticket{id}/boardingpasses','BoardingPassController@showBoardingTicket');
+
+    //});
 });
 
 
@@ -84,15 +82,11 @@ Route::group(['middleware' => 'admin'], function() {
 
     //Ticket
     Route::get('/ticket{id}/remove', 'TicketsController@removeTicket');
-    Route::get('/tickets{id}', 'TicketsController@showTicketsfromUser');
-    Route::get('/ticket{id}/boardingpasses', 'BoardingPassController@showBoardingTicket');
+    //Route::get('/tickets{id}', 'TicketsController@showTicketsfromUser');
+    //Route::get('/ticket{id}/boardingpasses', 'BoardingPassController@showBoardingTicket');
     
     //Ticket
     Route::get('/tickets', 'TicketsController@showTickets');
-    Route::get('/ticket/codigoAsc', 'TicketsController@orderTicketsCodAsc');
-    Route::get('/ticket/codigoDesc', 'TicketsController@orderTicketsCodDesc');
-    Route::get('/ticket/claseAsc', 'TicketsController@orderTicketsClaseAsc');
-    Route::get('/ticket/claseDesc', 'TicketsController@orderTicketsClaseDesc');
 
     //Airport
     Route::get('/airport{id}/remove', 'AirportsController@removeAirport');

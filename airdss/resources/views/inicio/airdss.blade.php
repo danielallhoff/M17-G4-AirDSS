@@ -47,3 +47,4 @@
     </div>
 </div>
 @endsection
+<!-- php artisan serve --host=some.other.domain --port=8001 -->
