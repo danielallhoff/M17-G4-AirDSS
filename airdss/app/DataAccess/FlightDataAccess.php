@@ -74,7 +74,7 @@ class FlightDataAccess
     
     static public function edit(Request $request){
         
-        $flight = new F();
+        $flight = F::findOrFail($request->id);
         $flight->capacidad = $request->input('capacidad');
         $flight->airport_origen_id = $request->input('origen');
         $flight->airport_destino_id = $request->input('destino');
