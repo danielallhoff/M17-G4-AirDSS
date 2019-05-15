@@ -28,7 +28,8 @@
                 </tr>
             </table>
             <br>
-            <a href="/profile/change">
+            <!--<a href="/profile/change">!-->
+                <a href="/modificarClient{{$cliente->id}}/modify">
                 <button type="button">Editar perfil</button>
             </a>
         </div>
