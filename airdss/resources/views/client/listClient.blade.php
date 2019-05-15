@@ -6,7 +6,7 @@
     <div class="centrado">
         <h1>Clientes</h1>
         <div class="buscador">
-            <form action="{{url('/admin/client/buscar')}}" method="POST">
+            <form action="{{url('/admin/client/buscar')}}" method="get">
                 {{ csrf_field() }}
                 <label for="buscar">Buscador</label>
                 <input type="text" name="buscar" id="buscar" PlaceHolder="Busca lo que desees">

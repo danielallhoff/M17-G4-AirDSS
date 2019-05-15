@@ -113,7 +113,7 @@ Route::group(['middleware' => 'admin'], function() {
     Route::get('/admin/client/nombreDesc','ClientController@orderClientNameDesc');
     Route::get('/admin/client/fechaNacimientoAsc','ClientController@orderClientDateAsc');
     Route::get('/admin/client/fechaNacimientoDesc','ClientController@orderClientDateDesc');
-    Route::post('/admin/client/buscar','ClientController@buscar');
+    Route::get('/admin/client/buscar','ClientController@buscar');
 });
 
 
