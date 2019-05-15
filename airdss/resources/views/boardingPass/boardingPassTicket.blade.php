@@ -23,7 +23,9 @@
                 <td>{{$pass->llegada}}</td>
             </tr>
             @empty
-            <p>No hay tarjetas de embarque disponibles para este ticket</p>
+            <div class="alert alert-info" role="alert">
+                <strong>0 tarjetas de embarque.</strong> No hay tarjetas de embarque disponibles para este ticket
+            </div>
             @endforelse
         </table>
         </div>

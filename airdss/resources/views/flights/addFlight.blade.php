@@ -6,8 +6,17 @@
     <div class="centrado">
         <h1>Añadir vuelo</h1>
         @if($creado == 1)
-            <p>Vuelo creado correctamente</p>
-        @endif
+            <div class="alert alert-success" role="alert">
+            <strong>¡Excelente!</strong> Vuelo creado correctamente.
+            </div>
+            @endif
+            @if (count($errors) > 0)
+                <div class="alert alert-danger" role="alert">
+                @foreach ($errors->all() as $error)
+                <strong>Error.</strong> {{ $error }}<br>
+                @endforeach
+                </div>
+            @endif
         <form action="/flights/add" method="post">
             {{ csrf_field() }}
             <table class="tabla">
@@ -53,14 +62,6 @@
                     </td>
                 </tr>
             </table>
-            <br>
-            @if (count($errors) > 0)
-            <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-            @endif
         </form>
     </div>
 @endsection

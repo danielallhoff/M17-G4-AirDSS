@@ -19,7 +19,9 @@
                     <td><a href="/airport{{$airport->id}}/remove">Eliminar</a></td>
                 </tr>
                 @empty
-                    <p>No hay aeropuertos disponibles! </p>
+                <div class="alert alert-info" role="alert">
+                <strong>0 aeropuertos.</strong> No hay aeropuertos disponibles.
+                </div>
                 @endforelse
             </table>
         </div>

@@ -28,7 +28,9 @@
                 <td><a href="/package{{$package->id}}/remove"><button class="button_tabla" type="button">Eliminar</button></a></td>
             </tr>
             @empty
-                <p>No hay equipaje facturado con este Ticket!</p>
+            <div class="alert alert-info" role="alert">
+                <strong>0 equipaje.</strong> No hay equipaje facturado con este Ticket.
+            </div>
             @endforelse
         </table>
         <br>

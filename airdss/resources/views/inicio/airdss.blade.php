@@ -9,6 +9,17 @@
             <p style="font-size:70px;color:white">Bienvenido a AirDSS</p>
             <p style="font-size:30px;color:white">Le damos vuelo a tus sueños.</p>
         </div>
+        @if(Auth::check() && Auth::user()->esAdmin)
+            <div class="alert alert-danger" role="alert">
+                @foreach ($flights->all() as $flight)
+                    @if($flight->cancelado == 1)
+                        <strong>ATENCIÓN,</strong> 
+                        <p>El vuelo {{$flight->id}}, {{$flight->fecha_salida}}, se ha cancelado. Debe informar a los pasajeros de la cancelación y 
+                        posibilidades de reubicación.</p>
+                    @endif
+                @endforeach
+            </div>
+        @endif
         <div class="cards">
             <div class="tarjeta">
                 <img src="../images/Puntual.jpg" alt="Avatar" style="width:100%;height:50%">
