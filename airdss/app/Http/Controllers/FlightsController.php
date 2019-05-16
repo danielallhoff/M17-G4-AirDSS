@@ -90,4 +90,24 @@ class FlightsController extends Controller
         $airports = F::addFlight();
         return view('flights.addFlight', array('airports'=>$airports, 'creado'=>0));
     }
+
+    //Buscador-------------------------------------------------------------
+    public function buscar(Request $request){
+        $origen = $request->origen;
+        $origen='%'.$origen.'%';
+        echo $origen. "origen";
+
+        $destino = $request->destino;
+
+        //session(['opcion'=>$opcion,'text'=>$text]);
+        $airport = Airport::where('ciudad', $origen);
+        //$id=$airport->ciudad;
+        $airport->ciudad=1;
+        echo  "CodigoOrigen";
+        $flights = new Flight();//::where('airportOrigen()->ciudad','like',$origen)->paginate(5);
+        $flights->delete();
+        $flights = Flight::paginate(5);
+        return view('flights.flights', array('flights' => $flights));
+    }
+    //---------------------------------------------------------------------
 }

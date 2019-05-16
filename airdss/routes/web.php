@@ -127,6 +127,8 @@ Route::get('/flights/orderBy/origin', 'FlightsController@orderFlightsOrigin');
 Route::get('/flights/orderBy/salida', 'FlightsController@orderFlightsSalida');
 
 
+Route::post('/flights/buscar', 'FlightsController@buscar');
+
 
 
 //Profile
