@@ -26,7 +26,8 @@ class BoardingPassesTableSeeder extends Seeder
         $flight = new Flight([
             'capacidad' => 150,
             'fecha_llegada' => '19/03/2019 19:00',
-            'fecha_salida' => '19/03/2019 18:00'    
+            'fecha_salida' => '19/03/2019 18:00',
+            'precio' => 65.3    
         ]);
 
         $airportO = new Airport([
