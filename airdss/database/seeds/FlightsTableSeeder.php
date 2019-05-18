@@ -54,7 +54,7 @@ class FlightsTableSeeder extends Seeder
         $flight = new Flight([
             'capacidad' => 125,
             'fecha_llegada' => '21/03/2019 12:30',
-            'fecha_salida' => '21/03/2019 11:30'
+            'fecha_salida' => '21/03/2019 11:30',
             'precio' => 65.3
         ]);
 
@@ -95,7 +95,7 @@ class FlightsTableSeeder extends Seeder
         $flight = new Flight([
             'capacidad' => 160,
             'fecha_llegada' => '01/05/2019 14:00',
-            'fecha_salida' => '01/05/2019 13:15'
+            'fecha_salida' => '01/05/2019 13:15',
             'precio' => 70
         ]);
 

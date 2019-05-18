@@ -31,8 +31,9 @@
                     <td>{{$ticket->flight_id}}</td>
                     <td><a href="/ticket{{$ticket->id}}/boardingpasses">Tarjetas de embarque</a></td>
                     <td><a href="/ticket{{$ticket->id}}/packages">Packages</a></td>
-                    <td><a href="#">Modificar</a></td>
+                    
                     @if(Auth::user()->esAdmin == 1)
+                        <td><a href="#">Modificar</a></td>
                         <td><a href="/ticket{{$ticket->id}}/remove">Eliminar</a></td>
                     @endif
                 </tr>

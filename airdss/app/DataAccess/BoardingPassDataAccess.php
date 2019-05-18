@@ -3,6 +3,7 @@
 namespace App\DataAccess;
 
 use App\BoardingPass;
+use App\Ticket;
 
 class BoardingPassDataAccess
 {
