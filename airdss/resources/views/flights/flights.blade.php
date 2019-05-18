@@ -90,8 +90,8 @@
                 @forelse($flights as $flight)
                 <tr>
                     <!--<td><a href="/airport{{$flight->airportOrigen->id}}"> {{$flight->airportOrigen->codigo}}-{{$flight->airportOrigen->ciudad}}</a></td>-->
-                    <td>{{$flight->airportOrigen->codigo}}-{{$flight->airportOrigen->ciudad}}</td>
-                    <td>{{$flight->airportDestino->codigo}}-{{$flight->airportDestino->ciudad}}</td>
+                    <td>{{$flight->airportOrigen->ciudad}}</td>
+                    <td>{{$flight->airportDestino->ciudad}}</td>
                     <td>{{$flight->fecha_salida}}</td>
                     <td>{{$flight->fecha_llegada}}</td>
                     <td>{{$flight->capacidadRestante()}}</td>
