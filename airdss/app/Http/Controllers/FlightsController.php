@@ -94,14 +94,15 @@ class FlightsController extends Controller
     //Buscador-------------------------------------------------------------
     public function buscar(Request $request){
         $origen = $request->origen;
-        //$origen=$origen;
+        $origen='%'.$origen.'%';
         //echo $origen;
 
         $destino = $request->destino;
+        $destino='%'.$destino.'%';
         //echo($destino);
         //session(['opcion'=>$opcion,'text'=>$text]);
-        $airportOrigen = Airport::where('ciudad', $origen)->first();
-        $airportDest = Airport::where('ciudad', $destino)->first();
+        $airportOrigen = Airport::where('ciudad','like', $origen)->first();
+        $airportDest = Airport::where('ciudad','like', $destino)->first();
         //echo($airportOrigen->id);
         //echo($airportDest->id);
         $flights = Flight::where('airport_origen_id','like',$airportOrigen->id)->where('airport_destino_id','like',$airportDest->id)->paginate(5);
