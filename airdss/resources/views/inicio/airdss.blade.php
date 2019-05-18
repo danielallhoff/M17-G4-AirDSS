@@ -21,26 +21,28 @@
             </div>
         @endif
         <div class="cards">
-            <div class="tarjeta">
-                <img src="../images/Puntual.jpg" alt="Avatar" style="width:100%;height:50%">
-                <div class="container">
-                    <h2><b>Puntual</b></h2> 
-                    <p style="font-size:20px">AirDSS se destaca en el sector por ser la compañía más puntual.</p> 
+            <div class="card-deck">
+                <div class="card">
+                    <img class="card-img-top" src="../images/Puntual.jpg" alt="Card image cap">
+                    <div class="card-body">
+                    <h5 class="card-title"><b>Puntual</b></h5>
+                    <p class="card-text">AirDSS se destaca en el sector por ser la compañía más puntual.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="tarjeta">
-                <img src="../images/Rapido.jpg" alt="Avatar" style="width:100%;height:50%">
-                <div class="container">
-                    <h2><b>Sencillo</b></h2> 
-                    <p style="font-size:20px">En nuestra web podrás comprar de manera rápida y sencilla tu próximo
-                        vuelo.</p> 
+                <div class="card">
+                    <img class="card-img-top" src="../images/Rapido.jpg" alt="Card image cap">
+                    <div class="card-body">
+                    <h5 class="card-title"><b>Sencillo</b></h5>
+                    <p class="card-text">En nuestra web podrás comprar de manera rápida y sencilla tu próximo
+                            vuelo.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="tarjeta">
-                <img src="../images/Servicio.jpg" alt="Avatar" style="width:100%;height:50%">
-                <div class="container">
-                    <h2><b>Servicio</b></h2> 
-                    <p style="font-size:20px;">AirDSS se caracteriza por su excelente servicio y atención al cliente</p> 
+                <div class="card">
+                    <img class="card-img-top" src="../images/Servicio.jpg" alt="Card image cap">
+                    <div class="card-body">
+                    <h5 class="card-title"><b>Servicio</b></h5>
+                    <p class="card-text">AirDSS se caracteriza por su excelente servicio y atención al cliente</p>
+                    </div>
                 </div>
             </div>
         </div>

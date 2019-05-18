@@ -30,7 +30,7 @@
             <br>
             <!--<a href="/profile/change">!-->
                 <a href="/modificarClient{{$cliente->id}}/modify">
-                <button type="button">Editar perfil</button>
+                <button type="button" class="btn btn-primary">Editar perfil</button>
             </a>
         </div>
     </div>
