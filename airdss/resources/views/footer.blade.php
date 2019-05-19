@@ -17,6 +17,9 @@
       <!-- Grid column -->
       <div class="col-sm-4">
         <!-- Content -->
+      </div>
+      <div class="col-sm-4">
+        <!-- Content -->
         <a href="/contacto"> Contacto </a>
       </div>
 

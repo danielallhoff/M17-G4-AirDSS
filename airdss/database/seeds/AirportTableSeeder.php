@@ -37,7 +37,8 @@ class AirportTableSeeder extends Seeder
         $flight = new Flight([
             'capacidad' => 190,
             'fecha_llegada' => '01/05/2019 9:00',
-            'fecha_salida' => '01/05/2019 8:10'
+            'fecha_salida' => '01/05/2019 8:10',
+            'precio' => 65.5
         ]);
         $flight->plane()->associate($plane);
         $flight->airportOrigen()->associate($airport);
@@ -49,7 +50,8 @@ class AirportTableSeeder extends Seeder
         $flight = new Flight([
             'capacidad' => 200,
             'fecha_llegada' => '01/05/2019 12:45',
-            'fecha_salida' => '01/05/2019 11:25'
+            'fecha_salida' => '01/05/2019 11:25',
+            'precio' => 80
         ]);
         $flight->plane()->associate($plane);
         $flight->airportOrigen()->associate($airport);

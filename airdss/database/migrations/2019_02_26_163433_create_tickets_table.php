@@ -16,9 +16,9 @@ class CreateTicketsTable extends Migration
         Schema::create('tickets', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('codigo')->unique();
-            $table->string('asiento');
-            $table->string('clase');
+            $table->integer('asiento');
             $table->date('fecha');
+            $table->float('precio');
             /*
             $table->integer('flight_id')->nullable();
             $table->foreign('flight_id')->references('id')->on('flights');

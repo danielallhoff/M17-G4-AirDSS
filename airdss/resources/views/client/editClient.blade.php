@@ -5,7 +5,12 @@
 @section('contenido')
 
 <div class="centrado">
-    <h1>Editar Cliente</h1>
+    @if (Auth::check()==1 && Auth::user()->esAdmin == 1)
+        <h1>Editar Cliente</h1>
+    @else
+        <h1>Editar Perfil</h1>
+    @endif
+    
     @if (count($errors) > 0)
         <div class="alert alert-danger" role="alert">
             @foreach ($errors->all() as $error)
@@ -38,9 +43,26 @@
         <label for="fecha">Fecha de Nacimento:</label>
         <input type="date" name="fecha" id="fecha" value="{{$cliente->fecha}}">
         <br>
-        <input type="submit", value="Crear/Modificar Usuario">
-        <a href="/admin">
-        <button type="button">Volver</button>
+        <br>
+
+        <!--@if (count($errors) > 0)
+            <p>    
+            @foreach ($errors->all() as $error)        
+                <li>{{ $error }}</li>    
+            @endforeach    
+            </p>
+        @endif!-->
+        <input type="submit", value="Modificar Usuario">
+        @if (Auth::check()==1 && Auth::user()->esAdmin == 1)
+            <a href="/admin">
+            <button type="button">Volver</button>
+        @endif
+        @if(Auth::check() == 1 && Auth::user()->esAdmin == 0)
+        
+            <a href="/airdss">
+            <button type="button">Volver</button>
+        @endif
+        
     
     </form>
 </div>

@@ -28,7 +28,8 @@ class PackagesTableSeeder extends Seeder
         $flight = new Flight([
             'capacidad' =>140,
             'fecha_llegada' => '3/04/2019 11:15',
-            'fecha_salida' => '3/04/2019 9:30'    
+            'fecha_salida' => '3/04/2019 9:30',
+            'precio' => 30
         ]);
         
         $airportO = new Airport([
@@ -62,9 +63,9 @@ class PackagesTableSeeder extends Seeder
 
         $ticket = new Ticket([
             'codigo' => 222,
-            'asiento' => '02C',
-            'clase' => 'turista',
-            'fecha' => '3/04/2019'
+            'asiento' => 4,
+            'fecha' => '3/04/2019',
+            'precio' => 30
         ]);
         
         $ticket->User()->associate($User);
@@ -121,7 +122,8 @@ class PackagesTableSeeder extends Seeder
         $flight = new Flight([
             'capacidad' =>140,
             'fecha_llegada' => '5/04/2019 19:15',
-            'fecha_salida' => '5/04/2019 18:00'    
+            'fecha_salida' => '5/04/2019 18:00',
+            'precio' => 30    
         ]);
         
         /*$airportO = new Airport([
@@ -155,9 +157,9 @@ class PackagesTableSeeder extends Seeder
 
         $ticket = new Ticket([
             'codigo' => 109,
-            'asiento' => '10B',
-            'clase' => 'turista',
-            'fecha' => '5/04/2019'
+            'asiento' => 3,
+            'fecha' => '5/04/2019',
+            'precio' => 30
         ]);
         
         $ticket->User()->associate($User);
@@ -204,7 +206,8 @@ class PackagesTableSeeder extends Seeder
         $flight = new Flight([
             'capacidad' =>140,
             'fecha_llegada' => '9/04/2019 12:20',
-            'fecha_salida' => '9/04/2019 11:00'    
+            'fecha_salida' => '9/04/2019 11:00',
+            'precio' => 20    
         ]);
         
         /*$airportO = new Airport([
@@ -239,8 +242,8 @@ class PackagesTableSeeder extends Seeder
         $ticket = new Ticket([
             'codigo' => 110,
             'asiento' => '01A',
-            'clase' => 'primera',
-            'fecha' => '9/04/2019'
+            'fecha' => '9/04/2019',
+            'precio' => 30
         ]);
         
         $ticket->user()->associate($User);

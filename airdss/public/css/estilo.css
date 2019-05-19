@@ -12,6 +12,7 @@ body {
 }
 .centrado{
     text-align: center;
+    max-width: 800px;
     border-radius: 10px;
     height: 100%;
     overflow-y:auto;
@@ -33,6 +34,25 @@ body {
     background-color:rgb(250,250,250);
     border-collapse: collapse;
 }
+
+.tablaInvisible{
+    width:100%;
+    padding:40px;
+    margin:30px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color:rgb(250,250,250);
+    border-collapse: collapse;
+    
+}
+
+.tablaInvisible tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+
+.tablaInvisible tr:hover {background-color: #f5f5f5;}
 
 .tabla th, td {
   text-align: center;
@@ -168,7 +188,7 @@ p{
   margin-left: auto;
   margin-right: auto;
   border-radius: 10px;
-  background-color: black;
+  /*background-color: black;*/
   background-size: 100% 100%;
 }
 
@@ -232,4 +252,45 @@ p{
 .col-sm-3 a {
   color: rgb(255, 255, 255);
   font-size: 20px;
+}
+
+/*search box css start here*/
+.search-sec{
+  padding: 2rem;
+  padding-left: 15rem;
+}
+.search-slt{
+  display: block;
+  width: 100%;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #55595c;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  height: calc(3rem + 2px) !important;
+  border-radius:0;
+}
+.wrn-btn{
+  width: 100%;
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: capitalize;
+  height: calc(3rem + 2px) !important;
+  border-radius:0;
+}
+@media (min-width: 992px){
+  .search-sec{
+      position: relative;
+      top: -114px;
+      /*margin-left: 50px;*/
+      background: rgba(26, 70, 104, 0.51);
+      z-index: 100
+  }
+}
+
+@media (max-width: 992px){
+  .search-sec{
+      background: #1A4668;
+  }
 }

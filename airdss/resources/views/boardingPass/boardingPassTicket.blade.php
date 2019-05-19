@@ -13,6 +13,7 @@
                 <th>Fecha</th>
                 <th>Embarque</th>
                 <th>Llegada</th>
+                <th>Estado</th>
             </tr>
             @forelse($boardingPasses as $pass)
             <tr>
@@ -21,6 +22,11 @@
                 <td>{{$pass->fecha}}</td>
                 <td>{{$pass->embarque}}</td>
                 <td>{{$pass->llegada}}</td>
+                @if($pass->cancelado)
+                <td><div class="alert alert-danger" role="alert">Cancelado</div></td>
+                @else
+                <td><div class="alert alert-info" role="alert">No cancelado</div></td>
+                @endif
             </tr>
             @empty
             <div class="alert alert-info" role="alert">

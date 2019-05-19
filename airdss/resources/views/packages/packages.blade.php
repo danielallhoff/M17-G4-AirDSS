@@ -9,7 +9,7 @@
 <div class="contenido">
     <div class="centrado">
         <h1>Equipaje del Ticket {{$ticket->id}}</h1>
-        <table class="table" width="400px">
+        <table class="tabla" width="400px">
             <tr>
                 <th>Peso</th>
                 <th>Ancho</th>
