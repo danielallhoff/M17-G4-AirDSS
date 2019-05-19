@@ -28,13 +28,12 @@ class BuyServices{
         //Generar código único.
         $codigo = strval($flightID) . strval($clientID) . strval($asiento);
         //Datos correctos
-        if($flight != null  && $client != null && $disponible){
+        if($flight != null  && $client != null && $disponible && !$flight->cancelado){
            
             $ticket = new Ticket();
 
             //COmpra funciona aleatoriamente
-            $compra_correcta = random_int(0,1);            
-            sleep(1);
+            $compra_correcta = random_int(0,1);             
             if($compra_correcta){
                 $precio = 0;
                 if($hasPackage){
@@ -42,7 +41,7 @@ class BuyServices{
                 }
                 $precio += $flight->precio;
                 
-                try {
+               try {
                     $ticket = new Ticket([
                         'asiento' => $asiento,
                         'fecha' => date('Y-m-d'),
@@ -52,7 +51,7 @@ class BuyServices{
                     $ticket->codigo = $codigo;
                     $ticket->flight()->associate($flight);
                     $ticket->user()->associate($client);
-
+                   
                     $ticket->save();
 
                     $boardingPass = new BoardingPass([
@@ -64,14 +63,17 @@ class BuyServices{
                     ]);                
 
                     $boardingPass->ticket()->associate($ticket);
-                    $boardingPass->flight()->associate($flight);
+                    $boardingPass->flight()->associate($flight);                    
                     $boardingPass->save();
                     
-                    $client->update();               
+                    $flight->boardingpasses()->save($boardingPass);
+                    $flight->tickets()->save($ticket);
+                    $client->tickets()->save($ticket);
                     $flight->update();
+                    $client->update();
+                    
                 } catch (\Exception $e) {
                     $rollback = true;
-                    
                 }
             }
             else{
@@ -89,7 +91,5 @@ class BuyServices{
         }
         DB::commit();
         return $ticket;
-        
-        
     }
 }

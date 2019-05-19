@@ -7,11 +7,11 @@
 @section('contenido')
 <div class="container-fluid">
     <div class="centrado">
-            @if ($compra != null && $compra == 0)
+            @if ($compra == 0)
                 <div class="alert alert-info" role="alert">
                     La compra no ha podido realizarse!
                 </div> 
-            @elseif($compra != null && $compra == 1)
+            @elseif($compra == 1)
                 <div class="alert alert-info" role="alert">
                     La compra ha podido realizarse!
                 </div> 
@@ -22,6 +22,7 @@
                 <tr>
                     <th>Código</th>
                     <th>Vuelo</th>
+                    <th>Fecha compra </th>
                     <th>Tarjetas de embarque</th>
                     <th>Equipajes</th>
                     <th>Estado </th>
@@ -33,7 +34,7 @@
                 <tr>
                     <td>{{$ticket->codigo}}</td>
                     <td>{{$ticket->origen}} - {{$ticket->destino}}</td>
-                    
+                    <td>{{$ticket->fecha}}</td>
                     <td><a href="/ticket{{$ticket->id}}/boardingpasses">Tarjetas de embarque</a></td>
                     <td><a href="/ticket{{$ticket->id}}/packages">Packages</a></td>
                     @if($ticket->flight->cancelado)
