@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class BoardingPass extends Model
 {
+
+    protected $fillable = ['asiento', 'puerta', 'fecha', 'embarque', 'llegada'];
     public function ticket()
     {
         return $this->belongsTo('App\Ticket');

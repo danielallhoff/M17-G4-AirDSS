@@ -17,8 +17,8 @@ class CreateTicketsTable extends Migration
             $table->increments('id');
             $table->integer('codigo')->unique();
             $table->integer('asiento');
-            $table->string('clase');
             $table->date('fecha');
+            $table->float('precio');
             /*
             $table->integer('flight_id')->nullable();
             $table->foreign('flight_id')->references('id')->on('flights');

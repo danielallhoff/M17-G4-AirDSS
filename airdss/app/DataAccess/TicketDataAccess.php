@@ -25,15 +25,15 @@ class TicketDataAccess
         $ticket->delete();
     }
 
-    //Ordenar Tickets por clase descendente
-    static public function orderTicketsClaseDesc ($id){
-        $tickets = Ticket::where('user_id','like',$id)->orderBy('clase','desc')->paginate(10);
+    //Ordenar Tickets por fecha descendente
+    static public function orderTicketsfechaDesc ($id){
+        $tickets = Ticket::where('user_id','like',$id)->orderBy('fecha','desc')->paginate(10);
         return $tickets;
     }
 
-    //Ordenar Tickets por clase ascendente
-    static public function orderTicketsClaseAsc ($id){
-        $tickets = Ticket::where('user_id','like',$id)->orderBy('clase','asc')->paginate(10);
+    //Ordenar Tickets por fecha ascendente
+    static public function orderTicketsfechaAsc ($id){
+        $tickets = Ticket::where('user_id','like',$id)->orderBy('fecha','asc')->paginate(10);
         return $tickets;
     }
 

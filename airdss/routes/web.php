@@ -42,8 +42,8 @@ Route::group(['middleware' => 'auth'], function() {
     //});
     Route::get('/ticket/codigoAsc{id}', 'TicketsController@orderTicketsCodAsc');
     Route::get('/ticket/codigoDesc{id}', 'TicketsController@orderTicketsCodDesc');
-    Route::get('/ticket/claseAsc{id}', 'TicketsController@orderTicketsClaseAsc');
-    Route::get('/ticket/claseDesc{id}', 'TicketsController@orderTicketsClaseDesc');
+    Route::get('/ticket/fechaAsc{id}', 'TicketsController@orderTicketsfechaAsc');
+    Route::get('/ticket/fechaDesc{id}', 'TicketsController@orderTicketsfechaDesc');
     
     //Route::get('/ticket{id}/boardingpasses', function(){
         

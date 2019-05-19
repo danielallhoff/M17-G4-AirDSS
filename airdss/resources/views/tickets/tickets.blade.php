@@ -7,17 +7,24 @@
 @section('contenido')
 <div class="container-fluid">
     <div class="centrado">
+            @if ($compra != null && $compra == 0)
+                <div class="alert alert-info" role="alert">
+                    La compra no ha podido realizarse!
+                </div> 
+            @elseif($compra != null && $compra == 1)
+                <div class="alert alert-info" role="alert">
+                    La compra ha podido realizarse!
+                </div> 
+            @endif
         <h1>{{Auth::user()->name}}  estos son tus Tickets</h1>
         <div style="overflow-x:auto">
             <table class="tabla" width="400px">
                 <tr>
                     <th>Código</th>
-                    <th>Clase</th>
-                    <th>Asiento</th>
                     <th>Vuelo</th>
                     <th>Tarjetas de embarque</th>
                     <th>Equipajes</th>
-                    <th></th>
+                    <th>Estado </th>
                     @if(Auth::user()->esAdmin == 1)
                     <th>Eliminar</th>
                     @endif
@@ -25,13 +32,15 @@
                 @forelse($tickets as $ticket)
                 <tr>
                     <td>{{$ticket->codigo}}</td>
-                    <td>{{$ticket->clase}}</td>
-                    <td>{{$ticket->asiento}}</td>
-                    <!-- <td><a href="/flight{{$ticket->flight_id}}">{{$ticket->flight_id}}</a></td> -->
-                    <td>{{$ticket->flight_id}}</td>
+                    <td>{{$ticket->origen}} - {{$ticket->destino}}</td>
+                    
                     <td><a href="/ticket{{$ticket->id}}/boardingpasses">Tarjetas de embarque</a></td>
                     <td><a href="/ticket{{$ticket->id}}/packages">Packages</a></td>
-                    
+                    @if($ticket->flight->cancelado)
+                    <td><div class="alert alert-danger" role="alert">Cancelado</div></td>
+                    @else
+                    <td><div class="alert alert-info" role="alert">OK</div></td>
+                    @endif
                     @if(Auth::user()->esAdmin == 1)
                         <td><a href="#">Modificar</a></td>
                         <td><a href="/ticket{{$ticket->id}}/remove">Eliminar</a></td>
@@ -39,7 +48,7 @@
                 </tr>
                 @empty
                 <div class="alert alert-info" role="alert">
-                <strong>0 tickets.</strong> No hay tickes disponibles. 
+                    <strong>0 tickets.</strong> No hay tickes disponibles. 
                 </div> 
                 @endforelse
             </table>
@@ -53,11 +62,11 @@
         <a href="/ticket/codigoDesc{{Auth::user()->id}}">
             <button class="boton_filtrar" type="button">Código Descendente</button>
         </a>
-        <a href="/ticket/claseAsc{{Auth::user()->id}}">
-            <button class="boton_filtrar" type="button">Clase Ascendente</button>
+        <a href="/ticket/fechaAsc{{Auth::user()->id}}">
+            <button class="boton_filtrar" type="button">Fecha Ascendente</button>
         </a>
-        <a href="/ticket/claseDesc{{Auth::user()->id}}">
-            <button class="boton_filtrar" type="button">Clase Descendente</button>
+        <a href="/ticket/fechaDesc{{Auth::user()->id}}">
+            <button class="boton_filtrar" type="button">Fecha Descendente</button>
         </a>
         <p>{{$tickets->links()}}</p>
     </div>

@@ -68,8 +68,8 @@ class TicketsTableSeeder extends Seeder
         $ticket = new Ticket([
             'codigo' => 101,
             'asiento' => 0,
-            'clase' => 'turista',
-            'fecha' => '19/03/2019'
+            'fecha' => '19/03/2019',
+            'precio' => 10
         ]);
         
         $ticket->user()->associate($client);
@@ -114,9 +114,9 @@ class TicketsTableSeeder extends Seeder
 
         $ticket = new Ticket([
             'codigo' => 102,
-            'asiento' => 1,
-            'clase' => 'primera',
-            'fecha' => '20/03/2019'
+            'asiento' =>24,
+            'fecha' => '20/03/2019',
+            'precio' => 100
         ]);
 
         $ticket->user()->associate($client);
@@ -124,8 +124,8 @@ class TicketsTableSeeder extends Seeder
         $ticket->save();
 
         $boarding = new BoardingPass([
-            'asiento'=>'20D', 
-            'puerta' => 'C12',
+            'asiento'=>'4', 
+            'puerta' => 3,
             'fecha' => '20/03/2019',
             'embarque' => '10:00',
             'llegada' => '18:15'
@@ -141,8 +141,8 @@ class TicketsTableSeeder extends Seeder
         $ticket = new Ticket([
             'codigo' => 103,
             'asiento' => 3,
-            'clase' => 'turista',
-            'fecha' => '26/04/2019'
+            'fecha' => '26/04/2019',
+            'precio' => 100
         ]);
 
         $ticket->user()->associate($client);
@@ -155,8 +155,8 @@ class TicketsTableSeeder extends Seeder
         $ticket = new Ticket([
             'codigo' => 104,
             'asiento' => 4,
-            'clase' => 'turista',
-            'fecha' => '30/05/2019'
+            'fecha' => '30/05/2019',
+            'precio' => 100
         ]);
 
         $ticket->user()->associate($client);
@@ -169,8 +169,8 @@ class TicketsTableSeeder extends Seeder
         $ticket = new Ticket([
             'codigo' => 105,
             'asiento' => 5,
-            'clase' => 'turista',
-            'fecha' => '10/06/2019'
+            'fecha' => '10/06/2019',
+            'precio' => 100
         ]);
 
         $ticket->user()->associate($client);
@@ -183,8 +183,8 @@ class TicketsTableSeeder extends Seeder
         $ticket = new Ticket([
             'codigo' => 106,
             'asiento' => 6,
-            'clase' => 'turista',
-            'fecha' => '12/06/2019'
+            'fecha' => '12/06/2019',
+            'precio' => 100
         ]);
 
         $ticket->user()->associate($client);
@@ -197,8 +197,8 @@ class TicketsTableSeeder extends Seeder
         $ticket = new Ticket([
             'codigo' => 107,
             'asiento' => 7,
-            'clase' => 'Primera',
-            'fecha' => '09/08/2019'
+            'fecha' => '09/08/2019',
+            'precio' => 100
         ]);
 
         $ticket->user()->associate($client);
@@ -222,8 +222,8 @@ class TicketsTableSeeder extends Seeder
         $ticket = new Ticket([
             'codigo' => 108,
             'asiento' => 8,
-            'clase' => 'Primera',
-            'fecha' => '24/12/2019'
+            'fecha' => '24/12/2019',
+            'precio' => 120 
         ]);
 
         $ticket->user()->associate($client);

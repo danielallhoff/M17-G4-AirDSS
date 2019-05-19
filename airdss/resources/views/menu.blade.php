@@ -45,7 +45,7 @@
         <li class="nav-item"><a class="nav-link" href="/profile{{Auth::user()->id}}">Mi perfil</a></li>
     @endif
     @if(Auth::check() == 1 && Auth::user()->esAdmin == 1)
-        <li class="nav-item"><a class="nav-link" href="/admin" align>Administración</a></li>
+        <li class="nav-item"><a class="nav-link" href="/admin" >Administración</a></li>
         <li class="nav-item"><a class="nav-link" href="/profile{{Auth::user()->id}}">Mi perfil</a></li>
     @endif
     @if(Auth::check() == 0)

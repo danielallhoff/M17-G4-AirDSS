@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Flight;
 use App\DataAccess\FlightDataAccess as F;
+use App\ServiceLayer\BuyServices as B;
+use Illuminate\Support\Facades\Auth;
+use App\DataAccess\TicketDataAccess as T;
 
 class BuyController extends Controller
 {
@@ -26,13 +29,22 @@ class BuyController extends Controller
     //Simular pago y si ha funcionado realizar cambios en todos los objetos
     public function pay(Request $request){
         $flight = F::showFlight($request->id);
-        //Llamada a capa de servico
+
         $this->validate($request, [
             'titular' => 'required',
             'iban' => 'required',
             'cvv' => 'required|integer|min:3',
             ]);
         
-        return view('inicio.airdss');
+        $ticket = B::buy($request->id, Auth::user()->id, $request->equipaje, $request->asiento);
+        
+        $tickets = T::showTicketsfromUser(Auth::user()->id);
+        if($ticket != null){
+            return view('tickets.tickets', ['tickets'=>$tickets[1], 'compra'=>1]);
+        }
+        else{
+            return view('tickets.tickets', ['tickets'=>$tickets[1], 'compra'=>0]);
+        }
+        
     }
 }

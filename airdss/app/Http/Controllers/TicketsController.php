@@ -14,14 +14,14 @@ class TicketsController extends Controller
     //
     public function showTickets(){
         $tickets = T::showTickets();
-        return view('tickets.tickets',array ('tickets'=> $tickets));
+        return view('tickets.tickets',array ('tickets'=> $tickets, 'compra'=>null));
     }
 
     //Muestra SOLO los tickets de un usuario que este logueado
     public function showTicketsfromUser($id){
         if(Auth::user()->id == $id){
             $result = T::showTicketsfromUser($id);
-            return view('tickets.tickets',array ('ticket' => $result[0], 'tickets'=> $result[1]));
+            return view('tickets.tickets',array ('ticket' => $result[0], 'tickets'=> $result[1],'compra'=>null));
         }else {
             return redirect('/airdss');  
         }
@@ -32,21 +32,21 @@ class TicketsController extends Controller
         return back();
     }
 
-    //Ordenar Tickets por clase descendente
-    public function orderTicketsClaseDesc ($id){
+    //Ordenar Tickets por fecha descendente
+    public function orderTicketsfechaDesc ($id){
         if(Auth::user()->id == $id){
-            $tickets = T::orderTicketsClaseDesc($id);
-            return view('tickets.tickets', ['tickets'=>$tickets]);
+            $tickets = T::orderTicketsfechaDesc($id);
+            return view('tickets.tickets', ['tickets'=>$tickets,'compra'=>null]);
         }else {
             return redirect('/airdss');  
         }
     }
 
-    //Ordenar Tickets por clase ascendente
-    public function orderTicketsClaseAsc ($id){
+    //Ordenar Tickets por fecha ascendente
+    public function orderTicketsfechaAsc ($id){
         if(Auth::user()->id == $id){
-            $tickets = T::orderTicketsClaseAsc($id);
-            return view('tickets.tickets', ['tickets'=>$tickets]);
+            $tickets = T::orderTicketsfechaAsc($id);
+            return view('tickets.tickets', ['tickets'=>$tickets,'compra'=>null]);
         }else {
             return redirect('/airdss');  
         }
@@ -56,7 +56,7 @@ class TicketsController extends Controller
     public function orderTicketsCodAsc ($id){
         if(Auth::user()->id == $id){
             $tickets = T::orderTicketsCodAsc($id);
-            return view('tickets.tickets', ['tickets'=>$tickets]);
+            return view('tickets.tickets', ['tickets'=>$tickets,'compra'=>null]);
         }else {
             return redirect('/airdss');  
         }
@@ -66,7 +66,7 @@ class TicketsController extends Controller
     public function orderTicketsCodDesc ($id){
         if(Auth::user()->id == $id){
             $tickets = T::orderTicketsCodDesc($id);
-            return view('tickets.tickets', ['tickets'=>$tickets]);
+            return view('tickets.tickets', ['tickets'=>$tickets,'compra'=>null]);
         }else {
             return redirect('/airdss');  
         }

@@ -27,6 +27,14 @@ class Flight extends Model
         return $this->capacidad - count($this->tickets());
     }
 
+    public function getOrigenAttribute(){
+        return $this->airportOrigen->ciudad;
+    }
+
+    public function getDestinoAttribute(){
+        return $this->airportDestino->ciudad;
+    }
+
     public function ticketsDisponibles(){
         $reservedPlaces = [];
         foreach($this->tickets() as $ticket){

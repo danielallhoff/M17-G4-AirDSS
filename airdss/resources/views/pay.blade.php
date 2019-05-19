@@ -7,10 +7,10 @@
         <form action="/flight{{$flight->id}}/pay" method="post">
                 {{ csrf_field() }}
             <h1>Pagar tu vuelo</h1>
-            <table class="tablaInvisible" width="400px">
-                <input type="hidden" value="{{$flight->id}}">
-                <input type="hidden" value="{{$asiento}}">
-                <input type="hidden" value="{{$equipaje}}">
+            <table class="tablaInvisible" width="400px" cellpadding="20">
+                <input type="hidden" name ="id" value="{{$flight->id}}">
+                <input type="hidden" name ="asiento"value="{{$asiento}}">
+                <input type="hidden" name ="equipaje" value="{{$equipaje}}">
                 <tr>
                     <th>Titular:</th>
                     <th><input type="text" name="titular" PlaceHolder="Titular"></th>
@@ -33,12 +33,19 @@
                 </tr>
                 <tr>
                     <th>Precio: </th>
-                    <th>X$</th>
+                    @if($equipaje)
+                    <th>{{$flight->precio + 10}}€</th>
+                    @else
+                    <th>{{$flight->precio}}€</th>
+                    @endif
+                    
                 </tr>
                 
                 <tr>
-                    <th><button type="submit">Pagar</button></th>
-                    <th><a href="/flights">Cancelar</a></th>
+                    <th><button type="submit" class="btn btn-primary">Pagar</button></th>
+                    <th><a href="/flights" >
+                    <button type="button" class="btn btn-primary">Cancelar</button>
+                    </a></th>
                 </tr>
             </table>
         </form>
