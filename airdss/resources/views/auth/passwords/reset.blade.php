@@ -1,5 +1,4 @@
 @extends('layouts.app')
-@extends('master')
 <head>
     <title>Reset password</title>
 </head>

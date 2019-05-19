@@ -1,4 +1,7 @@
 @extends('master')
+<head>
+    <title>Welcome!</title>
+</head>
 @section('contenido')
 <div class="container">
     <div class="row justify-content-center">
