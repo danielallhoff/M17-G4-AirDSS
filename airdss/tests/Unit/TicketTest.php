@@ -9,11 +9,12 @@ use App\Ticket;
 
 class TicketTest extends TestCase
 {
+    /*
     /**
      * A basic unit test example.
      *
      * @return void
-     */
+     
     public function testTicketData() {
         //$count = Ticket::all()->count();
         //$this->assertEquals($count, 8);
@@ -55,4 +56,5 @@ class TicketTest extends TestCase
             'codigo' => 1010
         ]);
     }
+    */
 }

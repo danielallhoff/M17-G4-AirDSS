@@ -6,18 +6,24 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
+use App\Ticket;
+use App\User;
+use App\Flight;
 use App\BoardingPass;
+use App\Plane;
+use App\Airport;
 
 class DataTest extends TestCase
 {
+    /*
     /**
      * A basic unit test example.
      *
      * @return void
-     */
+     
     public function testBoardingPassData()
     {
-        $count = BoardingPass::all()->count();
+        /*$count = BoardingPass::all()->count();
         $this->assertEquals($count, 7);
 
         $this->assertDatabaseHas('boarding_passes',
@@ -159,5 +165,5 @@ class DataTest extends TestCase
             'clase' => 'turista',
             'fecha' => '19/03/2019'
         ]);
-    }
+    }*/
 }

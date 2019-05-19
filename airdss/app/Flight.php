@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Support\Facades\Log;
 class Flight extends Model
 {
     public function boardingpasses(){
@@ -37,13 +37,22 @@ class Flight extends Model
 
     public function ticketsDisponibles(){
         $reservedPlaces = [];
+        
         foreach($this->tickets() as $ticket){
-            array_push($reservedPlaces, $ticket->asiento);
+            $reservedPlaces[] = $ticket->asiento;
         }
         $placesAvailable = [];
-        foreach (range(0,$this->capacidad) as $asiento){
-            if(!in_array($asiento, $reservedPlaces)){
-                array_push($placesAvailable,$asiento);
+        $ocupado = False;
+        foreach (range(0,$this->capacidad) as $asiento){            
+            $ocupado = False;
+            foreach ($reservedPlaces as $place){
+                if($asiento == $place){
+                    $ocupado = True;
+                    break;
+                }
+            }
+            if(!$ocupado){
+                $placesAvailable[] = $asiento;
             }
         }
         return $placesAvailable;
