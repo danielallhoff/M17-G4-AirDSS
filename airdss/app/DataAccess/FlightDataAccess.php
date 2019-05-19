@@ -98,9 +98,10 @@ class FlightDataAccess
         return $flight;
     }
 
+    // busca de entre todos los vuelos cual está cancelado
     static public function allFlight()
     {
-        $flight = F::all();
+        $flight = F::all()->where('cancelado', '=', 1);
         return $flight;
     }
 }

@@ -12,11 +12,9 @@
         @if(Auth::check() && Auth::user()->esAdmin)
             <div class="alert alert-danger" role="alert">
                 @foreach ($flights->all() as $flight)
-                    @if($flight->cancelado == 1)
-                        <strong>ATENCIÓN,</strong> 
-                        <p>El vuelo {{$flight->id}}, {{$flight->fecha_salida}}, se ha cancelado. Debe informar a los pasajeros de la cancelación y 
-                        posibilidades de reubicación.</p>
-                    @endif
+                    <strong>ATENCIÓN,</strong> 
+                    <p>El vuelo {{$flight->id}}, {{$flight->fecha_salida}}, se ha cancelado. Debe informar a los pasajeros de la cancelación y 
+                    posibilidades de reubicación.</p>
                 @endforeach
             </div>
         @endif
