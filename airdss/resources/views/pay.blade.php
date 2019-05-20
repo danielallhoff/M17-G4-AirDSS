@@ -33,7 +33,7 @@
                 </tr>
                 <tr>
                     <th>Precio: </th>
-                    @if($equipaje)
+                    @if($equipaje == 1)
                     <th>{{$flight->precio + 10}}€</th>
                     @else
                     <th>{{$flight->precio}}€</th>

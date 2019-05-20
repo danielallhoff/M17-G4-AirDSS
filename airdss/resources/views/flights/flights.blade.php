@@ -85,6 +85,7 @@
                 <tr>
                     <th>Aeropuerto origen</th>
                     <th>Aeropuerto destino</th>
+                    
                     <th>Fecha salida</th>
                     <th>Fecha llegada</th>
                     <th>Estado</th>
@@ -93,9 +94,11 @@
                         <th>Modificar</th>
                         <th>Eliminar</th>
                         @else
+                        <th>Precio</th>
                         <th>Comprar</th>
                         @endif
                     @else
+                    <th>Precio</th>
                     <th>Comprar</th>
                     @endif
                     
@@ -104,7 +107,7 @@
                 <tr>
                     <!--<td><a href="/airport{{$flight->airportOrigen->id}}"> {{$flight->airportOrigen->codigo}}-{{$flight->airportOrigen->ciudad}}</a></td>-->
                     <td>{{$flight->airportOrigen->ciudad}}</td>
-                    <td>{{$flight->airportDestino->ciudad}}</td>
+                    <td>{{$flight->airportDestino->ciudad}}</td>                    
                     <td>{{$flight->fecha_salida}}</td>
                     <td>{{$flight->fecha_llegada}}</td>
                     @if($flight->cancelado)
@@ -114,6 +117,7 @@
                     @else
                     <td><div class="alert alert-info" role="alert">Libre</div></td>
                     @endif
+                    <td>{{$flight->precio}}€</td>
                     @if (Auth::check())                
                         @if (Auth::user()->esAdmin)
                         <td><a href="/flight{{$flight->id}}/modify"> Modificar</a></td>
