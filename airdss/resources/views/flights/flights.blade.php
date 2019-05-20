@@ -42,11 +42,25 @@
                     <div class="col-lg-12">
                         <div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                <input type="text" name="origen" id="origen" class="form-control search-slt" placeholder="Introduce Origen">
+                                <select name ="origen" id="origen" class="form-control search-slt">
+                                @forelse($airports as $ai)
+                                    <option value={{$ai['ciudad']}} >{{$ai['ciudad']}}</option>
+                                @empty
+                                    <p>No hay vuelos disponibles! </p>
+                                @endforelse
+                                </select>
                             </div>
+                            
                             <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                <input type="text" name="destino" id="destino" class="form-control search-slt" placeholder="Introduce Destino">
+                                <select name ="destino" id="destino" class="form-control search-slt">
+                                @forelse($airports as $airport)
+                                    <option value={{$airport['ciudad']}} >{{$airport['ciudad']}}</option>
+                                @empty
+                                    <p>No hay vuelos disponibles! </p>
+                                @endforelse
+                                </select>
                             </div>
+
 
                             <div class="col-lg-3 col-md-3 col-sm-12 p-0">
                                 <button type="submit" class="btn btn-danger wrn-btn"> Buscar</button>
