@@ -13,69 +13,74 @@ class ClientController extends Controller
 
     //ListarCliente-------------------------------------------------------------------
     public function showClients(){
-        if(session()->has('opcion')){
+        /*if(session()->has('opcion')){
             session()->forget('opcion','text');
         }
         $clientes = User::where('esAdmin','0')->paginate(5);
-        $cliente = User::findOrFail(1);
+        $cliente = User::findOrFail(1);*/
+        $clientes =U::showClients();
         return view('client.listClient',array ('clientes'=> $clientes)) ;
-        //Falta añadir que no muestre los usuarios admin
     }
     //---------------------------------------------------------------------------------
 
     //OrdenarClientes------------------------------------------------------------------
     public function orderClientNameAsc(){
-        $opcion=session('opcion');
+        /*$opcion=session('opcion');
         if(session()->has('opcion')){
             $clientes = User::where('esAdmin','0')->where($opcion,'like',session('text'))->orderBy('name', 'asc')->paginate(5);
         }
         else{
             $clientes = User::where('esAdmin','0')->orderBy('name', 'asc')->paginate(5);
-        }    
+        }*/    
+        $clientes =U::orderClientNameAsc();
         return view('client.listClient' ,['clientes'=>$clientes]);
     }
     public function orderClientNameDesc(){
-        $opcion=session('opcion');
+        /*$opcion=session('opcion');
         if(session()->has('opcion')){
             $clientes = User::where('esAdmin','0')->where($opcion,'like',session('text'))->where('esAdmin','0')->orderBy('name', 'desc')->paginate(5);
         }
         else{
             $clientes = User::where('esAdmin','0')->orderBy('name', 'desc')->paginate(5);
-        }
+        }*/
+        $clientes=U::orderClientNameDesc();
         return view('client.listClient' ,['clientes'=>$clientes]);
     }
     public function orderClientDateAsc(){
-        $opcion=session('opcion');
+        /*$opcion=session('opcion');
         if(session()->has('opcion')){
             $clientes = User::where('esAdmin','0')->where($opcion,'like',session('text'))->orderBy('fechaNto', 'asc')->paginate(5);
         }
         else{
             $clientes = User::where('esAdmin','0')->orderBy('fechaNto', 'asc')->paginate(5);
-        }
+        }*/
+        $clientes=U::orderClientDateAsc();
         return view('client.listClient', ['clientes'=>$clientes]);
     }
     public function orderClientDateDesc(){
-        $opcion=session('opcion');
+        /*$opcion=session('opcion');
         if(session()->has('opcion')){
             $clientes = User::where('esAdmin','0')->where($opcion,'like',session('text'))->orderBy('fechaNto', 'desc')->paginate(5);
         }
         else{
             $clientes = User::where('esAdmin','0')->orderBy('fechaNto', 'desc')->paginate(5);
-        }
+        }*/
+        $clientes =U::orderClientDateDesc();
         return view('client.listClient', ['clientes'=>$clientes]);
     }
     //---------------------------------------------------------------------------------
 
     //Buscar Cliente ------------------------------------------------------------------
     public function buscar(Request $request){
-        $text = $request->buscar;
+        /*$text = $request->buscar;
         $text='%'.$text.'%';
 
         $opcion = $request->opcion;
 
         session(['opcion'=>$opcion,'text'=>$text]);
 
-        $client = User::where('esAdmin','0')->where($opcion,'like',$text)->paginate(5);
+        $client = User::where('esAdmin','0')->where($opcion,'like',$text)->paginate(5);*/
+        $client=U::buscar($request);
         return view('client.listClient', ['clientes'=>$client]);
     }
     //---------------------------------------------------------------------------------
@@ -155,7 +160,7 @@ class ClientController extends Controller
             'fecha'=>'required|date',
             ]);
         
-            $cliente = User::findOrFail($request->id);
+           /* $cliente = User::findOrFail($request->id);
         
             $cliente->dni=$request->dni;
             $cliente->name= $request->name;
@@ -167,7 +172,8 @@ class ClientController extends Controller
             $cliente->save();
         //return view('editClient',['cliente'=>$cliente]);
         
-        //return view('listClient');
+        //return view('listClient');*/
+        $cliente=U::edit($request);
         if (Auth::check()==0 && Auth::user()->esAdmin == 1){
             return redirect()->action('ClientController@showClients');
         }
