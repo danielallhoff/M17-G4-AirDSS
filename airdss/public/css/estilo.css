@@ -12,11 +12,11 @@ body {
 }
 .centrado{
     text-align: center;
-    max-width: 800px;
+    max-width: 1000px;
     border-radius: 10px;
     height: 100%;
     overflow-y:auto;
-    width:70%;
+    width:60%;
     margin-left: auto;
     margin-right: auto;
     background-color:rgb(255, 255, 255);

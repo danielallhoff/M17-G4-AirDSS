@@ -42,11 +42,25 @@
                     <div class="col-lg-12">
                         <div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                <input type="text" name="origen" id="origen" class="form-control search-slt" placeholder="Introduce Origen">
+                                <select name ="origen" id="origen" class="form-control search-slt">
+                                @forelse($airports as $ai)
+                                    <option value={{$ai['ciudad']}} >{{$ai['ciudad']}}</option>
+                                @empty
+                                    <p>No hay vuelos disponibles! </p>
+                                @endforelse
+                                </select>
                             </div>
+                            
                             <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                <input type="text" name="destino" id="destino" class="form-control search-slt" placeholder="Introduce Destino">
+                                <select name ="destino" id="destino" class="form-control search-slt">
+                                @forelse($airports as $airport)
+                                    <option value={{$airport['ciudad']}} >{{$airport['ciudad']}}</option>
+                                @empty
+                                    <p>No hay vuelos disponibles! </p>
+                                @endforelse
+                                </select>
                             </div>
+
 
                             <div class="col-lg-3 col-md-3 col-sm-12 p-0">
                                 <button type="submit" class="btn btn-danger wrn-btn"> Buscar</button>
@@ -71,6 +85,7 @@
                 <tr>
                     <th>Aeropuerto origen</th>
                     <th>Aeropuerto destino</th>
+                    
                     <th>Fecha salida</th>
                     <th>Fecha llegada</th>
                     <th>Estado</th>
@@ -79,9 +94,11 @@
                         <th>Modificar</th>
                         <th>Eliminar</th>
                         @else
+                        <th>Precio</th>
                         <th>Comprar</th>
                         @endif
                     @else
+                    <th>Precio</th>
                     <th>Comprar</th>
                     @endif
                     
@@ -90,7 +107,7 @@
                 <tr>
                     <!--<td><a href="/airport{{$flight->airportOrigen->id}}"> {{$flight->airportOrigen->codigo}}-{{$flight->airportOrigen->ciudad}}</a></td>-->
                     <td>{{$flight->airportOrigen->ciudad}}</td>
-                    <td>{{$flight->airportDestino->ciudad}}</td>
+                    <td>{{$flight->airportDestino->ciudad}}</td>                    
                     <td>{{$flight->fecha_salida}}</td>
                     <td>{{$flight->fecha_llegada}}</td>
                     @if($flight->cancelado)
@@ -100,6 +117,7 @@
                     @else
                     <td><div class="alert alert-info" role="alert">Libre</div></td>
                     @endif
+                    <td>{{$flight->precio}}€</td>
                     @if (Auth::check())                
                         @if (Auth::user()->esAdministrador())
                         <td><a href="/flight{{$flight->id}}/modify"> Modificar</a></td>

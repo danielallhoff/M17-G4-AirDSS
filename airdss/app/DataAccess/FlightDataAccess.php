@@ -104,4 +104,21 @@ class FlightDataAccess
         $flight = F::all()->where('cancelado', '=', 1);
         return $flight;
     }
+    static public function buscador(Request $request){
+        $origen = $request->origen;
+        $origen='%'.$origen.'%';
+        //echo $origen;
+
+        $destino = $request->destino;
+        $destino='%'.$destino.'%';
+        //echo($destino);
+        //session(['opcion'=>$opcion,'text'=>$text]);
+        //$airports = Airport::all();
+        $airportOrigen = Airport::where('ciudad','like', $origen)->first();
+        $airportDest = Airport::where('ciudad','like', $destino)->first();
+        //echo($airportOrigen->id);
+        //echo($airportDest->id);
+        $flights = F::where('airport_origen_id','like',$airportOrigen->id)->where('airport_destino_id','like',$airportDest->id)->paginate(5);
+        return $flights;
+    }
 }
