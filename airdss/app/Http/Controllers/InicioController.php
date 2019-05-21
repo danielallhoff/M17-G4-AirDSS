@@ -12,7 +12,7 @@ class InicioController extends Controller
     //
     public function inicio()
     {
-        if(Auth::check() && Auth::user()->esAdmin)
+        if(Auth::check() && Auth::user()->esAdministrador())
         {
             A::notificarCancelacionAvion();
             $flights = F::allFlight();

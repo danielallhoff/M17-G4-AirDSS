@@ -9,7 +9,7 @@
             <p style="font-size:70px;color:white">Bienvenido a AirDSS</p>
             <p style="font-size:30px;color:white">Le damos vuelo a tus sueños.</p>
         </div>
-        @if(Auth::check() && Auth::user()->esAdmin)
+        @if(Auth::check() && Auth::user()->esAdministrador())
             <div class="alert alert-danger" role="alert">
                 @foreach ($flights->all() as $flight)
                     <strong>ATENCIÓN,</strong> 

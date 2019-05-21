@@ -5,7 +5,7 @@
 @section('contenido')
 
 <div class="centrado">
-    @if (Auth::check()==1 && Auth::user()->esAdmin == 1)
+    @if (Auth::check()==1 && Auth::user()->esAdministrador() == 1)
         <h1>Editar Cliente</h1>
     @else
         <h1>Editar Perfil</h1>
@@ -53,11 +53,11 @@
             </p>
         @endif!-->
         <input type="submit", value="Modificar Usuario">
-        @if (Auth::check()==1 && Auth::user()->esAdmin == 1)
+        @if (Auth::check()==1 && Auth::user()->esAdministrador() == 1)
             <a href="/admin">
             <button type="button">Volver</button>
         @endif
-        @if(Auth::check() == 1 && Auth::user()->esAdmin == 0)
+        @if(Auth::check() == 1 && Auth::user()->esAdministrador() == 0)
         
             <a href="/airdss">
             <button type="button">Volver</button>

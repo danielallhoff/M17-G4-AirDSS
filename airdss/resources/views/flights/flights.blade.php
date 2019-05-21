@@ -58,7 +58,7 @@
         </div>
     </section>
     <div class="centrado">
-        @if (Auth::check() && Auth::user()->esAdmin)
+        @if (Auth::check() && Auth::user()->esAdministrador())
         <h1>Vuelos de la compañía</h1>
         <a href="/flights/add">
             <button type="button">Añadir vuelo</button>
@@ -75,7 +75,7 @@
                     <th>Fecha llegada</th>
                     <th>Estado</th>
                     @if (Auth::check())                
-                        @if (Auth::user()->esAdmin)
+                        @if (Auth::user()->esAdministrador())
                         <th>Modificar</th>
                         <th>Eliminar</th>
                         @else
@@ -101,7 +101,7 @@
                     <td><div class="alert alert-info" role="alert">Libre</div></td>
                     @endif
                     @if (Auth::check())                
-                        @if (Auth::user()->esAdmin)
+                        @if (Auth::user()->esAdministrador())
                         <td><a href="/flight{{$flight->id}}/modify"> Modificar</a></td>
                         <td><a href="/flight{{$flight->id}}/remove"> Eliminar</a></td>
                         @else

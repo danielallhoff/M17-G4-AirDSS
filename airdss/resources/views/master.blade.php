@@ -11,7 +11,7 @@
     </head>
     <body>
     @include('menu')
-    @if(Auth::check() && Auth::user()->esAdmin == 1)
+    @if(Auth::check() && Auth::user()->esAdministrador() == 1)
         @section('submenu')
         @show
     @endif

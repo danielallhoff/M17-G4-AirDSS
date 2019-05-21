@@ -134,7 +134,7 @@ class ClientController extends Controller
 
     //Modificar cliente----------------------------------------------------------------
     public function modify($id){
-        if(Auth::user()->id==$id || Auth::user()->esAdmin == 1){
+        if(Auth::user()->id==$id || Auth::user()->esAdministrador() == 1){
             $cliente = User::findOrFail($id);
             return view('client.editClient',['cliente'=>$cliente]);
         }
@@ -168,7 +168,7 @@ class ClientController extends Controller
         //return view('editClient',['cliente'=>$cliente]);
         
         //return view('listClient');
-        if (Auth::check()==0 && Auth::user()->esAdmin == 1){
+        if (Auth::check()==0 && Auth::user()->esAdministrador() == 1){
             return redirect()->action('ClientController@showClients');
         }
         else{

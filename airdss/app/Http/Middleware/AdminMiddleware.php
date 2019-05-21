@@ -3,6 +3,8 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use App\User;
+use Auth;
 
 class AdminMiddleware
 {
@@ -15,7 +17,7 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (auth()->check() && auth()->user()->esAdmin)
+        if (Auth::check() && Auth::user()->esAdministrador())
             return $next($request);
 
         return redirect('/login');

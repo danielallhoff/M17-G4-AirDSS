@@ -46,4 +46,9 @@ class User extends Authenticatable
         $fechaNacimiento = new \DateTime($this->fechaNto);
         return Carbon::now()->diff($fechaNacimiento)->y;
     }
+
+    public function esAdministrador()
+    {
+        return $this->esAdmin;
+    }
 }
