@@ -7,28 +7,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
-<!-- <ul class="menu">
-    <li><a href="/airdss">AIRDSS</a></li>
-    @if(Auth::check() == 0)
-    <li><a href="/flights">Comprar vuelos</a></li>
-    @endif
-    @if(Auth::check() == 1 && Auth::user()->esAdministrador()istrador() == 0)
-        <li><a href="/flights">Comprar vuelos</a></li>
-        <li><a href="/tickets{{Auth::user()->id}}">Mis vuelos</a></li>
-        <li><a href="/profile">Mi perfil</a></li>
-    @endif
-    @if(Auth::check() == 1 && Auth::user()->esAdministrador() == 1)
-        <li><a href="/admin" align>Administración</a></li>
-    @endif
-    @if(Auth::check() == 0)
-        <li><a href="/login">Login</a></li>
-        <li><a href="/register">Registrarse</a></li>
-    
-    @else
-        <li><a href="/profile">{{Auth::user()->name}}</a></li>
-        <li><a href="{{ route('logout') }}">Logout</a></li>
-    @endif
-</ul> -->
+
 
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
   <a class="navbar-brand" href="/airdss">AIRDSS</a>
