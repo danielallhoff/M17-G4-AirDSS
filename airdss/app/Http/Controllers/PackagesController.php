@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Package;
 use App\Ticket;
 use App\DataAccess\PackageDataAccess as P;
+use Illuminate\Support\Facades\Auth;
 
 class PackagesController extends Controller
 {
@@ -20,8 +21,14 @@ class PackagesController extends Controller
     }
     //Mostar packages relacionados con un ticket
     public function showTicketPackages($id) {
-        $result = P::showTicketPackages($id);
-        return view('packages.packages',array ('ticket' => $result[0], 'packages'=> $result[1]));
+        $ticket = Ticket::findOrFail($id);
+        //Si el Id del usuario logueado es igual al client_id de ticket mostramos sus packages
+        if(Auth::user()->id == $ticket->user_id) {
+            $result = P::showTicketPackages($id);
+            return view('packages.packages',array ('ticket' => $result[0], 'packages'=> $result[1]));
+        }else {
+            return redirect()->action('InicioController@inicio');
+        }
     }
 
     //Ordenar por PESO ascendente
