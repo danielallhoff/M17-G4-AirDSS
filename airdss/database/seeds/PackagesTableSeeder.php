@@ -51,10 +51,10 @@ class PackagesTableSeeder extends Seeder
         $dmy = DateTime::createFromFormat('Y-m-d', '2000-12-15')->format('Y-m-d');
         $User = new User([
             'dni'=>'10000001A',
-            'name'=>'Alejandro',
+            'name'=>'Carlos',
             'apellidos'=>'Garcia Puerta',
-            'telefono' => 672000000,
-            'email'=>'agp@gmail.com',
+            'telefono' => 672029545,
+            'email'=>'cgp@gmail.com',
             'fechaNto'=>$dmy,
             'password' => bcrypt('1234'),
             'esAdmin' => 0
@@ -147,7 +147,7 @@ class PackagesTableSeeder extends Seeder
             'dni'=>'10000002A',
             'name'=>'David',
             'apellidos'=>'Diaz Puerta',
-            'telefono' => 672000000,
+            'telefono' => 672332499,
             'email'=>'ddp@gmail.com',
             'fechaNto'=>$dmy,
             'password' => bcrypt('1234'),
@@ -230,8 +230,8 @@ class PackagesTableSeeder extends Seeder
         $user = new User([
             'dni'=>'10000003A',
             'name'=>'Marisol',
-            'apellidos'=>'Arriola Echeverria',
-            'telefono' => 672000000,
+            'apellidos'=>'Arriola Echevarri',
+            'telefono' => 672125733,
             'email'=>'mae@gmail.com',
             'fechaNto'=>$dmy,
             'password' => bcrypt('1234'),
@@ -246,7 +246,7 @@ class PackagesTableSeeder extends Seeder
             'precio' => 30
         ]);
         
-        $ticket->user()->associate($User);
+        $ticket->user()->associate($user);
         $ticket->flight()->associate($flight);
         $ticket->save();
 

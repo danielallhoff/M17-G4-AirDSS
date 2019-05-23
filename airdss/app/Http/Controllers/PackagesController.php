@@ -33,12 +33,24 @@ class PackagesController extends Controller
 
     //Ordenar por PESO ascendente
     public function orderPackagesPesoAsc ($id){
-        $result = P::orderPackagesPesoAsc($id);
-        return view('packages.packages', ['ticket' => $result[0], 'packages'=>$result[1]]);
+        $ticket = Ticket::findOrFail($id);
+        //Si el Id del usuario logueado es igual al client_id de ticket mostramos sus packages
+        if(Auth::user()->id == $ticket->user_id) {
+            $result = P::orderPackagesPesoAsc($id);
+            return view('packages.packages', ['ticket' => $result[0], 'packages'=>$result[1]]);
+        }else {
+            return redirect()->action('InicioController@inicio');
+        }
     }
     //Ordenar por PESO descendente
     public function orderPackagesPesoDesc ($id){
-        $result = P::orderPackagesPesoDesc($id);
-        return view('packages.packages', ['ticket' => $result[0], 'packages'=>$result[1]]);
+        $ticket = Ticket::findOrFail($id);
+        //Si el Id del usuario logueado es igual al client_id de ticket mostramos sus packages
+        if(Auth::user()->id == $ticket->user_id) {
+            $result = P::orderPackagesPesoDesc($id);
+            return view('packages.packages', ['ticket' => $result[0], 'packages'=>$result[1]]);
+        }else {
+            return redirect()->action('InicioController@inicio');
+        }
     }
 }
