@@ -52,6 +52,10 @@
                     <td><label for="Fecha llegada">Fecha llegada(D/M/Y H:m)</label></td>
                     <td><input type="datetime" name="llegada" id="llegada"></td>
                 </tr>
+                <tr>
+                    <td><label for="Precio">Precio</label></td>
+                    <td><input type="text" name="precio" id="precio"></td>
+                </tr>
                     
                 <tr>
                     <td><button type="submit">Enviar</button></td>

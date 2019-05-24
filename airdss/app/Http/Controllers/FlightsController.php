@@ -62,7 +62,8 @@ class FlightsController extends Controller
             'destino' => 'required',
             'capacidad' => 'required|integer|min:1',
             'salida' => 'required',
-            'llegada' => 'required'
+            'llegada' => 'required',
+            'precio' => 'required|numeric'
 
             //'salida' => 'required|date_format:d/m/Y H|before:llegada',
             //'llegada' => 'required|date_format:d/m/Y h|after_or_equal:salida'
@@ -80,7 +81,8 @@ class FlightsController extends Controller
             'destino' => 'required',
             'capacidad' => 'required|integer|min:'.(count($flight->tickets())),
             'salida' => 'required',
-            'llegada' => 'required'
+            'llegada' => 'required',
+            'precio' => 'required|numeric'
 
             //'salida' => 'required|date_format:d/m/Y h:i:s|before:llegada',
             //'llegada' => 'required|date_foarmat:d/m/Y h:i:s|after_or_equal:salida'

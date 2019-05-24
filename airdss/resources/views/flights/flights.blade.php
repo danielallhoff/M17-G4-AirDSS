@@ -44,7 +44,7 @@
                                 @forelse($airports as $ai)
                                     <option value={{$ai['ciudad']}} >{{$ai['ciudad']}}</option>
                                 @empty
-                                <div class="alert alert-danger" role="alert"><p>No hay vuelos disponibles!</p></div>
+                                <div class="alert alert-danger" role="alert"><p>¡No hay vuelos disponibles!</p></div>
                                 @endforelse
                                 </select>
                             </div>
@@ -54,7 +54,7 @@
                                 @forelse($airports as $airport)
                                     <option value={{$airport['ciudad']}} >{{$airport['ciudad']}}</option>
                                 @empty
-                                <div class="alert alert-danger" role="alert"><p>No hay vuelos disponibles!</p></div>
+                                <div class="alert alert-danger" role="alert"><p>¡No hay vuelos disponibles!</p></div>
                                 @endforelse
                                 </select>
                             </div>
@@ -87,16 +87,15 @@
                     <th>Fecha salida</th>
                     <th>Fecha llegada</th>
                     <th>Estado</th>
+                    <th>Precio</th>
                     @if (Auth::check())                
                         @if (Auth::user()->esAdministrador())
                         <th>Modificar</th>
                         <th>Eliminar</th>
                         @else
-                        <th>Precio</th>
                         <th>Comprar</th>
                         @endif
                     @else
-                    <th>Precio</th>
                     <th>Comprar</th>
                     @endif
                     
@@ -132,7 +131,7 @@
                     @endif
                 </tr>
                 @empty
-                    <p>No hay vuelos disponibles! </p>
+                <div class="alert alert-danger" role="alert"><p>¡No hay vuelos disponibles!</p></div>
                 @endforelse
             </table>
         </div>

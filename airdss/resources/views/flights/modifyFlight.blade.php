@@ -60,6 +60,11 @@
                     <td><label for="Fecha llegada">Fecha llegada</label></td>
                     <td><input type="datetime" name="llegada" id="llegada" value="{{$flight->fecha_llegada}}"></td>
                 </tr>
+
+                <tr>
+                    <td><label for="Precio">Precio</label></td>
+                    <td><input type="text" name="precio" id="precio" value="{{$flight->precio}}"></td>
+                </tr>
                     
                 <tr>
                     <td><button type="submit">Enviar</button></td>

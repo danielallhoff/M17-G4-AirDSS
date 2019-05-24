@@ -67,6 +67,7 @@ class FlightDataAccess
         $flight->airport_destino_id = $request->input('destino');
         $flight->fecha_salida = $request->input('salida');
         $flight->fecha_llegada = $request->input('llegada');
+        $flight->precio = $request->input('precio');
         $flight->save();
 
         $airports = Airport::all();
@@ -82,6 +83,7 @@ class FlightDataAccess
         $flight->airport_destino_id = $request->input('destino');
         $flight->fecha_salida = $request->input('salida');
         $flight->fecha_llegada = $request->input('llegada');
+        $flight->precio = $request->input('precio');
         $flight->save();
         
         $airports = Airport::all();
