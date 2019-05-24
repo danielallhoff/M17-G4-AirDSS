@@ -26,7 +26,7 @@
                     <th>Tarjetas de embarque</th>
                     <th>Equipajes</th>
                     <th>Estado </th>
-                    @if(Auth::user()->esAdministrador()istrador() == 1)
+                    @if(Auth::user()->esAdministrador() == 1)
                     <th>Eliminar</th>
                     @endif
                 </tr>
@@ -42,7 +42,7 @@
                     @else
                     <td><div class="alert alert-info" role="alert">OK</div></td>
                     @endif
-                    @if(Auth::user()->esAdministrador()istrador() == 1)
+                    @if(Auth::user()->esAdministrador() == 1)
                         <td><a href="#">Modificar</a></td>
                         <td><a href="/ticket{{$ticket->id}}/remove">Eliminar</a></td>
                     @endif

@@ -66,11 +66,11 @@ class BuyServices{
                     $boardingPass->flight()->associate($flight);                    
                     $boardingPass->save();
                     
-                    $flight->boardingpasses()->save($boardingPass);
+                   /* $flight->boardingpasses()->save($boardingPass);
                     $flight->tickets()->save($ticket);
                     $client->tickets()->save($ticket);
                     $flight->update();
-                    $client->update();
+                    $client->update();*/
                     
                 } catch (\Exception $e) {
                     $rollback = true;
