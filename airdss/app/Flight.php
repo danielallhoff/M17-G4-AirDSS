@@ -34,27 +34,4 @@ class Flight extends Model
     public function getDestinoAttribute(){
         return $this->airportDestino->ciudad;
     }
-
-    public function ticketsDisponibles(){
-        $reservedPlaces = [];
-        
-        foreach($this->tickets() as $ticket){
-            $reservedPlaces[] = $ticket->asiento;
-        }
-        $placesAvailable = [];
-        $ocupado = False;
-        foreach (range(0,$this->capacidad) as $asiento){            
-            $ocupado = False;
-            foreach ($reservedPlaces as $place){
-                if($asiento == $place){
-                    $ocupado = True;
-                    break;
-                }
-            }
-            if(!$ocupado){
-                $placesAvailable[] = $asiento;
-            }
-        }
-        return $placesAvailable;
-    }
 }

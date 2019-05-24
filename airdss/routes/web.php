@@ -47,9 +47,13 @@ Route::group(['middleware' => 'auth'], function() {
     
     //Route::get('/ticket{id}/boardingpasses', function(){
         
-            Route::get('/ticket{id}/boardingpasses','BoardingPassController@showBoardingTicket');
+        Route::get('/ticket{id}/boardingpasses','BoardingPassController@showBoardingTicket');
 
     //});
+
+    Route::get('/ticket{id}/packages/pesoAsc', 'PackagesController@orderPackagesPesoAsc');
+    Route::get('/ticket{id}/packages/pesoDesc', 'PackagesController@orderPackagesPesoDesc');
+    Route::get('/ticket{id}/packages', 'PackagesController@showTicketPackages');
 });
 
 
@@ -102,11 +106,8 @@ Route::group(['middleware' => 'admin'], function() {
     //Package
     Route::get('/addPackages', 'PackagesController@addPackage');
     Route::get('/package{id}/remove', 'PackagesController@removePackage');
-
     Route::get('/packages', 'PackagesController@showPackages');
-    Route::get('/ticket{id}/packages/pesoAsc', 'PackagesController@orderPackagesPesoAsc');
-    Route::get('/ticket{id}/packages/pesoDesc', 'PackagesController@orderPackagesPesoDesc');
-    Route::get('/ticket{id}/packages', 'PackagesController@showTicketPackages');
+    
     
     //Client
     Route::get('/admin/clients', 'ClientController@showClients');

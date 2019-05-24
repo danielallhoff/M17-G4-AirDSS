@@ -2,13 +2,14 @@
 
 namespace App\ServiceLayer;
 use Illuminate\Support\Facades\DB;
+use App\ServiceLayer\FlightServices as FS;
 use App\Ticket;
 use App\User;
 use App\Flight;
 use App\BoardingPass;
 use App\Plane;
 use App\Airport;
-
+use Illuminate\Support\Facades\Log;
 
 class BuyServices{
     public static function buy($flightID, $clientID, $hasPackage, $asiento){
@@ -16,10 +17,22 @@ class BuyServices{
         //Iniciar transacción
         DB::beginTransaction();
         //Comprobar datos(vuelo y cliente existe, asiento existe...etc)
-        $flight = Flight::find($flightID);
-        $client = User::find($clientID);
+        $flight = null;
+        $client = null;
+        $asientos = [];
+        Log::Debug("Procediendo a compra del vuelo " . $flightID . " con asiento " . $asiento . " del cliente ". $clientID);
+        try{
+            $flight = Flight::find($flightID);
+            Log::Debug("Flight " . $flightID . " existe!");
+            $client = User::find($clientID);
+            Log::Debug("Cliente " . $clientID . " existe!");
+            $asientos = FS::asientosLibres($flightID);
+        }catch(\Exception $e){
+            $rollback = true;
+        }
+        
         $disponible = False;
-        foreach($flight->ticketsDisponibles() as $ticket){
+        foreach($asientos as $ticket){
             if($ticket == $asiento){
                 $disponible = True;
                 break;
@@ -30,8 +43,6 @@ class BuyServices{
         //Datos correctos
         if($flight != null  && $client != null && $disponible && !$flight->cancelado){
            
-            $ticket = new Ticket();
-
             //COmpra funciona aleatoriamente
             $compra_correcta = random_int(0,1);             
             if($compra_correcta){
@@ -50,10 +61,11 @@ class BuyServices{
 
                     $ticket->codigo = $codigo;
                     $ticket->flight()->associate($flight);
+                    Log::Debug("Se ha podido asociar el ticket al vuelo!");
                     $ticket->user()->associate($client);
-                   
+                    Log::Debug("Se ha podido asociar el ticket al cliente!");
                     $ticket->save();
-
+                    Log::Debug("Ticket se ha podido añadir!");
                     $boardingPass = new BoardingPass([
                         'asiento'=> $asiento, 
                         'puerta' => random_int(0,10),
@@ -65,18 +77,21 @@ class BuyServices{
                     $boardingPass->ticket()->associate($ticket);
                     $boardingPass->flight()->associate($flight);                    
                     $boardingPass->save();
-                    
-                   /* $flight->boardingpasses()->save($boardingPass);
+                    Log::Debug("BoardingPass generado");
+                    $flight->boardingpasses()->save($boardingPass);
                     $flight->tickets()->save($ticket);
                     $client->tickets()->save($ticket);
                     $flight->update();
-                    $client->update();*/
+                    $client->update();
+                    
                     
                 } catch (\Exception $e) {
+                    Log::Debug("Error en compra del ticket para el cliente");
                     $rollback = true;
                 }
             }
             else{
+                Log::Debug("Compra ha fallado! Datos de compra erróneos o servidor ha fallado");
                 //Se recupera estado anterior a la transacción               
                 $rollback = true;
             }
@@ -86,6 +101,7 @@ class BuyServices{
             $rollback = true;
         }
         if($rollback){
+            Log::Debug("Rollback! BBDD vuelve a estado inicial");
             DB::rollBack();
             return null;
         }

@@ -13,7 +13,7 @@
                     <th>Selecciona tu asiento</th>
                     <th>
                         <select name="asiento">
-                            @foreach ($flight->ticketsDisponibles() as $ticket)
+                            @foreach ($asientos as $ticket)
                                 <option value="{{$ticket}}">{{$ticket}}</option>
                             @endforeach
                         </select>

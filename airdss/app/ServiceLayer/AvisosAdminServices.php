@@ -10,8 +10,10 @@ class AvisosAdminServices
     // función que cancela un vuelo aleatoriamente
     static public function notificarCancelacionAvion()
     {
+        
         $max = F::totalVuelos();
         $id = rand(1,$max);
         Util::cancelarVuelo($id);
+        Log::Debug("Se ha cancelado el vuelo" . $id);
     } 
 }
