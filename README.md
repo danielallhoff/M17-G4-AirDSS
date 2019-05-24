@@ -25,3 +25,9 @@ La práctica no necesita de nada extra, está completamente ejecutable.
 Admin: juan123@gmail.com 1234
 
 Cliente: francisco897@yahoo.es 1234
+
+
+**Posibles fallos**
+
+* Buscador de clientes: La paginación después de una búsqueda no funciona del todo bien,debido a que cuando le das a la siguiente página, resetea la búsqueda; después de mucho mirar, no he conseguido solucionarlo.
+* Reseteo de contraseñas: El reseteo de las contraseñas dentro de la red de la universidad, no funciona.
