@@ -25,3 +25,10 @@ La práctica no necesita de nada extra, está completamente ejecutable.
 Admin: juan123@gmail.com 1234
 
 Cliente: francisco897@yahoo.es 1234
+
+**Reseteo de contraseñas**
+
+Para el envío del link para resetear la contraseña hemos utilizado mailtrap.io:
+
+Correo: airdss100@gmail.com
+Contraseña: airDSS-100
