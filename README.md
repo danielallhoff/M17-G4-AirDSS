@@ -31,4 +31,4 @@ Cliente: francisco897@yahoo.es 1234
 
 * Buscador de clientes: La paginación después de una búsqueda no funciona del todo bien,debido a que cuando le das a la siguiente página, resetea la búsqueda; después de mucho mirar, no he conseguido solucionarlo.
 * Reseteo de contraseñas: El reseteo de las contraseñas dentro de la red de la universidad, no funciona.
-* Compra vuelo: En algunos pocos casos (aleatoriamente), el boardingpass asociado a un vuelo comprado, establece como fecha 01-01-1970.
+* Compra de vuelo: En algunos pocos casos (aleatoriamente), el boardingpass asociado a un vuelo comprado, establece como fecha 01-01-1970.
