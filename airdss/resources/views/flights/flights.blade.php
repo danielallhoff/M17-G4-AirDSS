@@ -44,7 +44,7 @@
                                 @forelse($airports as $ai)
                                     <option value={{$ai['ciudad']}} >{{$ai['ciudad']}}</option>
                                 @empty
-                                    <p>No hay vuelos disponibles! </p>
+                                <div class="alert alert-danger" role="alert"><p>No hay vuelos disponibles!</p></div>
                                 @endforelse
                                 </select>
                             </div>
@@ -54,7 +54,7 @@
                                 @forelse($airports as $airport)
                                     <option value={{$airport['ciudad']}} >{{$airport['ciudad']}}</option>
                                 @empty
-                                    <p>No hay vuelos disponibles! </p>
+                                <div class="alert alert-danger" role="alert"><p>No hay vuelos disponibles!</p></div>
                                 @endforelse
                                 </select>
                             </div>
