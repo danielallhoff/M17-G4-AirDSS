@@ -20,7 +20,7 @@ El fichero PDF con el Diagrama de clases se llama ***DC_DSSAir.pdf*** , el fiche
 Para esta entrega, entregamos las 7 clases: Ticket, BoardingPass, User, Package, Flight, Plane y Airport.
 Los mockups se encuentran en el archivo comprimido ***AIRDSS.zip*** , en el que se encuentras las fotografias en las que nos hemos basado para hacer las diferentes vistas que hemos implementado.
 La memoria está en formato pdf ***memoria.pdf***
-La práctica no necesita de nada extra, completamente ejecutable.
+La práctica no necesita de nada extra, completamente ejecutable. Puede ser necesario un composer update
 
 **Usuarios** 
 
