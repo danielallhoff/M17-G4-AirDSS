@@ -34,6 +34,7 @@ Cliente: francisco897@yahoo.es 1234
 * Reseteo de contraseñas: El reseteo de las contraseñas dentro de la red de la universidad, no funciona.
 * Compra de vuelo: En algunos pocos casos (aleatoriamente), el boardingpass asociado a un vuelo comprado, establece como fecha 01-01-1970 y con horas 00:00.
 * Se ha implementado el test del servicio BuyServices, pero no se ha sido posible lograr que funcione correctamente.
+
 **Reseteo de contraseñas**
 
 Para el envío del link para resetear la contraseña hemos utilizado mailtrap.io:
