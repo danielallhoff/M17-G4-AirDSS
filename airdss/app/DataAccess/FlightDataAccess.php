@@ -38,12 +38,14 @@ class FlightDataAccess
 
     static public function orderFlightsOrigin(){
         $flights = F::orderBy('airportOrigen', 'desc')->paginate(5);
-        return $flights;
+        $airports = Airport::all();
+        return array($flights, $airports);
     }
 
     static public function orderFlightsSalida(){
         $flights = F::orderBy('fecha_salida')->paginate(5);
-        return $flights;
+        $airports = Airport::all();
+        return array($flights, $airports);
     }
 
     static public function modificarFlight($id){

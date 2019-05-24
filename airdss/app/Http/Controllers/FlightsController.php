@@ -35,13 +35,17 @@ class FlightsController extends Controller
     }
 
     public function orderFlightsOrigin(){
-        $flights = F::orderFlightsOrigin();
-        return view('flights.flights', array('flights'=> $flights));
+        $result = F::orderFlightsOrigin();
+        $flights = $result[0];
+        $airports = $result[1];
+        return view('flights.flights', array('flights'=> $flights, 'airports' => $airports));
     }
 
     public function orderFlightsSalida(){
-        $flights = F::orderFlightsSalida();
-        return view('flights.flights', array('flights'=> $flights));
+        $result = F::orderFlightsSalida();
+        $flights = $result[0];
+        $airports = $result[1];
+        return view('flights.flights', array('flights'=> $flights, 'airports' => $airports));
     }
     public function modificarFlight($id){
         $result = F::modificarFlight($id);
