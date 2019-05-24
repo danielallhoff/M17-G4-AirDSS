@@ -19,6 +19,7 @@ Para esta entrega, entregamos las 7 clases: Ticket, BoardingPass, Cliente, Packa
 Los mockups se encuentran en el archivo comprimido ***AIRDSS.zip*** , en el que se encuentras las fotografias en las que nos hemos basado para hacer las diferentes vistas que hemos implementado.
 La memoria está en formato pdf ***memoria.pdf***
 La práctica no necesita de nada extra, está completamente ejecutable.
+
 **Usuarios** 
 
 Admin: juan123@gmail.com 1234
